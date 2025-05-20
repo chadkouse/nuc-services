@@ -8,14 +8,14 @@ commonLabels:
 
 resources:
 - namespace.yaml
-# - radarr
-# - sonarr
-# - bazarr
-# - prowlarr
+- radarr
+- sonarr
+- bazarr
+- prowlarr
 - transmission
-# - ingress-route.yaml
+- ingress-route.yaml
 # - readarr
-# - jellyfin
+- jellyfin
 
 patchesStrategicMerge:
 - volumes_patch.yaml
@@ -37,8 +37,8 @@ vars:
       kind: Service
       name: prowlarr
       apiVersion: v1
-  - name: READARR
-    objref:
-      kind: Service
-      name: readarr
-      apiVersion: v1
+  # - name: READARR
+  #   objref:
+  #     kind: Service
+  #     name: readarr
+  #     apiVersion: v1
