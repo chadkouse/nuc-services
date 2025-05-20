@@ -7,7 +7,7 @@ spec:
   entryPoints: []
   routes:
   - kind: Rule
-    match: PathPrefix(`/`)
+    match: PathPrefix(`/jellyfin`)
     middlewares: []
     priority: 0
     services:

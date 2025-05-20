@@ -7,7 +7,7 @@ spec:
   entryPoints: []
   routes:
   - kind: Rule
-    match: PathPrefix(`/homeassistant`)
+    match: PathPrefix(`/`)
     middlewares: []
     priority: 0
     services:
