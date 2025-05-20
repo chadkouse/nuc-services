@@ -14,7 +14,7 @@ resources:
 - prowlarr
 - transmission
 - ingress-route.yaml
-# - readarr
+- nzbget
 - jellyfin
 
 patchesStrategicMerge:
@@ -37,8 +37,8 @@ vars:
       kind: Service
       name: prowlarr
       apiVersion: v1
-  # - name: READARR
-  #   objref:
-  #     kind: Service
-  #     name: readarr
-  #     apiVersion: v1
+  - name: NZBGET
+    objref:
+      kind: Service
+      name: nzbget
+      apiVersion: v1
