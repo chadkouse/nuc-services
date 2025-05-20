@@ -7,7 +7,7 @@ spec:
   
   source:
     repoURL: https://github.com/chadkouse/talos-nuc.git
-    targetRevision: master
+    targetRevision: main
     path: overlays/x86
 
   destination:
@@ -28,7 +28,7 @@ spec:
   
   source:
     repoURL: https://github.com/chadkouse/talos-nuc.git
-    targetRevision: master
+    targetRevision: main
     path: argocd
 
   destination:

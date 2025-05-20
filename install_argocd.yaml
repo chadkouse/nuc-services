@@ -11038,7 +11038,7 @@ spec:
   source:
     path: argocd
     repoURL: https://github.com/chadkouse/talos-nuc.git
-    targetRevision: master
+    targetRevision: main
   syncPolicy:
     automated:
       prune: false
@@ -11056,7 +11056,7 @@ spec:
   source:
     path: overlays/x86
     repoURL: https://github.com/chadkouse/talos-nuc.git
-    targetRevision: master
+    targetRevision: main
   syncPolicy:
     automated:
       prune: false
