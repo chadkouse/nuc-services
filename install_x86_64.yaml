@@ -754,7 +754,7 @@ spec:
           protocol: TCP
         volumeMounts:
         - mountPath: /config
-          name: homeassistant-home
+          name: smarthome-home
           subPath: homeassistant
       securityContext:
         fsGroup: 1000
