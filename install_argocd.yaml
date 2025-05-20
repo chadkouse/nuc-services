@@ -9947,7 +9947,7 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 80
+    port: 99
     protocol: TCP
     targetPort: 8080
   - name: https
