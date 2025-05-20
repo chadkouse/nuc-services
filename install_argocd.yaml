@@ -9947,7 +9947,7 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 99
+    port: 80
     protocol: TCP
     targetPort: 8080
   - name: https
@@ -11237,4 +11237,4 @@ spec:
     - kind: Service
       name: argocd-server
       namespace: argocd
-      port: http
+      port: 100
