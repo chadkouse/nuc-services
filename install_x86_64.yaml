@@ -837,3 +837,23 @@ spec:
       name: nzbget
       namespace: htpc
       port: 6789
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  labels:
+    app: smarthome
+  name: smarthome
+  namespace: smarthome
+spec:
+  entryPoints: []
+  routes:
+  - kind: Rule
+    match: PathPrefix(`/homeassistant`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: homeassistant
+      namespace: smarthome
+      port: 8123

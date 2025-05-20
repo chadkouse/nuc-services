@@ -9,6 +9,7 @@ commonLabels:
 resources:
 - namespace.yaml
 - homeassistant
+- ingress-route.yaml
 
 patchesStrategicMerge:
 - volumes_patch.yaml
