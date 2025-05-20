@@ -12,7 +12,7 @@ resources:
 # - sonarr
 # - bazarr
 # - prowlarr
-# - transmission
+- transmission
 # - ingress-route.yaml
 # - readarr
 # - jellyfin
