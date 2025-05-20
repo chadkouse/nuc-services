@@ -47,3 +47,6 @@ spec:
         - mountPath: /sports
           name: htpc-home
           subPath: media/sports
+        - mountPath: /downloads 
+          name: htpc-home
+          subPath: nzb-downloads

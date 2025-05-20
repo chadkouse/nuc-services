@@ -27,7 +27,7 @@ spec:
           subPath: transmission
         - mountPath: /downloads 
           name: htpc-home
-          subPath: downloads
+          subPath: torrent-downloads
         - mountPath: /watch
           name: htpc-home
           subPath: watch
@@ -62,7 +62,7 @@ spec:
           subPath: transmission
         - mountPath: /downloads 
           name: htpc-home
-          subPath: downloads
+          subPath: torrent-downloads
         - mountPath: /watch
           name: htpc-home
           subPath: watch

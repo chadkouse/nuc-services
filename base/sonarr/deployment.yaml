@@ -78,6 +78,3 @@ spec:
         - mountPath: /tv 
           name: htpc-home
           subPath: media/tv
-        - mountPath: /downloads 
-          name: htpc-home
-          subPath: downloads

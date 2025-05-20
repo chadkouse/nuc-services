@@ -78,6 +78,6 @@ spec:
         - mountPath: /movies 
           name: htpc-home
           subPath: media/movies
-        - mountPath: /downloads 
+        - mountPath: /sports 
           name: htpc-home
-          subPath: downloads
+          subPath: media/sports
