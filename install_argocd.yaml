@@ -11237,4 +11237,4 @@ spec:
     - kind: Service
       name: argocd-server
       namespace: argocd
-      port: 100
+      port: http
