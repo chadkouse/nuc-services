@@ -3,17 +3,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: jellyfin
-  name: jellyfin
+    run: nzbget
+  name: nzbget
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: jellyfin
+      run: nzbget
   template:
     metadata:
       labels:
-        run: jellyfin
+        run: nzbget
     spec:
       securityContext:
         fsGroup: 1000
@@ -25,8 +25,8 @@ spec:
           value: "1000"
         - name: PGID
           value: "1000"
-        image: lscr.io/linuxserver/jellyfin
-        name: jellyfin
+        image: lscr.io/linuxserver/nzbget
+        name: nzbget
         ports:
         - containerPort: 8096
           name: webui
@@ -37,7 +37,7 @@ spec:
         volumeMounts: 
         - mountPath: /config 
           name: htpc-home
-          subPath: jellyfin
+          subPath: nzbget
         - mountPath: /tv 
           name: htpc-home
           subPath: media/tv
