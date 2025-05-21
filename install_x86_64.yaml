@@ -584,7 +584,6 @@ spec:
         volumeMounts:
         - mountPath: /config
           name: htpc-home
-          subPath: qbittorrent
         - mountPath: /downloads
           name: htpc-home
           subPath: torrent-downloads
