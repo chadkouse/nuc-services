@@ -598,23 +598,23 @@ spec:
         - mountPath: /config
           name: htpc-home
           subPath: sonarr
-        - mountPath: /tv
-          name: htpc-media
-          subPath: tv
+        - mountPath: /media
+          name: htpc-home
+          subPath: media
       initContainers:
       - command:
         - sh
         - -c
-        - chown -R 1000:1000 /config && chown -R 1000:1000 /tv
+        - chown -R 1000:1000 /config && chown -R 1000:1000 /media/tv
         image: busybox
         name: chown
         volumeMounts:
         - mountPath: /config
           name: htpc-home
           subPath: sonarr
-        - mountPath: /tv
-          name: htpc-media
-          subPath: tv
+        - mountPath: /media
+          name: htpc-home
+          subPath: media
       - args:
         - echo start;[[ ! -f /config/config.xml ]] && echo '<Config><UrlBase>/sonarr</UrlBase></Config>'>
           /config/config.xml;echo end;
@@ -637,10 +637,6 @@ spec:
           path: /opt/htpc
           type: DirectoryOrCreate
         name: htpc-home
-      - hostPath:
-          path: /opt/htpc-media
-          type: DirectoryOrCreate
-        name: htpc-media
 ---
 apiVersion: apps/v1
 kind: Deployment

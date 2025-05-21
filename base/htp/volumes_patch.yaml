@@ -36,10 +36,6 @@ spec:
           path: /opt/htpc 
           type: DirectoryOrCreate 
         name: htpc-home
-      - hostPath: 
-          path: /opt/htpc-media 
-          type: DirectoryOrCreate 
-        name: htpc-media
 ---
 apiVersion: apps/v1
 kind: Deployment
