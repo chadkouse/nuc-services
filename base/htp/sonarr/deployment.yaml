@@ -22,14 +22,13 @@ spec:
       initContainers:
       - name: chown
         image: busybox
-        command: ["sh", "-c", "chown -R 1000:1000 /config && chown -R 1000:1000 /media/tv"]
+        command: ["sh", "-c", "chown -R 1000:1000 /config && chown -R 1000:1000 /tv"]
         volumeMounts:
         - mountPath: /config 
           name: htpc-home
           subPath: sonarr
-        - mountPath: /media 
-          name: htpc-home
-          subPath: media
+        - mountPath: /tv 
+          name: htpc-media-tv
       - name: config
         image: busybox
         command: ["sh", "-c"]
@@ -75,6 +74,5 @@ spec:
         - mountPath: /config 
           name: htpc-home
           subPath: sonarr
-        - mountPath: /media 
-          name: htpc-home
-          subPath: media
+        - mountPath: /tv 
+          name: htpc-media-tv

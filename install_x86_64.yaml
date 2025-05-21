@@ -598,23 +598,21 @@ spec:
         - mountPath: /config
           name: htpc-home
           subPath: sonarr
-        - mountPath: /media
-          name: htpc-home
-          subPath: media
+        - mountPath: /tv
+          name: htpc-media-tv
       initContainers:
       - command:
         - sh
         - -c
-        - chown -R 1000:1000 /config && chown -R 1000:1000 /media/tv
+        - chown -R 1000:1000 /config && chown -R 1000:1000 /tv
         image: busybox
         name: chown
         volumeMounts:
         - mountPath: /config
           name: htpc-home
           subPath: sonarr
-        - mountPath: /media
-          name: htpc-home
-          subPath: media
+        - mountPath: /tv
+          name: htpc-media-tv
       - args:
         - echo start;[[ ! -f /config/config.xml ]] && echo '<Config><UrlBase>/sonarr</UrlBase></Config>'>
           /config/config.xml;echo end;
@@ -637,6 +635,9 @@ spec:
           path: /opt/htpc
           type: DirectoryOrCreate
         name: htpc-home
+      - hostPath:
+          path: /media/seagate2/plex/tv
+        name: htpc-media-tv
 ---
 apiVersion: apps/v1
 kind: Deployment

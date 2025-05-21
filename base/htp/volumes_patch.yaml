@@ -36,6 +36,9 @@ spec:
           path: /opt/htpc 
           type: DirectoryOrCreate 
         name: htpc-home
+      - hostPath: 
+          path: /media/seagate2/plex/tv
+        name: htpc-media-tv
 ---
 apiVersion: apps/v1
 kind: Deployment
