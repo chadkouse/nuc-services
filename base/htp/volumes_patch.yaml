@@ -23,6 +23,12 @@ spec:
           path: /opt/htpc 
           type: DirectoryOrCreate 
         name: htpc-home
+      - hostPath:
+          path: /media/seagate/plex/movies
+        name: htpc-media-movies
+      - hostPath: 
+          path: /media/seagate/plex/sports
+        name: htpc-media-sports
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -39,6 +45,12 @@ spec:
       - hostPath: 
           path: /media/seagate2/plex/tv
         name: htpc-media-tv
+      - hostPath:
+          path: /media/seagate/plex/movies
+        name: htpc-media-movies
+      - hostPath: 
+          path: /media/seagate/plex/sports
+        name: htpc-media-sports
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -52,6 +64,15 @@ spec:
           path: /opt/htpc 
           type: DirectoryOrCreate 
         name: htpc-home
+      - hostPath: 
+          path: /media/seagate2/plex/tv
+        name: htpc-media-tv
+      - hostPath:
+          path: /media/seagate/plex/movies
+        name: htpc-media-movies
+      - hostPath: 
+          path: /media/seagate/plex/sports
+        name: htpc-media-sports
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -65,6 +86,15 @@ spec:
           path: /opt/htpc
           type: DirectoryOrCreate
         name: htpc-home
+      - hostPath: 
+          path: /media/seagate2/plex/tv
+        name: htpc-media-tv
+      - hostPath:
+          path: /media/seagate/plex/movies
+        name: htpc-media-movies
+      - hostPath: 
+          path: /media/seagate/plex/sports
+        name: htpc-media-sports
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -78,6 +108,15 @@ spec:
           path: /opt/htpc
           type: DirectoryOrCreate
         name: htpc-home
+      - hostPath: 
+          path: /media/seagate2/plex/tv
+        name: htpc-media-tv
+      - hostPath:
+          path: /media/seagate/plex/movies
+        name: htpc-media-movies
+      - hostPath: 
+          path: /media/seagate/plex/sports
+        name: htpc-media-sports
 ---
 apiVersion: apps/v1
 kind: Deployment

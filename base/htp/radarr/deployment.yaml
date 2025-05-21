@@ -28,8 +28,7 @@ spec:
           name: htpc-home
           subPath: radarr
         - mountPath: /movies
-          name: htpc-home
-          subPath: media/movies
+          name: htpc-media-movies
       - name: config
         image: busybox
         command: ["sh", "-c"]
@@ -75,9 +74,7 @@ spec:
         - mountPath: /config 
           name: htpc-home
           subPath: radarr
-        - mountPath: /movies 
-          name: htpc-home
-          subPath: media/movies
-        - mountPath: /sports 
-          name: htpc-home
-          subPath: media/sports
+        - mountPath: /movies
+          name: htpc-media-movies
+        - mountPath: /sports
+          name: htpc-media-sports

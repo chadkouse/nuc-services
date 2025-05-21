@@ -232,6 +232,15 @@ spec:
           path: /opt/htpc
           type: DirectoryOrCreate
         name: htpc-home
+      - hostPath:
+          path: /media/seagate2/plex/tv
+        name: htpc-media-tv
+      - hostPath:
+          path: /media/seagate/plex/movies
+        name: htpc-media-movies
+      - hostPath:
+          path: /media/seagate/plex/sports
+        name: htpc-media-sports
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -351,6 +360,15 @@ spec:
           path: /opt/htpc
           type: DirectoryOrCreate
         name: htpc-home
+      - hostPath:
+          path: /media/seagate2/plex/tv
+        name: htpc-media-tv
+      - hostPath:
+          path: /media/seagate/plex/movies
+        name: htpc-media-movies
+      - hostPath:
+          path: /media/seagate/plex/sports
+        name: htpc-media-sports
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -444,6 +462,15 @@ spec:
           path: /opt/htpc
           type: DirectoryOrCreate
         name: htpc-home
+      - hostPath:
+          path: /media/seagate2/plex/tv
+        name: htpc-media-tv
+      - hostPath:
+          path: /media/seagate/plex/movies
+        name: htpc-media-movies
+      - hostPath:
+          path: /media/seagate/plex/sports
+        name: htpc-media-sports
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -501,11 +528,9 @@ spec:
           name: htpc-home
           subPath: radarr
         - mountPath: /movies
-          name: htpc-home
-          subPath: media/movies
+          name: htpc-media-movies
         - mountPath: /sports
-          name: htpc-home
-          subPath: media/sports
+          name: htpc-media-sports
       initContainers:
       - command:
         - sh
@@ -518,8 +543,7 @@ spec:
           name: htpc-home
           subPath: radarr
         - mountPath: /movies
-          name: htpc-home
-          subPath: media/movies
+          name: htpc-media-movies
       - args:
         - echo start;[[ ! -f /config/config.xml ]] && echo '<Config><UrlBase>/radarr</UrlBase></Config>'>
           /config/config.xml;echo end;
@@ -542,6 +566,12 @@ spec:
           path: /opt/htpc
           type: DirectoryOrCreate
         name: htpc-home
+      - hostPath:
+          path: /media/seagate/plex/movies
+        name: htpc-media-movies
+      - hostPath:
+          path: /media/seagate/plex/sports
+        name: htpc-media-sports
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -638,6 +668,12 @@ spec:
       - hostPath:
           path: /media/seagate2/plex/tv
         name: htpc-media-tv
+      - hostPath:
+          path: /media/seagate/plex/movies
+        name: htpc-media-movies
+      - hostPath:
+          path: /media/seagate/plex/sports
+        name: htpc-media-sports
 ---
 apiVersion: apps/v1
 kind: Deployment
