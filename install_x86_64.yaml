@@ -1007,7 +1007,7 @@ spec:
       namespace: htpc
       port: 5055
   - kind: Rule
-    match: PathPrefix(`/`)
+    match: PathPrefix(`/qb`)
     middlewares: []
     priority: 0
     services:
