@@ -16,6 +16,7 @@ resources:
 - ingress-route.yaml
 - nzbget
 - jellyfin
+- overseerr
 
 patchesStrategicMerge:
 - volumes_patch.yaml

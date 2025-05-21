@@ -69,6 +69,23 @@ kind: Service
 metadata:
   labels:
     app: htpc
+  name: overseerr
+  namespace: htpc
+spec:
+  ports:
+  - name: webui
+    port: 5055
+    protocol: TCP
+    targetPort: 5055
+  selector:
+    app: htpc
+    run: overseerr
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: htpc
   name: prowlarr
   namespace: htpc
 spec:
@@ -364,6 +381,47 @@ spec:
       - hostPath:
           path: /media/seagate/plex/sports
         name: htpc-media-sports
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: htpc
+    run: overseerr
+  name: overseerr
+  namespace: htpc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: htpc
+      run: overseerr
+  template:
+    metadata:
+      labels:
+        app: htpc
+        run: overseerr
+    spec:
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: linuxserver/overseerr:1.34.0-ls139
+        name: overseerr
+        ports:
+        - containerPort: 5055
+          name: webui
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /config
+          name: htpc-home
+          subPath: jellyfin
+      securityContext:
+        fsGroup: 1000
 ---
 apiVersion: apps/v1
 kind: Deployment
