@@ -17,7 +17,7 @@ resources:
 - nzbget
 - jellyfin
 - overseerr
-# - qbittorrent
+- qbittorrent
 
 patchesStrategicMerge:
 - volumes_patch.yaml
@@ -44,8 +44,8 @@ vars:
       kind: Service
       name: nzbget
       apiVersion: v1
-  # - name: QBITTORRENT
-  #   objref:
-  #     kind: Service
-  #     name: qbittorrent
-  #     apiVersion: v1
+  - name: QBITTORRENT
+    objref:
+      kind: Service
+      name: qbittorrent
+      apiVersion: v1
