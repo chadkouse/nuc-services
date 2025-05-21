@@ -613,8 +613,8 @@ spec:
           name: htpc-home
           subPath: sonarr
         - mountPath: /tv
-          name: htpc-home
-          subPath: media/tv
+          name: htpc-media
+          subPath: tv
       - args:
         - echo start;[[ ! -f /config/config.xml ]] && echo '<Config><UrlBase>/sonarr</UrlBase></Config>'>
           /config/config.xml;echo end;
@@ -636,6 +636,9 @@ spec:
       - hostPath:
           path: /opt/htpc
         name: htpc-home
+      - hostPath:
+          path: /opt/htpc-media
+        name: htpc-media
 ---
 apiVersion: apps/v1
 kind: Deployment

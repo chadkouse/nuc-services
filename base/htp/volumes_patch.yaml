@@ -35,6 +35,9 @@ spec:
       - hostPath: 
           path: /opt/htpc 
         name: htpc-home
+      - hostPath: 
+          path: /opt/htpc-media 
+        name: htpc-media
 ---
 apiVersion: apps/v1
 kind: Deployment
