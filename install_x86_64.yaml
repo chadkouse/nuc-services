@@ -342,14 +342,11 @@ spec:
           name: htpc-home
           subPath: nzbget
         - mountPath: /tv
-          name: htpc-home
-          subPath: media/tv
+          name: htpc-media-tv
         - mountPath: /movies
-          name: htpc-home
-          subPath: media/movies
+          name: htpc-media-movies
         - mountPath: /sports
-          name: htpc-home
-          subPath: media/sports
+          name: htpc-media-sports
         - mountPath: /downloads
           name: htpc-home
           subPath: nzb-downloads
