@@ -76,5 +76,5 @@ spec:
           name: htpc-home
           subPath: sonarr
         - mountPath: /tv 
-          name: htpc-home
-          subPath: media/tv
+          name: htpc-media
+          subPath: tv
