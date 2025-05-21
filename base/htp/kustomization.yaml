@@ -17,7 +17,6 @@ resources:
 - nzbget
 - jellyfin
 - overseerr
-- qbittorrent
 
 patchesStrategicMerge:
 - volumes_patch.yaml
