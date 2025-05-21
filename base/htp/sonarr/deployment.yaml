@@ -26,10 +26,10 @@ spec:
         volumeMounts:
         - mountPath: /config 
           name: htpc-home
-          subPath: sonarr    
+          subPath: sonarr
         - mountPath: /tv 
           name: htpc-home
-          subPath: media/tv                
+          subPath: media/tv
       - name: config
         image: busybox
         command: ["sh", "-c"]
