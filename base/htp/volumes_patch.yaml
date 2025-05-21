@@ -34,7 +34,6 @@ spec:
       volumes: 
       - hostPath: 
           path: /opt/htpc 
-          type: DirectoryOrCreate 
         name: htpc-home
 ---
 apiVersion: apps/v1
