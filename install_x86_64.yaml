@@ -825,7 +825,7 @@ spec:
       namespace: htpc
       port: 8989
   - kind: Rule
-    match: PathPrefix(`/radarr`)
+    match: PathPrefix(`/radarr`) || Host(`radarr.kouse.xyz`)
     middlewares: []
     priority: 0
     services:
