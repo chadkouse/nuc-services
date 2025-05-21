@@ -25,7 +25,7 @@ spec:
           value: "1000"
         - name: PGID
           value: "1000"
-        image: linuxserver/overseerr
+        image: lscr.io/linuxserver/overseerr
         name: overseerr
         ports:
         - containerPort: 5055

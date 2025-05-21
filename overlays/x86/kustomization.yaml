@@ -19,7 +19,7 @@ images:
     newTag: 10.10.7ubu2404-ls61
   - name: linuxserver/nzbget
     newTag: 25.0-ls198
-  - name: linuxserver/overseerr
+  - name: lscr.io/linuxserver/overseerr
     newTag: 1.34.0-ls139
   - name: linuxserver/homeassistant
     newTag: 2025.5.2-ls105
