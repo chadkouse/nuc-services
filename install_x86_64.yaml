@@ -422,6 +422,11 @@ spec:
           subPath: jellyfin
       securityContext:
         fsGroup: 1000
+      volumes:
+      - hostPath:
+          path: /opt/htpc
+          type: DirectoryOrCreate
+        name: htpc-home
 ---
 apiVersion: apps/v1
 kind: Deployment
