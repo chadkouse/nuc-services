@@ -103,6 +103,23 @@ kind: Service
 metadata:
   labels:
     app: htpc
+  name: qbittorrent
+  namespace: htpc
+spec:
+  ports:
+  - name: webui
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: htpc
+    run: qbittorrent
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: htpc
   name: radarr
   namespace: htpc
 spec:
@@ -529,6 +546,55 @@ spec:
       - hostPath:
           path: /media/seagate/plex/sports
         name: htpc-media-sports
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: htpc
+    run: qbittorrent
+  name: qbittorrent
+  namespace: htpc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: htpc
+      run: qbittorrent
+  template:
+    metadata:
+      labels:
+        app: htpc
+        run: qbittorrent
+    spec:
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: lscr.io/linuxserver/qbittorrent:5.1.0-r0-ls394
+        name: qbittorrent
+        ports:
+        - containerPort: 8080
+          name: webui
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /config
+          name: htpc-home
+          subPath: qbittorrent
+        - mountPath: /downloads
+          name: htpc-home
+          subPath: torrent-downloads
+      securityContext:
+        fsGroup: 1000
+      volumes:
+      - hostPath:
+          path: /opt/htpc
+          type: DirectoryOrCreate
+        name: htpc-home
 ---
 apiVersion: apps/v1
 kind: Deployment
