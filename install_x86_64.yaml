@@ -187,11 +187,9 @@ spec:
           name: htpc-home
           subPath: bazarr
         - mountPath: /movies
-          name: htpc-home
-          subPath: media/movies
+          name: htpc-media-movies
         - mountPath: /tv
-          name: htpc-home
-          subPath: media/tv
+          name: htpc-media-tv
       initContainers:
       - command:
         - sh
