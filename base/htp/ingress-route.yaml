@@ -69,3 +69,12 @@ spec:
       name: nzbget
       namespace: "htpc"
       port: 6789
+  - kind: Rule
+    match: PathPrefix(`/overseerr`) || Host(`overseerr.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: overseerr
+      namespace: "htpc"
+      port: 5055
