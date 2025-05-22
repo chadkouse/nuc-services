@@ -365,6 +365,8 @@ spec:
         - mountPath: /downloads
           name: htpc-home
           subPath: nzb-downloads
+        - mountPath: /incoming
+          name: htpc-media-incoming
       securityContext:
         fsGroup: 1000
       volumes:
@@ -573,6 +575,8 @@ spec:
         - mountPath: /downloads
           name: htpc-home
           subPath: torrent-downloads
+        - mountPath: /incoming
+          name: htpc-media-incoming
       securityContext:
         fsGroup: 1000
       volumes:
@@ -640,6 +644,8 @@ spec:
           name: htpc-media-movies
         - mountPath: /sports
           name: htpc-media-sports
+        - mountPath: /incoming
+          name: htpc-media-incoming
       initContainers:
       - command:
         - sh
@@ -742,6 +748,8 @@ spec:
           subPath: sonarr
         - mountPath: /tv
           name: htpc-media-tv
+        - mountPath: /incoming
+          name: htpc-media-incoming
       initContainers:
       - command:
         - sh
