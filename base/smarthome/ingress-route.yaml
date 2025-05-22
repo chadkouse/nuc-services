@@ -1,0 +1,17 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: smarthome
+spec:
+  entryPoints: []
+  routes:
+  - kind: Rule
+    match: PathPrefix(`/ha`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: homeassistant
+      namespace: "smarthome"
+      port: 8123

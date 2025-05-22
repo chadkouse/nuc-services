@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: homeassistant
+  name: homeassistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: homeassistant
+  template:
+    metadata:
+      labels:
+        run: homeassistant
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: lscr.io/linuxserver/homeassistant
+        name: homeassistant
+        ports:
+        - containerPort: 8123
+          name: webui
+          protocol: TCP
+        volumeMounts: 
+        - mountPath: /config 
+          name: smarthome-home
+          subPath: homeassistant

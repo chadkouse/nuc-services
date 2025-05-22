@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: smarthome
+
+commonLabels:
+  app: smarthome
+
+resources:
+- namespace.yaml
+- homeassistant
+- ingress-route.yaml
+
+patchesStrategicMerge:
+- volumes_patch.yaml

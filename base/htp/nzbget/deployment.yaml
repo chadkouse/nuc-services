@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: nzbget
+  name: nzbget
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nzbget
+  template:
+    metadata:
+      labels:
+        run: nzbget
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: lscr.io/linuxserver/nzbget
+        name: nzbget
+        ports:
+        - containerPort: 8096
+          name: webui
+          protocol: TCP
+        - containerPort: 8920
+          name: webui-ssl
+          protocol: TCP
+        volumeMounts: 
+        - mountPath: /config 
+          name: htpc-home
+          subPath: nzbget
+        - mountPath: /tv 
+          name: htpc-media-tv
+        - mountPath: /movies 
+          name: htpc-media-movies
+        - mountPath: /sports
+          name: htpc-media-sports
+        - mountPath: /downloads 
+          name: htpc-home
+          subPath: nzb-downloads
+        - mountPath: /incoming 
+          name: htpc-media-incoming

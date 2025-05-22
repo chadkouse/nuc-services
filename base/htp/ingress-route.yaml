@@ -1,0 +1,89 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: htpc
+spec:
+  entryPoints: []
+  routes:
+  - kind: Rule
+    match: PathPrefix(`/jellyfin`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: jellyfin
+      namespace: "htpc"
+      port: 8096
+  - kind: Rule
+    match: PathPrefix(`/sonarr`) || Host(`sonarr.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: sonarr
+      namespace: "htpc"
+      port: 8989
+  - kind: Rule
+    match: PathPrefix(`/radarr`) || Host(`radarr.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: radarr
+      namespace: "htpc"
+      port: 7878
+  - kind: Rule
+    match: PathPrefix(`/bazarr`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: bazarr
+      namespace: "htpc"
+      port: 6767
+  # - kind: Rule
+  #   match: PathPrefix(`/transmission`)
+  #   middlewares: []
+  #   priority: 0
+  #   services:
+  #   - kind: Service
+  #     name: transmission
+  #     namespace: "htpc"
+  #     port: 9091
+  - kind: Rule
+    match: PathPrefix(`/prowlarr`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: prowlarr
+      namespace: "htpc"
+      port: 9696
+  - kind: Rule
+    match: PathPrefix(`/nzbget`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: nzbget
+      namespace: "htpc"
+      port: 6789
+  - kind: Rule
+    match: PathPrefix(`/overseerr`) || Host(`overseerr.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: overseerr
+      namespace: "htpc"
+      port: 5055
+  - kind: Rule
+    match: PathPrefix(`/`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: qbittorrent
+      namespace: "htpc"
+      port: 8080

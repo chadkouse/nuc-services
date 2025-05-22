@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: qbittorrent
+  name: qbittorrent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: qbittorrent
+  template:
+    metadata:
+      labels:
+        run: qbittorrent
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: lscr.io/linuxserver/qbittorrent
+        name: qbittorrent
+        ports:
+        - containerPort: 8080
+          name: webui
+          protocol: TCP
+        volumeMounts: 
+        - mountPath: /config 
+          name: htpc-home
+        - mountPath: /downloads 
+          name: htpc-home
+          subPath: torrent-downloads
+        - mountPath: /incoming 
+          name: htpc-media-incoming
