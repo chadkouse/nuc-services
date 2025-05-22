@@ -616,7 +616,7 @@ spec:
           value: "1000"
         - name: PGID
           value: "1000"
-        image: linuxserver/radarr:5.22.4.9896-ls271
+        image: linuxserver/radarr:5.23.3.9987-ls275
         livenessProbe:
           exec:
             command:
