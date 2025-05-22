@@ -76,3 +76,5 @@ spec:
           subPath: sonarr
         - mountPath: /tv 
           name: htpc-media-tv
+        - mountPath: /incoming 
+          name: htpc-media-incoming

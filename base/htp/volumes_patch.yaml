@@ -1,16 +1,16 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: transmission
-spec:
-  template:
-    spec:
-      volumes: 
-      - hostPath: 
-          path: /opt/htpc 
-          type: DirectoryOrCreate 
-        name: htpc-home
----
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: transmission
+# spec:
+#   template:
+#     spec:
+#       volumes: 
+#       - hostPath: 
+#           path: /opt/htpc 
+#           type: DirectoryOrCreate 
+#         name: htpc-home
+# ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -23,6 +23,9 @@ spec:
           path: /opt/htpc 
           type: DirectoryOrCreate 
         name: htpc-home
+      - hostPath: 
+          path: /media/seagate2/incoming
+        name: htpc-media-incoming
       - hostPath:
           path: /media/seagate/plex/movies
         name: htpc-media-movies
@@ -42,6 +45,9 @@ spec:
           path: /opt/htpc 
           type: DirectoryOrCreate 
         name: htpc-home
+      - hostPath: 
+          path: /media/seagate2/incoming
+        name: htpc-media-incoming
       - hostPath: 
           path: /media/seagate2/plex/tv
         name: htpc-media-tv
@@ -108,6 +114,9 @@ spec:
           path: /opt/htpc
           type: DirectoryOrCreate
         name: htpc-home
+      - hostPath: 
+          path: /media/seagate2/incoming
+        name: htpc-media-incoming
       - hostPath: 
           path: /media/seagate2/plex/tv
         name: htpc-media-tv

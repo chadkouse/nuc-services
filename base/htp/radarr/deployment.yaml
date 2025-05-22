@@ -78,3 +78,5 @@ spec:
           name: htpc-media-movies
         - mountPath: /sports
           name: htpc-media-sports
+        - mountPath: /incoming 
+          name: htpc-media-incoming

@@ -42,15 +42,15 @@ spec:
       name: bazarr
       namespace: "htpc"
       port: 6767
-  - kind: Rule
-    match: PathPrefix(`/transmission`)
-    middlewares: []
-    priority: 0
-    services:
-    - kind: Service
-      name: transmission
-      namespace: "htpc"
-      port: 9091
+  # - kind: Rule
+  #   match: PathPrefix(`/transmission`)
+  #   middlewares: []
+  #   priority: 0
+  #   services:
+  #   - kind: Service
+  #     name: transmission
+  #     namespace: "htpc"
+  #     port: 9091
   - kind: Rule
     match: PathPrefix(`/prowlarr`)
     middlewares: []
