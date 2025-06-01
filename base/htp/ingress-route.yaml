@@ -42,6 +42,19 @@ spec:
       name: bazarr
       namespace: "htpc"
       port: 6767
+  - kind: Rule
+    match: PathPrefix(`/qb`)
+    middlewares:
+      - qb-strip
+      - qb-redirect
+      - qb-headers
+    priority: 0
+    services:
+    - kind: Service
+      name: qbittorrent
+      namespace: "htpc"
+      port: 8080
+      passHostHeader: false
   # - kind: Rule
   #   match: PathPrefix(`/transmission`)
   #   middlewares: []
