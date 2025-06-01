@@ -13,6 +13,7 @@ resources:
 - bazarr
 - prowlarr
 # - transmission
+- ingress-middlewares.yaml
 - ingress-route.yaml
 - nzbget
 - jellyfin
