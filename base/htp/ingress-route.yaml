@@ -45,9 +45,9 @@ spec:
   - kind: Rule
     match: PathPrefix(`/qb`)
     middlewares:
-      - qb-strip
-      - qb-redirect
-      - qb-headers
+      - name: qb-strip
+      - name: qb-redirect
+      - name: qb-headers
     priority: 0
     services:
     - kind: Service
