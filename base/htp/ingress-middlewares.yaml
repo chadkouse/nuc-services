@@ -1,0 +1,35 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: qb-strip
+  namespace: htpc
+
+spec:
+  stripPrefix:
+    prefixes:
+      - /qb
+
+---
+
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: qb-redirect
+  namespace: htpc
+
+spec:
+  redirectRegex:
+    regex: ^(.*)/qb$
+    replacement: $1/qb/
+
+---
+
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: qb-headers
+  namespace: htpc
+spec:
+  headers:
+    customRequestHeaders:
+      X-Frame-Options: "SAMEORIGIN"
