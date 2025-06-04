@@ -39,7 +39,7 @@ spec:
           name: htpc-home
           subPath: jellyfin
         - mountPath: /tv
-          name: htpc-media-tb
+          name: htpc-media-tv
         - mountPath: /movies
           name: htpc-media-movies
         - mountPath: /sports
