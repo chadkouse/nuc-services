@@ -12,7 +12,7 @@ images:
   - name: linuxserver/bazarr
     newTag: v1.5.2-ls306
   - name: linuxserver/transmission
-    newTag: 4.0.6-r4-ls290
+    newTag: 4.0.6-r4-ls295
   - name: linuxserver/prowlarr
     newTag: 1.35.1.5034-ls119
   - name: lscr.io/linuxserver/jellyfin
