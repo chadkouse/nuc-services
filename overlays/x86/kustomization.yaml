@@ -18,7 +18,7 @@ images:
   - name: lscr.io/linuxserver/jellyfin
     newTag: 10.10.7ubu2404-ls61
   - name: linuxserver/nzbget
-    newTag: 25.0-ls198
+    newTag: 25.0-ls200
   - name: lscr.io/linuxserver/overseerr
     newTag: v1.34.0-ls139
   - name: lscr.io/linuxserver/qbittorrent
