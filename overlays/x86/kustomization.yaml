@@ -14,7 +14,7 @@ images:
   - name: linuxserver/transmission
     newTag: 4.0.6-r4-ls295
   - name: linuxserver/prowlarr
-    newTag: 1.35.1.5034-ls119
+    newTag: 1.37.0.5076-ls119
   - name: lscr.io/linuxserver/jellyfin
     newTag: 10.10.7ubu2404-ls61
   - name: linuxserver/nzbget
