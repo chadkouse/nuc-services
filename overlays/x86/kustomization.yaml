@@ -10,7 +10,7 @@ images:
   - name: linuxserver/radarr
     newTag: 5.23.3.9987-ls275
   - name: linuxserver/bazarr
-    newTag: v1.5.2-ls305
+    newTag: v1.5.2-ls306
   - name: linuxserver/transmission
     newTag: 4.0.6-r4-ls290
   - name: linuxserver/prowlarr
