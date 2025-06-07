@@ -22,6 +22,6 @@ images:
   - name: lscr.io/linuxserver/overseerr
     newTag: v1.34.0-ls141
   - name: lscr.io/linuxserver/qbittorrent
-    newTag: 5.1.0-r0-ls394
+    newTag: 5.1.0-r0-ls396
   - name: linuxserver/homeassistant
     newTag: 2025.5.2-ls105
