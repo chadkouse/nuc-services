@@ -27,6 +27,7 @@ spec:
           value: "1000"
         image: lscr.io/linuxserver/plex
         name: plex
+        hostNetwork: true
         ports:
         - containerPort: 32400
           name: webui
