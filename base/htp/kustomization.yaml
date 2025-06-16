@@ -19,6 +19,7 @@ resources:
 - jellyfin
 - overseerr
 - qbittorrent
+- plex
 
 patchesStrategicMerge:
 - volumes_patch.yaml

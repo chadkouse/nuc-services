@@ -25,3 +25,5 @@ images:
     newTag: 5.1.0-r0-ls396
   - name: linuxserver/homeassistant
     newTag: 2025.5.3-ls109
+  - name: linuxserver/plex
+    newTag: 1.41.8.9834-071366d65-ls269
