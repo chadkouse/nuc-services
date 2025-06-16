@@ -103,7 +103,8 @@ spec:
   - kind: Rule
     match: PathPrefix(`/plex`)
     middlewares:
-      - name: plex-webpath
+      - name: plex-webpath-strip
+      - name: plex-webpath-add
     priority: 0
     services:
     - kind: Service

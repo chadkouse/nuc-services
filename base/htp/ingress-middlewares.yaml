@@ -39,11 +39,20 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: plex-webpath
+  name: plex-webpath-strip
   namespace: htpc
 spec:
   stripPrefix:
     prefixes:
       - /plex
+
+---
+
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: plex-webpath-add
+  namespace: htpc
+spec:
   addprefix:
     prefix: /web
