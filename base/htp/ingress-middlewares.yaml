@@ -54,5 +54,5 @@ metadata:
   name: plex-webpath-add
   namespace: htpc
 spec:
-  addprefix:
+  addPrefix:
     prefix: /web
