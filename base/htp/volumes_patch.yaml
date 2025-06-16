@@ -177,3 +177,25 @@ spec:
       - hostPath: 
           path: /media/seagate2/incoming
         name: htpc-media-incoming
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plex
+spec:
+  template:
+    spec:
+      volumes:
+      - hostPath:
+          path: /opt/htpc
+          type: DirectoryOrCreate
+        name: htpc-home
+      - hostPath: 
+          path: /media/seagate2/plex/tv
+        name: htpc-media-tv
+      - hostPath:
+          path: /media/seagate/plex/movies
+        name: htpc-media-movies
+      - hostPath: 
+          path: /media/seagate/plex/sports
+        name: htpc-media-sports
