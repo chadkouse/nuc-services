@@ -100,3 +100,12 @@ spec:
       name: qbittorrent
       namespace: "htpc"
       port: 8080
+  - kind: Rule
+    match: PathPrefix(`/plex`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: plex
+      namespace: "htpc"
+      port: 32400
