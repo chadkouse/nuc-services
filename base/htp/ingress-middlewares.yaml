@@ -33,3 +33,17 @@ spec:
   headers:
     customRequestHeaders:
       X-Frame-Options: "SAMEORIGIN"
+
+---
+
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: plex-webpath
+  namespace: htpc
+spec:
+  stripPrefix:
+    prefixes:
+      - /plex
+  addprefix:
+    prefix: /web
