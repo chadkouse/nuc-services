@@ -7,7 +7,7 @@ spec:
   entryPoints: []
   routes:
   - kind: Rule
-    match: PathPrefix(`/ha`)
+    match: Host(`ha.kouse.xyz`)
     middlewares: []
     priority: 0
     services:
