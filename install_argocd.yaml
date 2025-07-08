@@ -11061,6 +11061,24 @@ spec:
     automated:
       prune: false
 ---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: smarthome
+  namespace: argocd
+spec:
+  destination:
+    namespace: smarthome
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: overlays/smarthome
+    repoURL: https://github.com/chadkouse/talos-nuc.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: false
+---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:

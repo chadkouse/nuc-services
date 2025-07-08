@@ -39,3 +39,24 @@ spec:
   syncPolicy:
     automated:
       prune: false
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: smarthome
+spec:
+  project: default
+  
+  source:
+    repoURL: https://github.com/chadkouse/talos-nuc.git
+    targetRevision: main
+    path: overlays/smarthome
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: smarthome
+
+  # Sync policy
+  syncPolicy:
+    automated:
+      prune: false
