@@ -31,6 +31,12 @@ spec:
         - containerPort: 8123
           name: webui
           protocol: TCP
+        - containerPort: 5353
+          name: homekitdns
+          protocol: UDP
+        - containerPort: 21063
+          name: homekit
+          protocol: TCP
         volumeMounts: 
         - mountPath: /config 
           name: smarthome-home
