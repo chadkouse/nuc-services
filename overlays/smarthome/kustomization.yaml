@@ -6,4 +6,4 @@ bases:
 
 images:
   - name: linuxserver/homeassistant
-    newTag: 2025.5.3-ls109
+    newTag: 2025.7.1-ls119
