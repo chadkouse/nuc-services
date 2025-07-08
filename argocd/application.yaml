@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/chadkouse/talos-nuc.git
     targetRevision: main
-    path: overlays/x86
+    path: overlays/htpc
 
   destination:
     server: https://kubernetes.default.svc

@@ -3,4 +3,4 @@ kind: Kustomization
 
 bases:
 - ../../argocd
-- ../x86
+- ../htpc

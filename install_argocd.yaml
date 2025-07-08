@@ -11054,7 +11054,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: overlays/x86
+    path: overlays/htpc
     repoURL: https://github.com/chadkouse/talos-nuc.git
     targetRevision: main
   syncPolicy:

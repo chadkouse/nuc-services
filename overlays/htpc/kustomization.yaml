@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 bases:
-- ../../base
+- ../../base/htp
 
 images:
   - name: linuxserver/sonarr
@@ -23,7 +23,7 @@ images:
     newTag: v1.34.0-ls141
   - name: lscr.io/linuxserver/qbittorrent
     newTag: 5.1.0-r0-ls396
-  - name: linuxserver/homeassistant
-    newTag: 2025.5.3-ls109
+  # - name: linuxserver/homeassistant
+  #   newTag: 2025.5.3-ls109
   - name: linuxserver/plex
     newTag: 1.41.8.9834-071366d65-ls269
