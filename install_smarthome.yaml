@@ -1,0 +1,90 @@
+# This is an auto-generated file. DO NOT EDIT
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    app: smarthome
+  name: smarthome
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: smarthome
+  name: homeassistant
+  namespace: smarthome
+spec:
+  ports:
+  - name: webui
+    port: 8123
+    protocol: TCP
+    targetPort: 8123
+  selector:
+    app: smarthome
+    run: homeassistant
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: smarthome
+    run: homeassistant
+  name: homeassistant
+  namespace: smarthome
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: smarthome
+      run: homeassistant
+  template:
+    metadata:
+      labels:
+        app: smarthome
+        run: homeassistant
+    spec:
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: lscr.io/linuxserver/homeassistant
+        name: homeassistant
+        ports:
+        - containerPort: 8123
+          name: webui
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /config
+          name: smarthome-home
+          subPath: homeassistant
+      securityContext:
+        fsGroup: 1000
+      volumes:
+      - hostPath:
+          path: /opt/smarthome
+          type: DirectoryOrCreate
+        name: smarthome-home
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  labels:
+    app: smarthome
+  name: smarthome
+  namespace: smarthome
+spec:
+  entryPoints: []
+  routes:
+  - kind: Rule
+    match: PathPrefix(`/ha`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: homeassistant
+      namespace: smarthome
+      port: 8123

@@ -6,5 +6,8 @@ AUTOGENMSG="# This is an auto-generated file. DO NOT EDIT"
 echo "${AUTOGENMSG}" > "${SRCROOT}/install_htpc.yaml"
 kustomize build "${SRCROOT}/overlays/htpc" >> "${SRCROOT}/install_htpc.yaml"
 
+echo "${AUTOGENMSG}" > "${SRCROOT}/install_smarthome.yaml"
+kustomize build "${SRCROOT}/overlays/smarthome" >> "${SRCROOT}/install_smarthome.yaml"
+
 echo "${AUTOGENMSG}" > "${SRCROOT}/install_argocd.yaml"
 kustomize build "${SRCROOT}/argocd" >> "${SRCROOT}/install_argocd.yaml"
