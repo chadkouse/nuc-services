@@ -94,7 +94,7 @@ spec:
   - kind: Rule
     match: PathPrefix(`/`)
     middlewares: []
-    priority: 0
+    priority: 1
     services:
     - kind: Service
       name: qbittorrent
