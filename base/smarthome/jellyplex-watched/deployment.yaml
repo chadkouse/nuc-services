@@ -26,11 +26,11 @@ spec:
         - name: PGID
           value: "1000"
         - name: DRYRUN
-          value: "True"
+          value: "False"
         - name: DEBUG
-          value: "True"
+          value: "False"
         - name: DEBUG_LEVEL
-          value: "debug"
+          value: "info"
         - name: USER_MAPPING
           value: '{"chadkouse":"chad", "clemmy":"clementine"}'
         - name: LIBRARY_MAPPING
