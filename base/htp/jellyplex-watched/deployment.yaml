@@ -61,8 +61,3 @@ spec:
           value: "True"
         image: luigi311/jellyplex-watched
         name: jellyplex-watched
-        volumeMounts: 
-        - mountPath: /config 
-          name: smarthome-home
-          subPath: jellyplex-watched
-      hostNetwork: true

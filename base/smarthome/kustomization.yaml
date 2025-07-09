@@ -9,7 +9,6 @@ commonLabels:
 resources:
 - namespace.yaml
 - homeassistant
-- jellyplex-watched
 - ingress-route.yaml
 
 patchesStrategicMerge:

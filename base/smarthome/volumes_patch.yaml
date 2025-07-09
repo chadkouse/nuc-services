@@ -10,16 +10,3 @@ spec:
           path: /opt/smarthome 
           type: DirectoryOrCreate 
         name: smarthome-home
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: jellyplex-watched
-spec:
-  template:
-    spec:
-      volumes: 
-      - hostPath: 
-          path: /opt/smarthome 
-          type: DirectoryOrCreate 
-        name: smarthome-home

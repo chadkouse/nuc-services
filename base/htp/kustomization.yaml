@@ -20,6 +20,7 @@ resources:
 - overseerr
 - qbittorrent
 - plex
+- jellyplex-watched
 
 patchesStrategicMerge:
 - volumes_patch.yaml
