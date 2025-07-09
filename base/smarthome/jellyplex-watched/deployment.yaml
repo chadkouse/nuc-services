@@ -17,14 +17,6 @@ spec:
     spec:
       securityContext:
         fsGroup: 1000
-      initContainers:
-      - name: touch
-        image: busybox
-        command: ["sh", "-c", "touch /config/.env"]
-        volumeMounts:
-        - mountPath: /config
-          name: smarthome-home
-          subPath: jellyplex-watched
       containers:
       - env:
         - name: TZ
@@ -33,6 +25,34 @@ spec:
           value: "1000"
         - name: PGID
           value: "1000"
+        - name: DRYRUN
+          value: "True"
+        - name: DEBUG
+          value: "True"
+        - name: PLEX_BASEURL
+          valueFrom:
+            secretKeyRef:
+              name: jellyplex-watched
+              key: plex_baseurl
+        - name: PLEX_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: jellyplex-watched
+              key: plex_token
+        - name: JELLYFIN_BASEURL
+          valueFrom:
+            secretKeyRef:
+              name: jellyplex-watched
+              key: jellyfin_baseurl
+        - name: JELLYFIN_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: jellyplex-watched
+              key: jellyfin_token
+        - name: SYNC_FROM_PLEX_TO_JELLYFIN
+          value: "True"
+        - name: SYNC_FROM_JELLYFIN_TO_PLEX
+          value: "True"
         image: luigi311/jellyplex-watched
         name: jellyplex-watched
         volumeMounts: 
