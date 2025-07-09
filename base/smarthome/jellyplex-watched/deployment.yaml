@@ -17,6 +17,14 @@ spec:
     spec:
       securityContext:
         fsGroup: 1000
+      initContainers:
+      - name: touch
+        image: busybox
+        command: ["sh", "-c", "touch /config/.env"]
+        volumeMounts:
+        - mountPath: /config
+          name: smarthome-home
+          subPath: jellyplex-watched
       containers:
       - env:
         - name: TZ
