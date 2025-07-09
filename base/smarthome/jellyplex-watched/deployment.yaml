@@ -32,7 +32,7 @@ spec:
         - name: DEBUG_LEVEL
           value: "debug"
         - name: USER_MAPPING
-          value: '{"chadkouse":"chad", "clemmy", "clementine"}'
+          value: '{"chadkouse":"chad", "clemmy":"clementine"}'
         - name: PLEX_BASEURL
           valueFrom:
             secretKeyRef:
