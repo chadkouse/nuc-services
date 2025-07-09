@@ -29,6 +29,8 @@ spec:
           value: "True"
         - name: DEBUG
           value: "True"
+        - name: USER_MAPPING
+          value: '{"chad":"dad"}'
         - name: PLEX_BASEURL
           valueFrom:
             secretKeyRef:
