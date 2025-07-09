@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: jellyplex-watched
+  name: jellyplex-watched
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: jellyplex-watched
+  template:
+    metadata:
+      labels:
+        run: jellyplex-watched
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: luigi311/jellyplex-watched
+        name: jellyplex-watched
+        ports:
+        - containerPort: 8123
+          name: webui
+          protocol: TCP
+        volumeMounts: 
+        - mountPath: /config 
+          name: smarthome-home
+          subPath: jellyplex-watched
+      hostNetwork: true
