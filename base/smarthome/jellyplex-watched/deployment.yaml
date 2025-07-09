@@ -27,10 +27,6 @@ spec:
           value: "1000"
         image: luigi311/jellyplex-watched
         name: jellyplex-watched
-        ports:
-        - containerPort: 8123
-          name: webui
-          protocol: TCP
         volumeMounts: 
         - mountPath: /config 
           name: smarthome-home
