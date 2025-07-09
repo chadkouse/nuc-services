@@ -6,7 +6,7 @@ spec:
   project: default
   
   source:
-    repoURL: https://github.com/chadkouse/talos-nuc.git
+    repoURL: https://github.com/chadkouse/nuc-services.git
     targetRevision: main
     path: overlays/htpc
 
@@ -27,7 +27,7 @@ spec:
   project: default
   
   source:
-    repoURL: https://github.com/chadkouse/talos-nuc.git
+    repoURL: https://github.com/chadkouse/nuc-services.git
     targetRevision: main
     path: argocd
 
@@ -48,7 +48,7 @@ spec:
   project: default
   
   source:
-    repoURL: https://github.com/chadkouse/talos-nuc.git
+    repoURL: https://github.com/chadkouse/nuc-services.git
     targetRevision: main
     path: overlays/smarthome
 

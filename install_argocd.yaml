@@ -11037,7 +11037,7 @@ spec:
   project: default
   source:
     path: argocd
-    repoURL: https://github.com/chadkouse/talos-nuc.git
+    repoURL: https://github.com/chadkouse/nuc-services.git
     targetRevision: main
   syncPolicy:
     automated:
@@ -11055,7 +11055,7 @@ spec:
   project: default
   source:
     path: overlays/htpc
-    repoURL: https://github.com/chadkouse/talos-nuc.git
+    repoURL: https://github.com/chadkouse/nuc-services.git
     targetRevision: main
   syncPolicy:
     automated:
@@ -11073,7 +11073,7 @@ spec:
   project: default
   source:
     path: overlays/smarthome
-    repoURL: https://github.com/chadkouse/talos-nuc.git
+    repoURL: https://github.com/chadkouse/nuc-services.git
     targetRevision: main
   syncPolicy:
     automated:
