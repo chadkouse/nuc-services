@@ -31,6 +31,8 @@ spec:
           value: "False"
         - name: DEBUG_LEVEL
           value: "info"
+        - name: GENERATE_GUIDS
+          value: "False"
         - name: USER_MAPPING
           value: '{"chadkouse":"chad", "clemmy":"clementine"}'
         - name: LIBRARY_MAPPING
