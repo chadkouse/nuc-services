@@ -29,6 +29,8 @@ spec:
           value: "True"
         - name: DEBUG
           value: "True"
+        - name: DEBUG_LEVEL
+          value: "debug"
         - name: USER_MAPPING
           value: '{"chad":"dad"}'
         - name: PLEX_BASEURL
