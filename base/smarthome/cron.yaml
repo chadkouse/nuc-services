@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: hello
+  name: SecurityCameraPosterUpdate
 spec:
   schedule: "*/2 * * * *"
   jobTemplate:
@@ -15,7 +15,7 @@ spec:
             command:
             - /bin/sh
             - -c
-            - date; cd /config/www/camera-snapshots; ls -lvha
+            - date; cd /config; find .
           restartPolicy: OnFailure
           volumeMounts: 
           - mountPath: /config 
