@@ -16,8 +16,13 @@ spec:
             - /bin/sh
             - -c
             - date; cd /config; find .
+            volumeMounts: 
+            - mountPath: /config 
+              name: smarthome-home
+              subPath: homeassistant
           restartPolicy: OnFailure
-          volumeMounts: 
-          - mountPath: /config 
+          volumes: 
+          - hostPath: 
+              path: /opt/smarthome 
+              type: DirectoryOrCreate 
             name: smarthome-home
-            subPath: homeassistant
