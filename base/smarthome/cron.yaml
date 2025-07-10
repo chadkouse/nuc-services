@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "*/2 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: security-camera-snaps
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - date; cd /config/www/camera-snapshots; ls -lvha
+          restartPolicy: OnFailure
+          volumeMounts: 
+          - mountPath: /config 
+            name: smarthome-home
+            subPath: homeassistant

@@ -10,6 +10,7 @@ resources:
 - namespace.yaml
 - homeassistant
 - ingress-route.yaml
+- cron.yaml
 
 patchesStrategicMerge:
 - volumes_patch.yaml
