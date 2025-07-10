@@ -20,12 +20,10 @@ spec:
               - |
                 date
                 echo "Starting to get camera snapshots"
-                cd /config/www/camera-snapshots
-                pwd
                 for i in $(seq 0 10);
                 do
                   echo "Getting ${NVR_BASEURL}/cgi-bin/api.cgi?cmd=Snap&channel=${i}&stream=0&rs=1&user=${NVR_USERNAME}&password=${NVR_PASSWORD}&width=640&height=480"
-                  wget -O /opt/smarthome/homeassistant/www/camera-snapshots/$i.jpg "${NVR_BASEURL}/cgi-bin/api.cgi?cmd=Snap&channel=${i}&stream=0&rs=1&user=${NVR_USERNAME}&password=${NVR_PASSWORD}&width=640&height=480"
+                  wget -O /config/www/camera-snapshots/$i.jpg "${NVR_BASEURL}/cgi-bin/api.cgi?cmd=Snap&channel=${i}&stream=0&rs=1&user=${NVR_USERNAME}&password=${NVR_PASSWORD}&width=640&height=480"
                 done
                 echo "Job finished."
                 date                
