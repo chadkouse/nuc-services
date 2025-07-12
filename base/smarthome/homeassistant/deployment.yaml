@@ -25,6 +25,8 @@ spec:
           value: "1000"
         - name: PGID
           value: "1000"
+        - name: PYTHONHTTPSVERIFY
+          value: "0"
         image: lscr.io/linuxserver/homeassistant
         name: homeassistant
         ports:
