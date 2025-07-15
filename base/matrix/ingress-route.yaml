@@ -5,6 +5,8 @@ metadata:
   name: matrix
 spec:
   entryPoints:
+    - web
+    - websecure
     - matrixFederation
   routes:
   - kind: Rule
