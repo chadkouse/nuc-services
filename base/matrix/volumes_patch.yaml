@@ -7,6 +7,6 @@ spec:
     spec:
       volumes: 
       - hostPath: 
-          path: /opt/matrix 
+          path: /opt/matrix/continuwuity 
           type: DirectoryOrCreate 
-        name: matrix-home
+        name: continuwuity-home

@@ -33,5 +33,4 @@ spec:
           protocol: TCP
         volumeMounts: 
         - mountPath: /var/lib/continuwuity 
-          name: matrix-home
-          subPath: continuwuity
+          name: continuwuity-home
