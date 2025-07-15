@@ -319,6 +319,75 @@ kind: Deployment
 metadata:
   labels:
     app: htpc
+    run: jellyplex-watched
+  name: jellyplex-watched
+  namespace: htpc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: htpc
+      run: jellyplex-watched
+  template:
+    metadata:
+      labels:
+        app: htpc
+        run: jellyplex-watched
+    spec:
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: DRYRUN
+          value: "False"
+        - name: DEBUG
+          value: "False"
+        - name: DEBUG_LEVEL
+          value: info
+        - name: GENERATE_GUIDS
+          value: "False"
+        - name: USER_MAPPING
+          value: '{"chadkouse":"chad", "clemmy":"clementine"}'
+        - name: LIBRARY_MAPPING
+          value: '{"TV Shows":"Shows", "Other":"Misc"}'
+        - name: PLEX_BASEURL
+          valueFrom:
+            secretKeyRef:
+              key: plex_baseurl
+              name: jellyplex-watched
+        - name: PLEX_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: plex_token
+              name: jellyplex-watched
+        - name: JELLYFIN_BASEURL
+          valueFrom:
+            secretKeyRef:
+              key: jellyfin_baseurl
+              name: jellyplex-watched
+        - name: JELLYFIN_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: jellyfin_token
+              name: jellyplex-watched
+        - name: SYNC_FROM_PLEX_TO_JELLYFIN
+          value: "True"
+        - name: SYNC_FROM_JELLYFIN_TO_PLEX
+          value: "True"
+        image: luigi311/jellyplex-watched
+        name: jellyplex-watched
+      securityContext:
+        fsGroup: 1000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: htpc
     run: nzbget
   name: nzbget
   namespace: htpc
@@ -870,10 +939,12 @@ metadata:
   name: htpc
   namespace: htpc
 spec:
-  entryPoints: []
+  entryPoints:
+  - web
+  - websecure
   routes:
   - kind: Rule
-    match: PathPrefix(`/jellyfin`)
+    match: PathPrefix(`/jellyfin`) || Host(`jellyfin.kouse.xyz`)
     middlewares: []
     priority: 0
     services:
@@ -951,7 +1022,7 @@ spec:
   - kind: Rule
     match: PathPrefix(`/`)
     middlewares: []
-    priority: 0
+    priority: 1
     services:
     - kind: Service
       name: qbittorrent
@@ -965,6 +1036,8 @@ spec:
       name: plex
       namespace: htpc
       port: 32400
+  tls:
+    certResolver: default
 ---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware

@@ -11064,6 +11064,24 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: matrix
+  namespace: argocd
+spec:
+  destination:
+    namespace: matrix
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: overlays/matrix
+    repoURL: https://github.com/chadkouse/nuc-services.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: false
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: smarthome
   namespace: argocd
 spec:

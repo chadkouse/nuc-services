@@ -1,0 +1,93 @@
+# This is an auto-generated file. DO NOT EDIT
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    app: matrix
+  name: matrix
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: matrix
+  name: continuwuity
+  namespace: matrix
+spec:
+  ports:
+  - name: webui
+    port: 6167
+    protocol: TCP
+    targetPort: 6167
+  selector:
+    app: matrix
+    run: continuwuity
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: matrix
+    run: continuwuity
+  name: continuwuity
+  namespace: matrix
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: matrix
+      run: continuwuity
+  template:
+    metadata:
+      labels:
+        app: matrix
+        run: continuwuity
+    spec:
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: forgejo.ellis.link/continuwuation/continuwuity:latest
+        name: continuwuity
+        ports:
+        - containerPort: 6167
+          name: webui
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /var/lib/continuwuity
+          name: matrix-home
+          subPath: continuwuity
+      securityContext:
+        fsGroup: 1000
+      volumes:
+      - hostPath:
+          path: /opt/matrix
+          type: DirectoryOrCreate
+        name: matrix-home
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  labels:
+    app: matrix
+  name: matrix
+  namespace: matrix
+spec:
+  entryPoints:
+  - matrixFederation
+  routes:
+  - kind: Rule
+    match: Host(`matrix.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: continuwuity
+      namespace: matrix
+      port: 6167
+  tls:
+    certResolver: default

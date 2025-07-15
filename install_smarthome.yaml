@@ -51,6 +51,8 @@ spec:
           value: "1000"
         - name: PGID
           value: "1000"
+        - name: PYTHONHTTPSVERIFY
+          value: "0"
         image: lscr.io/linuxserver/homeassistant
         name: homeassistant
         ports:
@@ -61,6 +63,7 @@ spec:
         - mountPath: /config
           name: smarthome-home
           subPath: homeassistant
+      hostNetwork: true
       securityContext:
         fsGroup: 1000
       volumes:
@@ -68,6 +71,51 @@ spec:
           path: /opt/smarthome
           type: DirectoryOrCreate
         name: smarthome-home
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  labels:
+    app: smarthome
+  name: security-camera-poster-update
+  namespace: smarthome
+spec:
+  jobTemplate:
+    metadata:
+      labels:
+        app: smarthome
+    spec:
+      template:
+        metadata:
+          labels:
+            app: smarthome
+        spec:
+          containers:
+          - args:
+            - "date\necho \"Starting to get camera snapshots\"\nfor i in $(seq 0 10);\ndo\n
+              \ echo \"Getting NVR_BASEURL/cgi-bin/api.cgi?cmd=Snap&channel=${i}&stream=0&rs=1&user=NVR_USERNAME&password=NVR_PASSWORD&width=640&height=480\"\n
+              \ wget -O /config/www/camera-snapshots/$i.jpg \"${NVR_BASEURL}/cgi-bin/api.cgi?cmd=Snap&channel=${i}&stream=0&rs=1&user=${NVR_USERNAME}&password=${NVR_PASSWORD}&width=640&height=480\"\ndone\necho
+              \"Job finished.\"\ndate                \n"
+            command:
+            - /bin/sh
+            - -c
+            envFrom:
+            - secretRef:
+                name: security-system
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent
+            name: security-camera-snaps
+            volumeMounts:
+            - mountPath: /config
+              name: smarthome-home
+              subPath: homeassistant
+          restartPolicy: OnFailure
+          volumes:
+          - hostPath:
+              path: /opt/smarthome
+              type: DirectoryOrCreate
+            name: smarthome-home
+  schedule: '*/2 * * * *'
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
@@ -77,10 +125,12 @@ metadata:
   name: smarthome
   namespace: smarthome
 spec:
-  entryPoints: []
+  entryPoints:
+  - web
+  - websecure
   routes:
   - kind: Rule
-    match: PathPrefix(`/ha`)
+    match: Host(`ha.kouse.xyz`)
     middlewares: []
     priority: 0
     services:
@@ -88,3 +138,5 @@ spec:
       name: homeassistant
       namespace: smarthome
       port: 8123
+  tls:
+    certResolver: default

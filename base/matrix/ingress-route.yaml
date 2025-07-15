@@ -2,21 +2,20 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: smarthome
+  name: matrix
 spec:
   entryPoints:
-    - web
-    - websecure
+    - matrixFederation
   routes:
   - kind: Rule
-    match: Host(`ha.kouse.xyz`)
+    match: Host(`matrix.kouse.xyz`)
     middlewares: []
     priority: 0
     services:
     - kind: Service
-      name: homeassistant
-      namespace: "smarthome"
-      port: 8123
+      name: continuwuity
+      namespace: matrix
+      port: 6167
   tls:
     certResolver: default
    
