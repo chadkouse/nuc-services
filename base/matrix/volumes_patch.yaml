@@ -10,3 +10,16 @@ spec:
           path: /opt/matrix/continuwuity 
           type: DirectoryOrCreate 
         name: continuwuity-home
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mautrix-wsproxy
+spec:
+  template:
+    spec:
+      volumes: 
+      - hostPath: 
+          path: /opt/matrix
+          type: DirectoryOrCreate 
+        name: matrix-home
