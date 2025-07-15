@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - web
     - websecure
-    - matrixFederation
+    - matrixfed
   routes:
   - kind: Rule
     match: Host(`matrix.kouse.xyz`)

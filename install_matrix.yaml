@@ -78,7 +78,7 @@ metadata:
   namespace: matrix
 spec:
   entryPoints:
-  - matrixFederation
+  - matrixfed
   routes:
   - kind: Rule
     match: Host(`matrix.kouse.xyz`)
