@@ -15,3 +15,6 @@ spec:
       name: homeassistant
       namespace: "smarthome"
       port: 8123
+  tls:
+    certResolver: default
+   
