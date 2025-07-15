@@ -5,9 +5,11 @@ metadata:
   name: htpc
 spec:
   entryPoints: []
+  tls:
+    certResolver: default
   routes:
   - kind: Rule
-    match: PathPrefix(`/jellyfin`)
+    match: PathPrefix(`/jellyfin`) || Host(`jellyfin.kouse.xyz`)
     middlewares: []
     priority: 0
     services:
