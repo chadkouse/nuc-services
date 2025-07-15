@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: mautrix-wsproxy
+  name: mautrix-wsproxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: mautrix-wsproxy
+  template:
+    metadata:
+      labels:
+        run: mautrix-wsproxy
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - env:
+          - name: TZ
+            value: America/New_York
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+        image: dock.mau.dev/mautrix/wsproxy
+        name: mautrix-wsproxy
+        command: ["/usr/bin/mautrix-wsproxy"]
+        args: ["-config", "/data/config.yaml"]
+        ports:
+        - containerPort: 29331
+          name: wsproxy
+          protocol: TCP
+        volumeMounts: 
+        - mountPath: /data 
+          name: matrix-home
+          subPath: mautrix-wsproxy

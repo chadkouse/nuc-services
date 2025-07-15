@@ -7,3 +7,7 @@ bases:
 images:
   - name: forgejo.ellis.link/continuwuation/continuwuity
     newTag: latest
+  - name: dock.mau.dev/mautrix/wsproxy
+    newTag: latest
+  - name: dock.mau.dev/mautrix/syncproxy
+    newTag: latest

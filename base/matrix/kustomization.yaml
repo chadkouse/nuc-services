@@ -10,6 +10,7 @@ resources:
 - namespace.yaml
 - continuwuity
 - ingress-route.yaml
+- mautrix-wsproxy
 
 patchesStrategicMerge:
 - volumes_patch.yaml
