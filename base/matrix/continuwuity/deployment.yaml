@@ -20,7 +20,7 @@ spec:
       containers:
       - envFrom:
           - configMapRef:
-            name: continuwuity
+              name: continuwuity
         env:
           - name: TZ
             value: America/New_York
