@@ -19,8 +19,8 @@ spec:
         fsGroup: 1000
       containers:
       - envFrom:
-          - configMapRef:
-            name: continuwuity
+        - configMapRef:
+          name: continuwuity
         env:
         - name: TZ
           value: America/New_York
