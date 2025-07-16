@@ -21,7 +21,8 @@ spec:
       port: 8096
   - kind: Rule
     match: PathPrefix(`/sonarr`) || Host(`sonarr.kouse.xyz`)
-    middlewares: []
+    middlewares:
+      - name: ipallowlist
     priority: 0
     services:
     - kind: Service

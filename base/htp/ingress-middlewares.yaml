@@ -46,3 +46,16 @@ spec:
   redirectRegex:
     regex: ^(.*)/plex$
     replacement: $1/web/
+
+---
+
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: ipallowlist
+spec:
+  ipAllowList:
+    sourceRange:
+      - 127.0.0.1/32
+      - 10.0.1.0/24
+      - 10.0.2.0/24
