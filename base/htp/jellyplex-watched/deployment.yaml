@@ -34,7 +34,7 @@ spec:
         - name: GENERATE_GUIDS
           value: "False"
         - name: USER_MAPPING
-          value: '{"chadkouse":"chad", "clemmy":"clementine"}'
+          value: '{"chadkouse":"chad", "dad":"chad", "clemmy":"clementine"}'
         - name: LIBRARY_MAPPING
           value: '{"TV Shows":"Shows", "Other":"Misc"}'
         - name: PLEX_BASEURL
