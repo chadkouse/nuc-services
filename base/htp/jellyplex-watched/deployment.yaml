@@ -18,50 +18,29 @@ spec:
       securityContext:
         fsGroup: 1000
       containers:
-      - env:
-        - name: TZ
-          value: America/New_York
-        - name: PUID
-          value: "1000"
-        - name: PGID
-          value: "1000"
-        - name: DRYRUN
-          value: "True"
-        - name: DEBUG
-          value: "False"
-        - name: DEBUG_LEVEL
-          value: "info"
-        - name: GENERATE_GUIDS
-          value: "False"
-        - name: USER_MAPPING
-          value: '{"chadkouse":"chad", "dad":"chad", "clemmy":"clementine"}'
-        - name: LIBRARY_MAPPING
-          value: '{"TV Shows":"Shows", "Other":"Misc"}'
-        - name: PLEX_BASEURL
-          valueFrom:
-            secretKeyRef:
+      - envFrom:
+          - configMapRef:
               name: jellyplex-watched
-              key: plex_baseurl
-        - name: PLEX_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: jellyplex-watched
-              key: plex_token
-        - name: JELLYFIN_BASEURL
-          valueFrom:
-            secretKeyRef:
-              name: jellyplex-watched
-              key: jellyfin_baseurl
-        - name: JELLYFIN_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: jellyplex-watched
-              key: jellyfin_token
-        - name: SYNC_FROM_PLEX_TO_JELLYFIN
-          value: "True"
-        - name: SYNC_FROM_JELLYFIN_TO_PLEX
-          value: "True"
-        - name: SYNC_FROM_JELLYFIN_TO_JELLYFIN
-          value: "True"
+        env:
+          - name: PLEX_BASEURL
+            valueFrom:
+              secretKeyRef:
+                name: jellyplex-watched
+                key: plex_baseurl
+          - name: PLEX_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: jellyplex-watched
+                key: plex_token
+          - name: JELLYFIN_BASEURL
+            valueFrom:
+              secretKeyRef:
+                name: jellyplex-watched
+                key: jellyfin_baseurl
+          - name: JELLYFIN_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: jellyplex-watched
+                key: jellyfin_token
         image: luigi311/jellyplex-watched
         name: jellyplex-watched
