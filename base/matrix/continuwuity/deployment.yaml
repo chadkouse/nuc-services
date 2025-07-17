@@ -48,18 +48,18 @@ spec:
         - mountPath: /var/lib/continuwuity 
           name: continuwuity-home
       initContainers:
-      - env:
+      - name: mautrix-whatsapp
+        image: dock.mau.dev/mautrix/whatsapp
+        restartPolicy: Always
+        command: ["/usr/bin/mautrix-whatsapp"]
+        args: ["-c", "/data/config.yaml", "--no-update"]
+        env:
           - name: TZ
             value: America/New_York
           - name: PUID
             value: "1000"
           - name: PGID
             value: "1000"
-        image: dock.mau.dev/mautrix/whatsapp
-        name: mautrix-whatsapp
-        restartPolicy: Always
-        command: ["/usr/bin/mautrix-whatsapp"]
-        args: ["-c", "/data/config.yaml", "--no-update"]
         ports:
         - containerPort: 29318
           name: mautrix-wa
@@ -68,3 +68,23 @@ spec:
         - mountPath: /data 
           name: matrix-home
           subPath: mautrix-whatsapp
+      - name: mautrix-slack
+        image: dock.mau.dev/mautrix/slack
+        restartPolicy: Always
+        command: ["/usr/bin/mautrix-slack"]
+        args: ["-c", "/data/config.yaml", "--no-update"]
+        env:
+          - name: TZ
+            value: America/New_York
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+        ports:
+        - containerPort: 29335
+          name: mautrix-slack
+          protocol: TCP
+        volumeMounts: 
+        - mountPath: /data 
+          name: matrix-home
+          subPath: mautrix-slack

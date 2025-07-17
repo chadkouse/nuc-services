@@ -12,5 +12,9 @@ spec:
     protocol: TCP
     targetPort: 29318
     name: mautrix-wa
+  - port: 29335
+    protocol: TCP
+    targetPort: 29335
+    name: mautrix-slack
   selector:
     run: continuwuity
