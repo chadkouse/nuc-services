@@ -68,7 +68,7 @@ spec:
   #     namespace: "htpc"
   #     port: 9091
   - kind: Rule
-    match: PathPrefix(`/prowlarr`)
+    match: Host(`prowlarr.kouse.xyz`) && ClientIP('10.0.0.0/8')
     middlewares: []
     priority: 0
     services:
