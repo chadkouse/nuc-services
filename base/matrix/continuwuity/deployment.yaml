@@ -62,7 +62,7 @@ spec:
         args: ["--no-update", "-config", "/data/config.yaml"]
         ports:
         - containerPort: 29318
-          name: mautrix-whatsapp
+          name: mautrix-wa
           protocol: TCP
         volumeMounts: 
         - mountPath: /data 
