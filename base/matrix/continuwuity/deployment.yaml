@@ -57,6 +57,7 @@ spec:
             value: "1000"
         image: dock.mau.dev/mautrix/whatsapp
         name: mautrix-whatsapp
+        restartPolicy: Always
         command: ["/usr/bin/mautrix-whatsapp"]
         args: ["--no-update", "-config", "/data/config.yaml"]
         ports:

@@ -11,6 +11,6 @@ spec:
   - port: 29318
     protocol: TCP
     targetPort: 29318
-    name: mautrix-whatsapp
+    name: mautrix-wa
   selector:
     run: continuwuity
