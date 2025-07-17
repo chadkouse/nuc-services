@@ -9,6 +9,10 @@ spec:
     - websecure
   tls:
     certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"
   routes:
   - kind: Rule
     match: PathPrefix(`/jellyfin`) || Host(`jellyfin.kouse.xyz`)
@@ -37,7 +41,7 @@ spec:
       namespace: "htpc"
       port: 7878
   - kind: Rule
-    match: PathPrefix(`/bazarr`)
+    match: Host(`bazarr.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
@@ -46,11 +50,11 @@ spec:
       namespace: "htpc"
       port: 6767
   - kind: Rule
-    match: PathPrefix(`/qb`)
-    middlewares:
-      - name: qb-strip
-      - name: qb-redirect
-      - name: qb-headers
+    match: Host(`qb.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    # middlewares:
+    #   - name: qb-strip
+    #   - name: qb-redirect
+    #   - name: qb-headers
     priority: 0
     services:
     - kind: Service
@@ -68,7 +72,7 @@ spec:
   #     namespace: "htpc"
   #     port: 9091
   - kind: Rule
-    match: Host(`prowlarr.kouse.xyz`) && ( PathPrefix(`/.well-known/`) || ClientIP(`10.0.0.0/8`) )
+    match: Host(`prowlarr.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
@@ -77,7 +81,7 @@ spec:
       namespace: "htpc"
       port: 9696
   - kind: Rule
-    match: PathPrefix(`/nzbget`)
+    match: Host(`nzbget.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
@@ -94,15 +98,6 @@ spec:
       name: overseerr
       namespace: "htpc"
       port: 5055
-  - kind: Rule
-    match: PathPrefix(`/`)
-    middlewares: []
-    priority: 1
-    services:
-    - kind: Service
-      name: qbittorrent
-      namespace: "htpc"
-      port: 8080
   - kind: Rule
     match: PathPrefix(`/plex`) || Host(`plex.kouse.xyz`)
     priority: 0
