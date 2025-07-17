@@ -68,21 +68,3 @@ spec:
         - mountPath: /data 
           name: matrix-home
           subPath: mautrix-whatsapp
-        livenessProbe:
-          httpGet:
-            path: /_matrix/mau/live
-            port: 8080
-            httpHeaders:
-            - name: Custom-Header
-              value: Awesome
-          initialDelaySeconds: 3
-          periodSeconds: 3
-        readinessProbe:
-          httpGet:
-            path: /_matrix/mau/ready
-            port: 8080
-            httpHeaders:
-            - name: Custom-Header
-              value: Awesome
-          initialDelaySeconds: 3
-          periodSeconds: 3
