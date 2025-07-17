@@ -19,4 +19,8 @@ spec:
       port: 8123
   tls:
     certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"
    

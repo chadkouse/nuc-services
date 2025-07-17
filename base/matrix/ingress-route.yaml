@@ -20,6 +20,10 @@ spec:
       port: 6167
   tls:
     certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
@@ -40,4 +44,8 @@ spec:
       port: 29331
   tls:
     certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"
    
