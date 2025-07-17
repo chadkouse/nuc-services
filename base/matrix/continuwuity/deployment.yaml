@@ -59,7 +59,7 @@ spec:
         name: mautrix-whatsapp
         restartPolicy: Always
         command: ["/usr/bin/mautrix-whatsapp"]
-        args: ["--no-update", "-config", "/data/config.yaml"]
+        args: ["-c", "/data/config.yaml", "--no-update"]
         ports:
         - containerPort: 29318
           name: mautrix-wa
