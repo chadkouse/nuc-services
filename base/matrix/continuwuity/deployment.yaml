@@ -47,3 +47,41 @@ spec:
         volumeMounts: 
         - mountPath: /var/lib/continuwuity 
           name: continuwuity-home
+      initContainers:
+      - env:
+          - name: TZ
+            value: America/New_York
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+        image: dock.mau.dev/mautrix/whatsapp
+        name: mautrix-whatsapp
+        command: ["/usr/bin/mautrix-whatsapp"]
+        args: ["--no-update", "-config", "/data/config.yaml"]
+        ports:
+        - containerPort: 29318
+          name: mautrix-whatsapp
+          protocol: TCP
+        volumeMounts: 
+        - mountPath: /data 
+          name: matrix-home
+          subPath: mautrix-whatsapp
+        livenessProbe:
+          httpGet:
+            path: /_matrix/mau/live
+            port: 8080
+            httpHeaders:
+            - name: Custom-Header
+              value: Awesome
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /_matrix/mau/ready
+            port: 8080
+            httpHeaders:
+            - name: Custom-Header
+              value: Awesome
+          initialDelaySeconds: 3
+          periodSeconds: 3

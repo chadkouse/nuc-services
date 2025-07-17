@@ -8,5 +8,9 @@ spec:
     protocol: TCP
     targetPort: 6167
     name: webui
+  - port: 29318
+    protocol: TCP
+    targetPort: 29318
+    name: mautrix-whatsapp
   selector:
     run: continuwuity

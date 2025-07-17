@@ -11,3 +11,5 @@ images:
     newTag: latest
   - name: dock.mau.dev/mautrix/syncproxy
     newTag: latest
+  - name: dock.mau.dev/mautrix/whatsapp
+    newTag: latest
