@@ -23,9 +23,7 @@ spec:
   entryPoints:
     - unboundudp
   routes:
-  - match: ClientIP(`10.0.0.0/8`)
-    kind: Rule
-    services:
+  - services:
     - name: unbound
       namespace: adblocker
       port: 5335
