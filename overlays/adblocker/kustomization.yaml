@@ -7,3 +7,5 @@ bases:
 images:
   - name: mvance/unbound
     newTag: latest
+  - name: spx01/blocky
+    newTag: latest

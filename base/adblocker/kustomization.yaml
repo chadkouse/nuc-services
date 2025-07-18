@@ -9,6 +9,7 @@ commonLabels:
 resources:
 - namespace.yaml
 - unbound
+- blocky
 - ingress-route.yaml
 
 patchesStrategicMerge:

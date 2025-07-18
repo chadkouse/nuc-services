@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: blocky
+  name: blocky
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: blocky
+  template:
+    metadata:
+      labels:
+        run: blocky
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: PYTHONHTTPSVERIFY
+          value: "0"
+        image: spx01/blocky
+        name: blocky
+        ports:
+        - containerPort: 53
+          name: blocky-tcp
+          protocol: TCP
+        - containerPort: 53
+          name: blocky-udp
+          protocol: UDP
+        - containerPort: 4000
+          name: blocky-web
+          protocol: TCP
+        volumeMounts: 
+        - mountPath: /opt/blocky
+          name: adblocker-home
+          subPath: blocky
