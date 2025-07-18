@@ -41,4 +41,3 @@ spec:
           name: htpc-media-movies
         - mountPath: /sports
           name: htpc-media-sports
-      hostNetwork: true
