@@ -40,6 +40,6 @@ spec:
           name: blocky-web
           protocol: TCP
         volumeMounts: 
-        - mountPath: /opt/blocky
+        - mountPath: /app
           name: adblocker-home
           subPath: blocky
