@@ -11,8 +11,7 @@ spec:
     middlewares: []
     priority: 0
     services:
-    - kind: Service
-      name: unbound
+    - name: unbound
       namespace: adblocker
       port: 5335
 ---
@@ -28,7 +27,6 @@ spec:
     middlewares: []
     priority: 0
     services:
-    - kind: Service
-      name: unbound
+    - name: unbound
       namespace: adblocker
       port: 5335
