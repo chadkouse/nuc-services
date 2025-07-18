@@ -30,10 +30,10 @@ spec:
         image: mvance/unbound
         name: unbound
         ports:
-        - containerPort: 53
+        - containerPort: 5335
           name: dns-tcp
           protocol: TCP
-        - containerPort: 53
+        - containerPort: 5335
           name: dns-udp
           protocol: UDP
         volumeMounts: 

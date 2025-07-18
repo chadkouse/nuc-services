@@ -4,13 +4,13 @@ metadata:
   name: unbound
 spec:
   ports:
-  - port: 53
+  - port: 5335
     protocol: TCP
-    targetPort: 53
+    targetPort: 5335
     name: dns-tcp
-  - port: 53
+  - port: 5335
     protocol: UDP
-    targetPort: 53
+    targetPort: 5335
     name: dns-udp
   selector:
-    run: homeassistant
+    run: unbound
