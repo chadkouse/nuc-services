@@ -39,7 +39,7 @@ spec:
     - prometheus
   routes:
   - kind: Rule
-    match: ClientIP(`10.0.0.0/8`)
+    match: Host(`blocky.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     priority: 0
     services:
     - kind: Service
