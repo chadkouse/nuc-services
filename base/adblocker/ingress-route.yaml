@@ -53,7 +53,7 @@ metadata:
   name: blocky
 spec:
   entryPoints:
-    - blockytcp
+    - dnstcp
   routes:
   - match: HostSNI(`*`)
     middlewares: []
@@ -70,7 +70,7 @@ metadata:
   name: blocky
 spec:
   entryPoints:
-    - blockyudp
+    - dnsudp
   routes:
   - services:
     - name: blocky
