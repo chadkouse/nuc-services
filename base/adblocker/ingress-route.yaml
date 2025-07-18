@@ -24,8 +24,7 @@ spec:
     - unboundudp
   routes:
   - match: ClientIP(`10.0.0.0/8`)
-    middlewares: []
-    priority: 0
+    kind: Rule
     services:
     - name: unbound
       namespace: adblocker
