@@ -1,0 +1,18 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: unbound
+spec:
+  entryPoints:
+    - unbound
+  routes:
+  - kind: Rule
+    match: ClientIP(`10.0.0.0/8`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: unbound
+      namespace: adblocker
+      port: 5353

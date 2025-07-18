@@ -9,6 +9,7 @@ commonLabels:
 resources:
 - namespace.yaml
 - unbound
+- ingress-route.yaml
 
 patchesStrategicMerge:
 - volumes_patch.yaml

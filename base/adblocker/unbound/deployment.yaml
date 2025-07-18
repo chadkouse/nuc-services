@@ -40,4 +40,3 @@ spec:
         - mountPath: /opt/unbound/etc/unbound 
           name: adblocker-home
           subPath: unbound
-      hostNetwork: true
