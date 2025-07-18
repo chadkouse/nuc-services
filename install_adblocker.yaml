@@ -1,0 +1,108 @@
+# This is an auto-generated file. DO NOT EDIT
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    app: adblocker
+  name: adblocker
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: adblocker
+  name: unbound
+  namespace: adblocker
+spec:
+  ports:
+  - name: dns-tcp
+    port: 53
+    protocol: TCP
+    targetPort: 53
+  - name: dns-udp
+    port: 53
+    protocol: UDP
+    targetPort: 53
+  selector:
+    app: adblocker
+    run: homeassistant
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: adblocker
+    run: unbound
+  name: unbound
+  namespace: adblocker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adblocker
+      run: unbound
+  template:
+    metadata:
+      labels:
+        app: adblocker
+        run: unbound
+    spec:
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: PYTHONHTTPSVERIFY
+          value: "0"
+        image: mvance/unbound:latest
+        name: unbound
+        ports:
+        - containerPort: 53
+          name: dns-tcp
+          protocol: TCP
+        - containerPort: 53
+          name: dns-udp
+          protocol: UDP
+        volumeMounts:
+        - mountPath: /opt/unbound/etc/unbound
+          name: adblocker-home
+          subPath: unbound
+      hostNetwork: true
+      securityContext:
+        fsGroup: 1000
+      volumes:
+      - hostPath:
+          path: /opt/adblocker
+          type: DirectoryOrCreate
+        name: adblocker-home
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  labels:
+    app: adblocker
+  name: adblocker
+  namespace: adblocker
+spec:
+  entryPoints:
+  - web
+  - websecure
+  routes:
+  - kind: Rule
+    match: Host(`ha.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: homeassistant
+      namespace: smarthome
+      port: 8123
+  tls:
+    certResolver: default
+    domains:
+    - main: kouse.xyz
+      sans:
+      - '*.kouse.xyz'

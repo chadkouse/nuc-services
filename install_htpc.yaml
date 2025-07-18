@@ -7,6 +7,24 @@ metadata:
   name: htpc
 ---
 apiVersion: v1
+data:
+  DEBUG: "False"
+  DEBUG_LEVEL: info
+  DRYRUN: "False"
+  GENERATE_GUIDS: "False"
+  LIBRARY_MAPPING: '{"TV Shows":"Shows", "Other":"Misc"}'
+  SYNC_FROM_JELLYFIN_TO_JELLYFIN: "True"
+  SYNC_FROM_JELLYFIN_TO_PLEX: "True"
+  SYNC_FROM_PLEX_TO_JELLYFIN: "True"
+  USER_MAPPING: '{"chadkouse":"chad", "dad":"chad", "clemmy":"clementine"}'
+kind: ConfigMap
+metadata:
+  labels:
+    app: htpc
+  name: jellyplex-watched
+  namespace: htpc
+---
+apiVersion: v1
 kind: Service
 metadata:
   labels:
@@ -336,24 +354,6 @@ spec:
     spec:
       containers:
       - env:
-        - name: TZ
-          value: America/New_York
-        - name: PUID
-          value: "1000"
-        - name: PGID
-          value: "1000"
-        - name: DRYRUN
-          value: "False"
-        - name: DEBUG
-          value: "False"
-        - name: DEBUG_LEVEL
-          value: info
-        - name: GENERATE_GUIDS
-          value: "False"
-        - name: USER_MAPPING
-          value: '{"chadkouse":"chad", "clemmy":"clementine"}'
-        - name: LIBRARY_MAPPING
-          value: '{"TV Shows":"Shows", "Other":"Misc"}'
         - name: PLEX_BASEURL
           valueFrom:
             secretKeyRef:
@@ -374,10 +374,9 @@ spec:
             secretKeyRef:
               key: jellyfin_token
               name: jellyplex-watched
-        - name: SYNC_FROM_PLEX_TO_JELLYFIN
-          value: "True"
-        - name: SYNC_FROM_JELLYFIN_TO_PLEX
-          value: "True"
+        envFrom:
+        - configMapRef:
+            name: jellyplex-watched
         image: luigi311/jellyplex-watched
         name: jellyplex-watched
       securityContext:
@@ -954,7 +953,6 @@ spec:
       port: 8096
   - kind: Rule
     match: PathPrefix(`/sonarr`) || Host(`sonarr.kouse.xyz`)
-    middlewares: []
     priority: 0
     services:
     - kind: Service
@@ -971,7 +969,7 @@ spec:
       namespace: htpc
       port: 7878
   - kind: Rule
-    match: PathPrefix(`/bazarr`)
+    match: Host(`bazarr.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
@@ -980,11 +978,7 @@ spec:
       namespace: htpc
       port: 6767
   - kind: Rule
-    match: PathPrefix(`/qb`)
-    middlewares:
-    - name: qb-strip
-    - name: qb-redirect
-    - name: qb-headers
+    match: Host(`qb.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     priority: 0
     services:
     - kind: Service
@@ -993,7 +987,7 @@ spec:
       passHostHeader: false
       port: 8080
   - kind: Rule
-    match: PathPrefix(`/prowlarr`)
+    match: Host(`prowlarr.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
@@ -1002,7 +996,7 @@ spec:
       namespace: htpc
       port: 9696
   - kind: Rule
-    match: PathPrefix(`/nzbget`)
+    match: Host(`nzbget.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
@@ -1020,15 +1014,6 @@ spec:
       namespace: htpc
       port: 5055
   - kind: Rule
-    match: PathPrefix(`/`)
-    middlewares: []
-    priority: 1
-    services:
-    - kind: Service
-      name: qbittorrent
-      namespace: htpc
-      port: 8080
-  - kind: Rule
     match: PathPrefix(`/plex`) || Host(`plex.kouse.xyz`)
     priority: 0
     services:
@@ -1038,6 +1023,24 @@ spec:
       port: 32400
   tls:
     certResolver: default
+    domains:
+    - main: kouse.xyz
+      sans:
+      - '*.kouse.xyz'
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  labels:
+    app: htpc
+  name: ipallowlist
+  namespace: htpc
+spec:
+  ipAllowList:
+    sourceRange:
+    - 127.0.0.1/32
+    - 10.0.1.0/24
+    - 10.0.2.0/24
 ---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware

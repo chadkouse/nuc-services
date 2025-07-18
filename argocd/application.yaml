@@ -81,3 +81,24 @@ spec:
   syncPolicy:
     automated:
       prune: false
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: adblocker
+spec:
+  project: default
+  
+  source:
+    repoURL: https://github.com/chadkouse/nuc-services.git
+    targetRevision: main
+    path: overlays/adblocker
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: adblocker
+
+  # Sync policy
+  syncPolicy:
+    automated:
+      prune: false

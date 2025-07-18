@@ -12,5 +12,8 @@ kustomize build "${SRCROOT}/overlays/smarthome" >> "${SRCROOT}/install_smarthome
 echo "${AUTOGENMSG}" > "${SRCROOT}/install_matrix.yaml"
 kustomize build "${SRCROOT}/overlays/matrix" >> "${SRCROOT}/install_matrix.yaml"
 
+echo "${AUTOGENMSG}" > "${SRCROOT}/install_adblocker.yaml"
+kustomize build "${SRCROOT}/overlays/adblocker" >> "${SRCROOT}/install_adblocker.yaml"
+
 echo "${AUTOGENMSG}" > "${SRCROOT}/install_argocd.yaml"
 kustomize build "${SRCROOT}/argocd" >> "${SRCROOT}/install_argocd.yaml"

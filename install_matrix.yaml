@@ -7,6 +7,23 @@ metadata:
   name: matrix
 ---
 apiVersion: v1
+data:
+  CONTINUWUITY_ADDRESS: 0.0.0.0
+  CONTINUWUITY_ALLOW_CHECK_FOR_UPDATES: "true"
+  CONTINUWUITY_ALLOW_FEDERATION: "true"
+  CONTINUWUITY_ALLOW_REGISTRATION: "true"
+  CONTINUWUITY_DATABASE_PATH: /var/lib/continuwuity
+  CONTINUWUITY_MAX_REQUEST_SIZE: "20000000"
+  CONTINUWUITY_PORT: "6167"
+  CONTINUWUITY_TRUSTED_SERVERS: '["matrix.org"]'
+kind: ConfigMap
+metadata:
+  labels:
+    app: matrix
+  name: continuwuity
+  namespace: matrix
+---
+apiVersion: v1
 kind: Service
 metadata:
   labels:
@@ -19,9 +36,34 @@ spec:
     port: 6167
     protocol: TCP
     targetPort: 6167
+  - name: mautrix-wa
+    port: 29318
+    protocol: TCP
+    targetPort: 29318
+  - name: mautrix-slack
+    port: 29335
+    protocol: TCP
+    targetPort: 29335
   selector:
     app: matrix
     run: continuwuity
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: matrix
+  name: mautrix-wsproxy
+  namespace: matrix
+spec:
+  ports:
+  - name: wsproxy
+    port: 29331
+    protocol: TCP
+    targetPort: 29331
+  selector:
+    app: matrix
+    run: mautrix-wsproxy
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -51,6 +93,19 @@ spec:
           value: "1000"
         - name: PGID
           value: "1000"
+        - name: CONTINUWUITY_SERVER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: CONTINUWUITY_SERVER_NAME
+              name: matrix
+        - name: CONTINUWUITY_REGISTRATION_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: CONTINUWUITY_REGISTRATION_TOKEN
+              name: matrix
+        envFrom:
+        - configMapRef:
+            name: continuwuity
         image: forgejo.ellis.link/continuwuation/continuwuity:latest
         name: continuwuity
         ports:
@@ -59,8 +114,111 @@ spec:
           protocol: TCP
         volumeMounts:
         - mountPath: /var/lib/continuwuity
+          name: continuwuity-home
+      initContainers:
+      - args:
+        - -c
+        - /data/config.yaml
+        - --no-update
+        command:
+        - /usr/bin/mautrix-whatsapp
+        env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: dock.mau.dev/mautrix/whatsapp:latest
+        name: mautrix-whatsapp
+        ports:
+        - containerPort: 29318
+          name: mautrix-wa
+          protocol: TCP
+        restartPolicy: Always
+        volumeMounts:
+        - mountPath: /data
           name: matrix-home
-          subPath: continuwuity
+          subPath: mautrix-whatsapp
+      - args:
+        - -c
+        - /data/config.yaml
+        - --no-update
+        command:
+        - /usr/bin/mautrix-slack
+        env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: dock.mau.dev/mautrix/slack:latest
+        name: mautrix-slack
+        ports:
+        - containerPort: 29335
+          name: mautrix-slack
+          protocol: TCP
+        restartPolicy: Always
+        volumeMounts:
+        - mountPath: /data
+          name: matrix-home
+          subPath: mautrix-slack
+      securityContext:
+        fsGroup: 1000
+      volumes:
+      - hostPath:
+          path: /opt/matrix/continuwuity
+          type: DirectoryOrCreate
+        name: continuwuity-home
+      - hostPath:
+          path: /opt/matrix
+          type: DirectoryOrCreate
+        name: matrix-home
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: matrix
+    run: mautrix-wsproxy
+  name: mautrix-wsproxy
+  namespace: matrix
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: matrix
+      run: mautrix-wsproxy
+  template:
+    metadata:
+      labels:
+        app: matrix
+        run: mautrix-wsproxy
+    spec:
+      containers:
+      - args:
+        - -config
+        - /data/config.yaml
+        command:
+        - /usr/bin/mautrix-wsproxy
+        env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: dock.mau.dev/mautrix/wsproxy:latest
+        name: mautrix-wsproxy
+        ports:
+        - containerPort: 29331
+          name: wsproxy
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /data
+          name: matrix-home
+          subPath: mautrix-wsproxy
       securityContext:
         fsGroup: 1000
       volumes:
@@ -78,6 +236,8 @@ metadata:
   namespace: matrix
 spec:
   entryPoints:
+  - web
+  - websecure
   - matrixfed
   routes:
   - kind: Rule
@@ -91,3 +251,34 @@ spec:
       port: 6167
   tls:
     certResolver: default
+    domains:
+    - main: kouse.xyz
+      sans:
+      - '*.kouse.xyz'
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  labels:
+    app: matrix
+  name: mautrix-wsproxy
+  namespace: matrix
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - kind: Rule
+    match: Host(`matrixws.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: mautrix-wsproxy
+      namespace: matrix
+      port: 29331
+  tls:
+    certResolver: default
+    domains:
+    - main: kouse.xyz
+      sans:
+      - '*.kouse.xyz'

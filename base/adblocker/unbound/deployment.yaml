@@ -1,0 +1,43 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: unbound
+  name: unbound
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: unbound
+  template:
+    metadata:
+      labels:
+        run: unbound
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: PYTHONHTTPSVERIFY
+          value: "0"
+        image: mvance/unbound
+        name: unbound
+        ports:
+        - containerPort: 53
+          name: dns-tcp
+          protocol: TCP
+        - containerPort: 53
+          name: dns-udp
+          protocol: UDP
+        volumeMounts: 
+        - mountPath: /opt/unbound/etc/unbound 
+          name: adblocker-home
+          subPath: unbound
+      hostNetwork: true
