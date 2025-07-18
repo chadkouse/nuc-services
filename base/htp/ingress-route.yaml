@@ -15,7 +15,7 @@ spec:
           - "*.kouse.xyz"
   routes:
   - kind: Rule
-    match: PathPrefix(`/jellyfin`) || Host(`jellyfin.kouse.xyz`)
+    match: PathPrefix(`/jellyfin`) || Host(`jellyfin.kouse.xyz`) || Host(`jellyfin.lan`)
     middlewares: []
     priority: 0
     services:
@@ -24,7 +24,7 @@ spec:
       namespace: "htpc"
       port: 8096
   - kind: Rule
-    match: PathPrefix(`/sonarr`) || Host(`sonarr.kouse.xyz`)
+    match: PathPrefix(`/sonarr`) || Host(`sonarr.kouse.xyz`) || Host(`sonarr.lan`)
     priority: 0
     services:
     - kind: Service
@@ -32,7 +32,7 @@ spec:
       namespace: "htpc"
       port: 8989
   - kind: Rule
-    match: PathPrefix(`/radarr`) || Host(`radarr.kouse.xyz`)
+    match: PathPrefix(`/radarr`) || Host(`radarr.kouse.xyz`) || Host(`radarr.lan`)
     middlewares: []
     priority: 0
     services:
@@ -41,7 +41,7 @@ spec:
       namespace: "htpc"
       port: 7878
   - kind: Rule
-    match: Host(`bazarr.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    match: Host(`bazarr.lan`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
@@ -50,7 +50,7 @@ spec:
       namespace: "htpc"
       port: 6767
   - kind: Rule
-    match: Host(`qb.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    match: Host(`qbittorrent.lan`) && ClientIP(`10.0.0.0/8`)
     # middlewares:
     #   - name: qb-strip
     #   - name: qb-redirect
@@ -72,7 +72,7 @@ spec:
   #     namespace: "htpc"
   #     port: 9091
   - kind: Rule
-    match: Host(`prowlarr.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    match: Host(`prowlarr.lan`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
@@ -81,7 +81,7 @@ spec:
       namespace: "htpc"
       port: 9696
   - kind: Rule
-    match: Host(`nzbget.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    match: Host(`nzbget.lan`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
@@ -90,7 +90,7 @@ spec:
       namespace: "htpc"
       port: 6789
   - kind: Rule
-    match: PathPrefix(`/overseerr`) || Host(`overseerr.kouse.xyz`)
+    match: PathPrefix(`/overseerr`) || Host(`overseerr.kouse.xyz`) || Host(`overseerr.lan`)
     middlewares: []
     priority: 0
     services:
@@ -99,7 +99,7 @@ spec:
       namespace: "htpc"
       port: 5055
   - kind: Rule
-    match: PathPrefix(`/plex`) || Host(`plex.kouse.xyz`)
+    match: PathPrefix(`/plex`) || Host(`plex.kouse.xyz`) || Host(`plex.lan`)
     priority: 0
     services:
     - kind: Service
