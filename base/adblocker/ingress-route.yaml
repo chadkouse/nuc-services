@@ -7,8 +7,7 @@ spec:
   entryPoints:
     - unboundtcp
   routes:
-  - kind: Rule
-    match: ClientIP(`10.0.0.0/8`)
+  - match: ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
@@ -25,8 +24,7 @@ spec:
   entryPoints:
     - unboundudp
   routes:
-  - kind: Rule
-    match: ClientIP(`10.0.0.0/8`)
+  - match: ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
