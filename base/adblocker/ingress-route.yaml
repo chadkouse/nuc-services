@@ -14,6 +14,7 @@ spec:
     - name: unbound
       namespace: adblocker
       port: 5335
+      nativeLB: true
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRouteUDP
@@ -27,3 +28,4 @@ spec:
     - name: unbound
       namespace: adblocker
       port: 5335
+      nativeLB: true
