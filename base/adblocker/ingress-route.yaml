@@ -15,4 +15,4 @@ spec:
     - kind: Service
       name: unbound
       namespace: adblocker
-      port: 5353
+      port: 5335
