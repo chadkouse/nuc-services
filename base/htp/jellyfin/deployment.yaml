@@ -36,8 +36,7 @@ spec:
           protocol: TCP
         volumeMounts: 
         - mountPath: /config 
-          name: htpc-home
-          subPath: jellyfin
+          name: jellyfin-home
         - mountPath: /tv
           name: htpc-media-tv
         - mountPath: /movies
