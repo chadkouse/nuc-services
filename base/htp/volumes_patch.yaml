@@ -136,9 +136,9 @@ spec:
     spec:
       volumes:
       - hostPath:
-          path: /opt/htpc
+          path: /opt/htpc/jellyfin
           type: DirectoryOrCreate
-        name: htpc-home
+        name: jellyfin-home
       - hostPath: 
           path: /media/seagate2/plex/tv
         name: htpc-media-tv
