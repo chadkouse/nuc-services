@@ -26,6 +26,11 @@ spec:
         - name: PGID
           value: "1000"
         image: lscr.io/linuxserver/jellyfin
+        resources:
+          limits:
+            gpu.intel.com/i915: "1"
+          requests:
+            gpu.intel.com/i915: "1"
         name: jellyfin
         ports:
         - containerPort: 8096
