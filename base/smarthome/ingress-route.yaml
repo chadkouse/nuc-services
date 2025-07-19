@@ -17,6 +17,15 @@ spec:
       name: homeassistant
       namespace: "smarthome"
       port: 8123
+  - kind: Rule
+    match: Host(`frigate.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: frigate
+      namespace: "smarthome"
+      port: 8971
   tls:
     certResolver: default
     domains:

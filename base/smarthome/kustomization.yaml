@@ -9,6 +9,7 @@ commonLabels:
 resources:
 - namespace.yaml
 - homeassistant
+- frigate
 - ingress-route.yaml
 - cron.yaml
 
