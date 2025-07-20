@@ -9,7 +9,7 @@ spec:
     - websecure
   routes:
   - kind: Rule
-    match: Host(`ha.kouse.xyz`)
+    match: Host(`ha.kouse.xyz`) || Host(`ha.nuc.lan`)
     middlewares: []
     priority: 0
     services:
@@ -74,7 +74,7 @@ spec:
   entryPoints:
     - frigatertsp
   routes:
-  - match: HostSNI(`*`)
+  - match: HostSNI(`*`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
