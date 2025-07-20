@@ -27,7 +27,7 @@ spec:
       namespace: "smarthome"
       port: http
   - kind: Rule
-    match: Host(`mqtt.lan`)
+    match: Host(`mqtt.nuc.lan`)
     middlewares: []
     priority: 0
     services:
