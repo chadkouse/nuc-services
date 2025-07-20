@@ -23,3 +23,16 @@ spec:
           path: /opt/smarthome/mosquitto 
           type: DirectoryOrCreate 
         name: mosquitto-home
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frigate
+spec:
+  template:
+    spec:
+      volumes: 
+      - hostPath: 
+          path: /opt/smarthome/frigate 
+          type: DirectoryOrCreate 
+        name: frigate-home

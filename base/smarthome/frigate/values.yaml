@@ -64,7 +64,7 @@ config: |
     # Required: host name
     host: mqtt.nuc.lan
     # Optional: port (default: shown below)
-    port: 80
+    port: 1883
     # Optional: topic prefix (default: shown below)
     # WARNING: must be unique if you are running multiple instances
     topic_prefix: frigate
@@ -201,7 +201,7 @@ persistence:
 
   config:
     # -- Enables persistence for the config directory
-    enabled: false
+    enabled: true
     ## frigate data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -213,14 +213,14 @@ persistence:
     ##
     ## If you want to reuse an existing claim, you can pass the name of the PVC using
     ## the existingClaim variable
-    # existingClaim: your-claim
+    existingClaim: frigate-home
     # subPath: some-subpath
 
     # -- [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) to use for the PVC
-    accessMode: ReadWriteOnce
+    # accessMode: ReadWriteOnce
 
     # -- size/capacity of the PVC
-    size: 100Mi
+    # size: 100Mi
 
     # -- Do not delete the pvc upon helm uninstall
     skipuninstall: false
@@ -233,7 +233,7 @@ persistence:
 
   media:
     # -- Enables persistence for the media directory
-    enabled: false
+    enabled: true
     ## frigate data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -245,14 +245,14 @@ persistence:
     ##
     ## If you want to reuse an existing claim, you can pass the name of the PVC using
     ## the existingClaim variable
-    # existingClaim: your-claim
-    # subPath: some-subpath
+    existingClaim: frigate-home
+    subPath: media
 
     # -- [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) to use for the PVC
-    accessMode: ReadWriteOnce
+    # accessMode: ReadWriteOnce
 
     # -- size/capacity of the PVC
-    size: 10Gi
+    # size: 10Gi
 
     # -- Do not delete the pvc upon helm uninstall
     skipuninstall: false
