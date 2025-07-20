@@ -225,18 +225,18 @@ spec:
       annotations:
         checksum/configmap: cd56cb16519dd78836d23a821e84b77dce4f44e1c7ac078c46a3bcba4e2e772b
     spec:
-      initContainers:
-        - name: copyconfig
-          image: "ghcr.io/blakeblackshear/frigate:stable"
-          imagePullPolicy: IfNotPresent
-          volumeMounts:
-            - mountPath: /config.yml
-              subPath: config.yml
-              name: configmap
-            - mountPath: /config
-              name: config
-          command: [ "cp" ]
-          args: [ "-v", "/config.yml", "/config/config.yml" ]
+      # initContainers:
+      #   - name: copyconfig
+      #     image: "ghcr.io/blakeblackshear/frigate:stable"
+      #     imagePullPolicy: IfNotPresent
+      #     volumeMounts:
+      #       - mountPath: /config.yml
+      #         subPath: config.yml
+      #         name: configmap
+      #       - mountPath: /config
+      #         name: config
+      #     command: [ "cp" ]
+      #     args: [ "-v", "/config.yml", "/config/config.yml" ]
       containers:
         - name: frigate
           image: "ghcr.io/blakeblackshear/frigate:stable"
