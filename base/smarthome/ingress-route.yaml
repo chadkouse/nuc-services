@@ -41,6 +41,7 @@ spec:
       name: home-frigate
       namespace: "smarthome"
       port: http-auth
+      scheme: https
   tls:
     certResolver: default
     domains:
