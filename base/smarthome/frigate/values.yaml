@@ -67,16 +67,16 @@ config: |
     port: 1883
     # Optional: topic prefix (default: shown below)
     # WARNING: must be unique if you are running multiple instances
-    topic_prefix: {FRIGATE_MQTT_TOPIC}
+    topic_prefix: frigate
     # Optional: client id (default: shown below)
     # WARNING: must be unique if you are running multiple instances
-    client_id: {FRIGATE_MQTT_CLIENT_ID}
+    client_id: frigate
     # Optional: user
-    user: {FRIGATE_MQTT_USERNAME}
+    user: '{FRIGATE_MQTT_USER}'
     # Optional: password
     # NOTE: Environment variables that begin with 'FRIGATE_' may be referenced in {}.
     #       eg. password: '{FRIGATE_MQTT_PASSWORD}'
-    password: {FRIGATE_MQTT_PASSWORD}
+    password: '{FRIGATE_MQTT_PASSWORD}'
     # Optional: interval in seconds for publishing stats (default: shown below)
     stats_interval: 60
 
@@ -99,9 +99,9 @@ config: |
   go2rtc:
     streams:
       driveway:
-        - "ffmpeg:http://driveway.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_REOLINK_USER}&password={FRIGATE_REOLINK_PASS}#video=copy#audio=copy#audio=opus"
+        - "ffmpeg:http://driveway.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}#video=copy#audio=copy#audio=opus"
       driveway_sub:
-        - "ffmpeg:http://driveway.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_REOLINK_USER}&password={FRIGATE_REOLINK_PASS}"
+        - "ffmpeg:http://driveway.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}"
 
   cameras:
     # Name of your camera
