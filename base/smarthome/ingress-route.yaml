@@ -42,7 +42,7 @@ spec:
     - web
     - websecure
   routes:
-  - match: Host(`mqtt.nuc.lan`)
+  - match: HostSNI(`mqtt.nuc.lan`)
     middlewares: []
     priority: 0
     services:
