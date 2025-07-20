@@ -16,7 +16,7 @@ data:
       # Required: host name
       host: mqtt.nuc.lan
       # Optional: port (default: shown below)
-      port: 1883
+      port: 80
       # Optional: topic prefix (default: shown below)
       # WARNING: must be unique if you are running multiple instances
       topic_prefix: frigate
@@ -140,7 +140,7 @@ spec:
         app.kubernetes.io/name: frigate
         app.kubernetes.io/instance: home
       annotations:
-        checksum/configmap: 87d9060bc3eeb9d02a098fd874c8cb47b78ac7f219f5c828cacbfade70978b60
+        checksum/configmap: 7009e33281ad22bd2a03221b77a4f0fbefaabfd1954ebcd1256e05a1b50108d4
     spec:
       containers:
         - name: frigate
