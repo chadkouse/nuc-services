@@ -11,21 +11,100 @@ kind: Service
 metadata:
   labels:
     app: adblocker
+  name: blocky
+  namespace: adblocker
+spec:
+  ports:
+  - name: blocky-tcp
+    port: 53
+    protocol: TCP
+    targetPort: 53
+  - name: blocky-udp
+    port: 53
+    protocol: UDP
+    targetPort: 53
+  - name: prometheus
+    port: 4000
+    protocol: TCP
+    targetPort: 4000
+  selector:
+    app: adblocker
+    run: blocky
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: adblocker
   name: unbound
   namespace: adblocker
 spec:
   ports:
   - name: dns-tcp
-    port: 53
+    port: 5335
     protocol: TCP
-    targetPort: 53
+    targetPort: 5335
   - name: dns-udp
-    port: 53
+    port: 5335
     protocol: UDP
-    targetPort: 53
+    targetPort: 5335
   selector:
     app: adblocker
-    run: homeassistant
+    run: unbound
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: adblocker
+    run: blocky
+  name: blocky
+  namespace: adblocker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adblocker
+      run: blocky
+  template:
+    metadata:
+      labels:
+        app: adblocker
+        run: blocky
+    spec:
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: PYTHONHTTPSVERIFY
+          value: "0"
+        image: spx01/blocky:latest
+        name: blocky
+        ports:
+        - containerPort: 53
+          name: blocky-tcp
+          protocol: TCP
+        - containerPort: 53
+          name: blocky-udp
+          protocol: UDP
+        - containerPort: 4000
+          name: blocky-web
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /app/config.yml
+          name: adblocker-home
+          subPath: blocky/config.yml
+      securityContext:
+        fsGroup: 1000
+      volumes:
+      - hostPath:
+          path: /opt/adblocker
+          type: DirectoryOrCreate
+        name: adblocker-home
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -60,17 +139,16 @@ spec:
         image: mvance/unbound:latest
         name: unbound
         ports:
-        - containerPort: 53
+        - containerPort: 5335
           name: dns-tcp
           protocol: TCP
-        - containerPort: 53
+        - containerPort: 5335
           name: dns-udp
           protocol: UDP
         volumeMounts:
         - mountPath: /opt/unbound/etc/unbound
           name: adblocker-home
           subPath: unbound
-      hostNetwork: true
       securityContext:
         fsGroup: 1000
       volumes:
@@ -84,25 +162,91 @@ kind: IngressRoute
 metadata:
   labels:
     app: adblocker
-  name: adblocker
+  name: blocky
   namespace: adblocker
 spec:
   entryPoints:
-  - web
-  - websecure
+  - prometheus
   routes:
   - kind: Rule
-    match: Host(`ha.kouse.xyz`)
-    middlewares: []
+    match: Host(`blocky.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     priority: 0
     services:
     - kind: Service
-      name: homeassistant
-      namespace: smarthome
-      port: 8123
-  tls:
-    certResolver: default
-    domains:
-    - main: kouse.xyz
-      sans:
-      - '*.kouse.xyz'
+      name: blocky
+      namespace: adblocker
+      port: prometheus
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  labels:
+    app: adblocker
+  name: blocky
+  namespace: adblocker
+spec:
+  entryPoints:
+  - dnstcp
+  routes:
+  - match: HostSNI(`*`)
+    middlewares: []
+    priority: 0
+    services:
+    - name: blocky
+      namespace: adblocker
+      nativeLB: true
+      port: 53
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  labels:
+    app: adblocker
+  name: unbound
+  namespace: adblocker
+spec:
+  entryPoints:
+  - unboundtcp
+  routes:
+  - match: HostSNI(`*`)
+    middlewares: []
+    priority: 0
+    services:
+    - name: unbound
+      namespace: adblocker
+      nativeLB: true
+      port: 5335
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  labels:
+    app: adblocker
+  name: blocky
+  namespace: adblocker
+spec:
+  entryPoints:
+  - dnsudp
+  routes:
+  - services:
+    - name: blocky
+      namespace: adblocker
+      nativeLB: true
+      port: 53
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  labels:
+    app: adblocker
+  name: unbound
+  namespace: adblocker
+spec:
+  entryPoints:
+  - unboundudp
+  routes:
+  - services:
+    - name: unbound
+      namespace: adblocker
+      nativeLB: true
+      port: 5335

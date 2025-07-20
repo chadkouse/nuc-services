@@ -305,10 +305,14 @@ spec:
         - containerPort: 8920
           name: webui-ssl
           protocol: TCP
+        resources:
+          limits:
+            gpu.intel.com/i915: "1"
+          requests:
+            gpu.intel.com/i915: "1"
         volumeMounts:
         - mountPath: /config
-          name: htpc-home
-          subPath: jellyfin
+          name: jellyfin-home
         - mountPath: /tv
           name: htpc-media-tv
         - mountPath: /movies
@@ -319,9 +323,9 @@ spec:
         fsGroup: 1000
       volumes:
       - hostPath:
-          path: /opt/htpc
+          path: /opt/htpc/jellyfin
           type: DirectoryOrCreate
-        name: htpc-home
+        name: jellyfin-home
       - hostPath:
           path: /media/seagate2/plex/tv
         name: htpc-media-tv
@@ -544,7 +548,6 @@ spec:
           name: htpc-media-movies
         - mountPath: /sports
           name: htpc-media-sports
-      hostNetwork: true
       securityContext:
         fsGroup: 1000
       volumes:
@@ -978,7 +981,7 @@ spec:
       namespace: htpc
       port: 6767
   - kind: Rule
-    match: Host(`qb.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    match: Host(`qbittorrent.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     priority: 0
     services:
     - kind: Service

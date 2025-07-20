@@ -14,4 +14,4 @@ spec:
         - --insecure
         - --disable-auth
         - --rootpath
-        - /
+        - /argocd
