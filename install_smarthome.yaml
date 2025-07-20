@@ -9,7 +9,7 @@ metadata:
 apiVersion: v1
 data:
   config.yml: "mqtt:\n  # Required: host name\n  host: mqtt.nuc.lan\n  # Optional:
-    port (default: shown below)\n  port: 80\n  # Optional: topic prefix (default:
+    port (default: shown below)\n  port: 1883\n  # Optional: topic prefix (default:
     shown below)\n  # WARNING: must be unique if you are running multiple instances\n
     \ topic_prefix: frigate\n  # Optional: client id (default: shown below)\n  # WARNING:
     must be unique if you are running multiple instances\n  client_id: frigate\n  #
@@ -22,11 +22,39 @@ data:
     300\n  input_tensor: nhwc\n  input_pixel_format: bgr\n  path: /openvino-model/ssdlite_mobilenet_v2.xml\n
     \ labelmap_path: /openvino-model/coco_91cl_bkgr.txt\n  \ngo2rtc:\n  streams:\n
     \   driveway:\n      - \"ffmpeg:http://driveway.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}#video=copy#audio=copy#audio=opus\"\n
-    \   driveway_sub:\n      - \"ffmpeg:http://driveway.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}\"\n\ncameras:\n
+    \   driveway_sub:\n      - \"ffmpeg:http://driveway.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}\"\n
+    \   parking:\n      - \"ffmpeg:http://parking.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}#video=copy#audio=copy#audio=opus\"\n
+    \   parking_sub:\n      - \"ffmpeg:http://parking.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}\"\n
+    \   backyard:\n      - \"ffmpeg:http://backyard.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}#video=copy#audio=copy#audio=opus\"\n
+    \   backyard_sub:\n      - \"ffmpeg:http://backyard.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}\"\n
+    \   garage:\n      - \"ffmpeg:http://garage.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}#video=copy#audio=copy#audio=opus\"\n
+    \   garage_sub:\n      - \"ffmpeg:http://garage.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}\"\n
+    \   street:\n      - \"ffmpeg:http://street.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}#video=copy#audio=copy#audio=opus\"\n
+    \   street_sub:\n      - \"ffmpeg:http://street.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}\"\n
+    \   front_doorbell:\n      - \"ffmpeg:http://front-doorbell.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}#video=copy#audio=copy#audio=opus\"\n
+    \   front_doorbell_sub:\n      - \"ffmpeg:http://front-doorbell.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}\"\n\ncameras:\n
     \ # Name of your camera\n  driveway:\n    ffmpeg:\n      inputs:\n        - path:
     rtsp://127.0.0.1:8554/driveway\n          roles:\n            - record\n        -
     path: rtsp://127.0.0.1:8554/driveway_sub\n          roles:\n            - detect\n
-    \   webui_url: http://driveway.cams.lan\n"
+    \   webui_url: http://driveway.cams.lan\n  parking:\n    ffmpeg:\n      inputs:\n
+    \       - path: rtsp://127.0.0.1:8554/parking\n          roles:\n            -
+    record\n        - path: rtsp://127.0.0.1:8554/parking_sub\n          roles:\n
+    \           - detect\n    webui_url: http://parking.cams.lan\n  backyard:\n    ffmpeg:\n
+    \     inputs:\n        - path: rtsp://127.0.0.1:8554/backyard\n          roles:\n
+    \           - record\n        - path: rtsp://127.0.0.1:8554/backyard_sub\n          roles:\n
+    \           - detect\n    webui_url: http://backyard.cams.lan\n  garage:\n    ffmpeg:\n
+    \     inputs:\n        - path: rtsp://127.0.0.1:8554/garage\n          roles:\n
+    \           - record\n        - path: rtsp://127.0.0.1:8554/garage_sub\n          roles:\n
+    \           - detect\n    webui_url: http://garage.cams.lan\n  street:\n    ffmpeg:\n
+    \     inputs:\n        - path: rtsp://127.0.0.1:8554/street\n          roles:\n
+    \           - record\n        - path: rtsp://127.0.0.1:8554/street_sub\n          roles:\n
+    \           - detect\n    webui_url: http://street.cams.lan\n  front_doorbell:\n
+    \   ffmpeg:\n      inputs:\n        - path: rtsp://127.0.0.1:8554/front_doorbell\n
+    \         roles:\n            - record\n        - path: rtsp://127.0.0.1:8554/front_doorbell_sub\n
+    \         roles:\n            - detect\n    webui_url: http://front-doorbell.cams.lan\n\nrecord:\n
+    \ enabled: True\n  retain:\n    days: 1\n    mode: motion\n  alerts:\n    retain:\n
+    \     days: 2\n      mode: motion\n  detections:\n    retain:\n      days: 2\n
+    \     mode: motion\n"
 kind: ConfigMap
 metadata:
   labels:
@@ -44,9 +72,8 @@ metadata:
   labels:
     app: smarthome
     app.kubernetes.io/instance: home
-    app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: frigate
-    app.kubernetes.io/version: 0.14.1
+    app.kubernetes.io/version: stable
     helm.sh/chart: frigate-7.8.0
   name: home-frigate
   namespace: smarthome
@@ -125,7 +152,7 @@ metadata:
     app.kubernetes.io/instance: home
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: frigate
-    app.kubernetes.io/version: 0.14.1
+    app.kubernetes.io/version: stable
     helm.sh/chart: frigate-7.8.0
   name: home-frigate
   namespace: smarthome
@@ -142,7 +169,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/configmap: 7009e33281ad22bd2a03221b77a4f0fbefaabfd1954ebcd1256e05a1b50108d4
+        checksum/configmap: cd56cb16519dd78836d23a821e84b77dce4f44e1c7ac078c46a3bcba4e2e772b
       labels:
         app: smarthome
         app.kubernetes.io/instance: home
@@ -155,7 +182,7 @@ spec:
         envFrom:
         - secretRef:
             name: frigate-secret-env
-        image: ghcr.io/blakeblackshear/frigate:0.14.1
+        image: ghcr.io/blakeblackshear/frigate:stable
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 5
@@ -203,9 +230,6 @@ spec:
             gpu.intel.com/i915: "1"
         securityContext: {}
         volumeMounts:
-        - mountPath: /config/config.yml
-          name: configmap
-          subPath: config.yml
         - mountPath: /config
           name: config
         - mountPath: /data
@@ -217,15 +241,19 @@ spec:
         - mountPath: /tmp
           name: tmp
       volumes:
+      - hostPath:
+          path: /opt/smarthome/frigate
+          type: DirectoryOrCreate
+        name: config
+      - hostPath:
+          path: /opt/smarthome/frigate-media
+          type: DirectoryOrCreate
+        name: media
       - configMap:
           name: home-frigate
         name: configmap
       - emptyDir: {}
-        name: config
-      - emptyDir: {}
         name: data
-      - emptyDir: {}
-        name: media
       - emptyDir:
           medium: Memory
           sizeLimit: 1Gi
@@ -381,6 +409,55 @@ kind: IngressRoute
 metadata:
   labels:
     app: smarthome
+  name: frigate
+  namespace: smarthome
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - kind: Rule
+    match: Host(`frigate.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: home-frigate
+      namespace: smarthome
+      port: http-auth
+      scheme: https
+  tls:
+    certResolver: default
+    domains:
+    - main: kouse.xyz
+      sans:
+      - '*.kouse.xyz'
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  labels:
+    app: smarthome
+  name: homeassistant-local
+  namespace: smarthome
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host(`ha.nuc.lan`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: homeassistant
+      namespace: smarthome
+      port: 8123
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  labels:
+    app: smarthome
   name: smarthome
   namespace: smarthome
 spec:
@@ -397,18 +474,47 @@ spec:
       name: homeassistant
       namespace: smarthome
       port: 8123
-  - kind: Rule
-    match: Host(`frigate.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
-    middlewares: []
-    priority: 0
-    services:
-    - kind: Service
-      name: home-frigate
-      namespace: smarthome
-      port: http
   tls:
     certResolver: default
     domains:
     - main: kouse.xyz
       sans:
       - '*.kouse.xyz'
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  labels:
+    app: smarthome
+  name: frigate-rtsp
+  namespace: smarthome
+spec:
+  entryPoints:
+  - frigatertsp
+  routes:
+  - match: HostSNI(`*`) && ClientIP(`10.0.0.0/8`)
+    middlewares: []
+    priority: 0
+    services:
+    - name: home-frigate
+      namespace: smarthome
+      port: rtsp
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  labels:
+    app: smarthome
+  name: mosquitto
+  namespace: smarthome
+spec:
+  entryPoints:
+  - mqtt
+  routes:
+  - match: HostSNI(`*`) && ClientIP(`10.0.0.0/8`)
+    middlewares: []
+    priority: 0
+    services:
+    - name: mosquitto
+      namespace: smarthome
+      port: mosquitto

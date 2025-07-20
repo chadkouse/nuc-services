@@ -11028,24 +11028,6 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: adblocker
-  namespace: argocd
-spec:
-  destination:
-    namespace: adblocker
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    path: overlays/adblocker
-    repoURL: https://github.com/chadkouse/nuc-services.git
-    targetRevision: main
-  syncPolicy:
-    automated:
-      prune: false
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
   name: argocd
   namespace: argocd
 spec:
@@ -11055,60 +11037,6 @@ spec:
   project: default
   source:
     path: argocd
-    repoURL: https://github.com/chadkouse/nuc-services.git
-    targetRevision: main
-  syncPolicy:
-    automated:
-      prune: false
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: htpc
-  namespace: argocd
-spec:
-  destination:
-    namespace: htpc
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    path: overlays/htpc
-    repoURL: https://github.com/chadkouse/nuc-services.git
-    targetRevision: main
-  syncPolicy:
-    automated:
-      prune: false
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: matrix
-  namespace: argocd
-spec:
-  destination:
-    namespace: matrix
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    path: overlays/matrix
-    repoURL: https://github.com/chadkouse/nuc-services.git
-    targetRevision: main
-  syncPolicy:
-    automated:
-      prune: false
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: smarthome
-  namespace: argocd
-spec:
-  destination:
-    namespace: smarthome
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    path: overlays/smarthome
     repoURL: https://github.com/chadkouse/nuc-services.git
     targetRevision: main
   syncPolicy:

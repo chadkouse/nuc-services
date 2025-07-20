@@ -1,27 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: htpc
-spec:
-  project: default
-  
-  source:
-    repoURL: https://github.com/chadkouse/nuc-services.git
-    targetRevision: main
-    path: overlays/htpc
-
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: htpc
-
-  # Sync policy
-  syncPolicy:
-    automated:
-      prune: false
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
   name: argocd
 spec:
   project: default
@@ -34,69 +13,6 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
-
-  # Sync policy
-  syncPolicy:
-    automated:
-      prune: false
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: smarthome
-spec:
-  project: default
-  
-  source:
-    repoURL: https://github.com/chadkouse/nuc-services.git
-    targetRevision: main
-    path: overlays/smarthome
-
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: smarthome
-
-  # Sync policy
-  syncPolicy:
-    automated:
-      prune: false
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: matrix
-spec:
-  project: default
-  
-  source:
-    repoURL: https://github.com/chadkouse/nuc-services.git
-    targetRevision: main
-    path: overlays/matrix
-
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: matrix
-
-  # Sync policy
-  syncPolicy:
-    automated:
-      prune: false
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: adblocker
-spec:
-  project: default
-  
-  source:
-    repoURL: https://github.com/chadkouse/nuc-services.git
-    targetRevision: main
-    path: overlays/adblocker
-
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: adblocker
 
   # Sync policy
   syncPolicy:
