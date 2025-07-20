@@ -27,7 +27,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: smarthome
+  name: homeassistant-local
 spec:
   entryPoints:
     - web
@@ -76,7 +76,7 @@ spec:
   entryPoints:
     - mqtt
   routes:
-  - match: HostSNI(`*`)
+  - match: HostSNI(`*`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
@@ -92,7 +92,7 @@ spec:
   entryPoints:
     - frigatertsp
   routes:
-  - match: HostSNI(`*`)
+  - match: HostSNI(`*`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
     services:
