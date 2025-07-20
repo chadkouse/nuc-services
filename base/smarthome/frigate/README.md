@@ -13,7 +13,7 @@ helm repo add blakeblackshear https://blakeblackshear.github.io/blakeshome-chart
 helm fetch blakeblackshear/frigate --untar --untardir . # this should be done from within the `frigate` parent dir
 
 # template the chart
-helm template kouse.xyz frigate -f ./values.yaml > application.yaml
+helm template home frigate -f ./values.yaml > application.yaml
 
 ```
 
