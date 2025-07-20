@@ -111,6 +111,26 @@ config: |
         - "ffmpeg:http://driveway.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}#video=copy#audio=copy#audio=opus"
       driveway_sub:
         - "ffmpeg:http://driveway.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}"
+      parking:
+        - "ffmpeg:http://parking.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}#video=copy#audio=copy#audio=opus"
+      parking_sub:
+        - "ffmpeg:http://parking.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}"
+      backyard:
+        - "ffmpeg:http://backyard.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}#video=copy#audio=copy#audio=opus"
+      backyard_sub:
+        - "ffmpeg:http://backyard.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}"
+      garage:
+        - "ffmpeg:http://garage.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}#video=copy#audio=copy#audio=opus"
+      garage_sub:
+        - "ffmpeg:http://garage.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}"
+      street:
+        - "ffmpeg:http://street.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}#video=copy#audio=copy#audio=opus"
+      street_sub:
+        - "ffmpeg:http://street.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}"
+      front_doorbell:
+        - "ffmpeg:http://front-doorbell.cams.lan/flv?port=1935&app=bcs&stream=channel0_main.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}#video=copy#audio=copy#audio=opus"
+      front_doorbell_sub:
+        - "ffmpeg:http://front-doorbell.cams.lan/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}"
 
   cameras:
     # Name of your camera
@@ -124,6 +144,56 @@ config: |
             roles:
               - detect
       webui_url: http://driveway.cams.lan
+    parking:
+      ffmpeg:
+        inputs:
+          - path: rtsp://127.0.0.1:8554/parking
+            roles:
+              - record
+          - path: rtsp://127.0.0.1:8554/parking_sub
+            roles:
+              - detect
+      webui_url: http://parking.cams.lan
+    backyard:
+      ffmpeg:
+        inputs:
+          - path: rtsp://127.0.0.1:8554/backyard
+            roles:
+              - record
+          - path: rtsp://127.0.0.1:8554/backyard_sub
+            roles:
+              - detect
+      webui_url: http://backyard.cams.lan
+    garage:
+      ffmpeg:
+        inputs:
+          - path: rtsp://127.0.0.1:8554/garage
+            roles:
+              - record
+          - path: rtsp://127.0.0.1:8554/garage_sub
+            roles:
+              - detect
+      webui_url: http://garage.cams.lan
+    street:
+      ffmpeg:
+        inputs:
+          - path: rtsp://127.0.0.1:8554/street
+            roles:
+              - record
+          - path: rtsp://127.0.0.1:8554/street_sub
+            roles:
+              - detect
+      webui_url: http://street.cams.lan
+    front_doorbell:
+      ffmpeg:
+        inputs:
+          - path: rtsp://127.0.0.1:8554/front_doorbell
+            roles:
+              - record
+          - path: rtsp://127.0.0.1:8554/front_doorbell_sub
+            roles:
+              - detect
+      webui_url: http://front-doorbell.cams.lan
 
 # Probes configuration
 probes:
