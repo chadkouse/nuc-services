@@ -206,7 +206,7 @@ metadata:
     app.kubernetes.io/name: frigate
     helm.sh/chart: frigate-7.8.0
     app.kubernetes.io/instance: home
-    app.kubernetes.io/version: "0.14.1"
+    app.kubernetes.io/version: "stable"
     app.kubernetes.io/managed-by: Helm
 spec:
   replicas: 1
@@ -239,7 +239,7 @@ spec:
           args: [ "-v", "/config.yml", "/config/config.yml" ]
       containers:
         - name: frigate
-          image: "ghcr.io/blakeblackshear/frigate:0.14.1"
+          image: "ghcr.io/blakeblackshear/frigate:stable"
           imagePullPolicy: IfNotPresent
           securityContext:
             {}
