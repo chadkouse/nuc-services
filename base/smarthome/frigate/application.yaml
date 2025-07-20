@@ -137,6 +137,20 @@ data:
               roles:
                 - detect
         webui_url: http://front-doorbell.cams.lan
+    
+    record:
+      enabled: True
+      retain:
+        days: 1
+        mode: motion
+      alerts:
+        retain:
+          days: 2
+          mode: motion
+      detections:
+        retain:
+          days: 2
+          mode: motion
 ---
 # Source: frigate/templates/service.yaml
 apiVersion: v1
