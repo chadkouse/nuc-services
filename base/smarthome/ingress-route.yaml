@@ -60,7 +60,7 @@ spec:
       namespace: "smarthome"
       port: http-auth
       scheme: https
-      # serversTransport: frigate
+      serversTransport: frigate
   tls:
     certResolver: default
     domains:
