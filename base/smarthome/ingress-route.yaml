@@ -39,10 +39,9 @@ metadata:
   name: mosquitto
 spec:
   entryPoints:
-    - web
-    - websecure
+    - mqtt
   routes:
-  - match: HostSNI(`mqtt.nuc.lan`)
+  - match: HostSNI(`*`)
     middlewares: []
     priority: 0
     services:
