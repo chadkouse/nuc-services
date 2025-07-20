@@ -12,7 +12,7 @@ resources:
 - homeassistant
 - frigate
 - ingress-route.yaml
-- cron.yaml
+# - cron.yaml
 
 patchesStrategicMerge:
 - volumes_patch.yaml
