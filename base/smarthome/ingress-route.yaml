@@ -96,6 +96,6 @@ spec:
     middlewares: []
     priority: 0
     services:
-    - name: frigate
+    - name: home-frigate
       namespace: smarthome
       port: rtsp
