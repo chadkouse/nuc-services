@@ -16,7 +16,7 @@ data:
       # Required: host name
       host: mqtt.nuc.lan
       # Optional: port (default: shown below)
-      port: 80
+      port: 1883
       # Optional: topic prefix (default: shown below)
       # WARNING: must be unique if you are running multiple instances
       topic_prefix: frigate
