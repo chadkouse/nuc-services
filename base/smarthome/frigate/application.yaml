@@ -240,3 +240,11 @@ spec:
           emptyDir:
             medium: Memory
             sizeLimit: 1Gi
+        - hostPath:
+            path: /opt/smarthome/frigate
+            type: DirectoryOrCreate
+          name: config
+        - hostPath:
+            path: /opt/smarthome/frigate-media
+            type: DirectoryOrCreate
+          name: media

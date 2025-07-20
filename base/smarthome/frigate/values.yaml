@@ -40,7 +40,16 @@ gpu:
     runtimeClassName:
 
 # -- declare extra volumes to use for Frigate
-extraVolumes: []
+extraVolumes:
+  - hostPath:
+      path: /opt/smarthome/frigate
+      type: DirectoryOrCreate
+    name: config
+  - hostPath:
+      path: /opt/smarthome/frigate-media
+      type: DirectoryOrCreate
+    name: media
+
 # -- declare additional volume mounts
 extraVolumeMounts: []
 
