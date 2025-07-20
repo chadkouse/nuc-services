@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: mosquitto
+  name: mosquitto
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: mosquitto
+  template:
+    metadata:
+      labels:
+        run: mosquitto
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: PYTHONHTTPSVERIFY
+          value: "0"
+        image: eclipse-mosquitto
+        name: mosquitto
+        ports:
+        - containerPort: 1883
+          name: mosquitto
+          protocol: TCP
+        volumeMounts: 
+        - mountPath: /mosquitto/config 
+          name: mosquitto-home

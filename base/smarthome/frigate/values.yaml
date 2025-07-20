@@ -62,7 +62,7 @@ fullnameOverride: ""
 config: |
   mqtt:
     # Required: host name
-    host: homeassistant
+    host: mqtt.nuc.lan
     # Optional: port (default: shown below)
     port: 1883
     # Optional: topic prefix (default: shown below)

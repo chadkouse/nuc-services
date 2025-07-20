@@ -9,3 +9,5 @@ images:
     newTag: 2025.7.1-ls119
   - name: luigi311/jellyplex-watched
     newTag: sha-ef74802-slim
+  - name: eclipse-mosquitto
+    newTag: openssl

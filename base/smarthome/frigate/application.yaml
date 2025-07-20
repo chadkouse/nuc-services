@@ -14,7 +14,7 @@ data:
   config.yml: |
     mqtt:
       # Required: host name
-      host: homeassistant
+      host: mqtt.nuc.lan
       # Optional: port (default: shown below)
       port: 1883
       # Optional: topic prefix (default: shown below)
@@ -140,7 +140,7 @@ spec:
         app.kubernetes.io/name: frigate
         app.kubernetes.io/instance: home
       annotations:
-        checksum/configmap: a2a5f7c097f19fa42c558b3b5ce2eb019b78f57c708daf5b8f0044efbc6105c1
+        checksum/configmap: 87d9060bc3eeb9d02a098fd874c8cb47b78ac7f219f5c828cacbfade70978b60
     spec:
       containers:
         - name: frigate

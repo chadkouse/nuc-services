@@ -26,6 +26,15 @@ spec:
       name: home-frigate
       namespace: "smarthome"
       port: http
+  - kind: Rule
+    match: Host(`mqtt.lan`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: mosquitto
+      namespace: "smarthome"
+      port: mosquitto
   tls:
     certResolver: default
     domains:

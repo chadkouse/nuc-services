@@ -10,3 +10,16 @@ spec:
           path: /opt/smarthome 
           type: DirectoryOrCreate 
         name: smarthome-home
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mosquitto
+spec:
+  template:
+    spec:
+      volumes: 
+      - hostPath: 
+          path: /opt/smarthome/mosquitto 
+          type: DirectoryOrCreate 
+        name: mosquitto-home
