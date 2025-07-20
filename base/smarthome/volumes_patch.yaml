@@ -35,4 +35,8 @@ spec:
       - hostPath: 
           path: /opt/smarthome/frigate 
           type: DirectoryOrCreate 
-        name: frigate-home
+        name: config
+      - hostPath: 
+          path: /opt/smarthome/frigate-media
+          type: DirectoryOrCreate 
+        name: media
