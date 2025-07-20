@@ -25,7 +25,7 @@ spec:
     - kind: Service
       name: home-frigate
       namespace: "smarthome"
-      port: 8971
+      port: http
   tls:
     certResolver: default
     domains:
