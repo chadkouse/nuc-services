@@ -161,8 +161,7 @@ metadata:
     app.kubernetes.io/name: frigate
     helm.sh/chart: frigate-7.8.0
     app.kubernetes.io/instance: home
-    app.kubernetes.io/version: "0.14.1"
-    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/version: "stable"
 spec:
   type: ClusterIP
   ipFamilyPolicy: SingleStack
@@ -228,7 +227,7 @@ spec:
     spec:
       initContainers:
         - name: copyconfig
-          image: "ghcr.io/blakeblackshear/frigate:0.14.1"
+          image: "ghcr.io/blakeblackshear/frigate:stable"
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - mountPath: /config.yml
