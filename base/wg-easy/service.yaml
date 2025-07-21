@@ -6,11 +6,11 @@ spec:
   ports:
   - port: 51820
     protocol: UDP
-    targetPort: wg
+    targetPort: 51820
     name: wg
   - port: 443
     protocol: TCP
-    targetPort: http
+    targetPort: 51821
     name: http
   selector:
     run: wg-easy
