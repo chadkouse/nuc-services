@@ -32,4 +32,4 @@ spec:
     - kind: Service
       name: wg-easy
       namespace: wg-easy
-      port: http
+      port: 443
