@@ -196,7 +196,7 @@ spec:
       targetPort: webrtc-udp
     - name: go2rtc-admin
       port: 1984
-      protocol: UDP
+      protocol: TCP
       targetPort: go2rtc-admin
   selector:
     app.kubernetes.io/name: frigate
