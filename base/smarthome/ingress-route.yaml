@@ -99,3 +99,27 @@ spec:
     - name: home-frigate
       namespace: smarthome
       port: rtsp
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: frigate-go2rtc
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - kind: Rule
+    match: Host(`go2rtc.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: home-frigate
+      namespace: "smarthome"
+      port: go2rtc-admin
+  tls:
+    certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"
