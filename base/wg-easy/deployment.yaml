@@ -23,7 +23,9 @@ spec:
             - name: WG_HOST
               value: vpn.kouse.xyz
             - name: WG_PORT
-              value: "30000"
+              value: "51820"
+            - name: WG_DEFAULT_DNS
+              value: "10.0.1.100"
           image: ghcr.io/wg-easy/wg-easy
           imagePullPolicy: IfNotPresent
           ports:
