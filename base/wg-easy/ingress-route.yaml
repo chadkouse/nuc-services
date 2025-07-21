@@ -1,0 +1,29 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: wg-easy-udp
+spec:
+  entryPoints:
+    - vpnudp
+  routes:
+  - services:
+    - name: wg-easy
+      namespace: wg-easy
+      port: wg
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: wg-easy-web
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - kind: Rule
+    match: Host(`vpn.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    priority: 0
+    services:
+    - kind: Service
+      name: wg-easy
+      namespace: wg-easy
+      port: http
