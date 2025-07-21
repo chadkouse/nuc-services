@@ -1,16 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wg-easy
   labels:
     run: wg-easy
+  name: wg-easy
 spec:
   replicas: 1
   revisionHistoryLimit: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: wg-easy
-      run: wg-easy
   strategy:
     # Restrict to a Single wg-easy instance, on redeploys it will tear down the old one before bring a new one up.
     type: Recreate
@@ -18,7 +17,6 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: wg-easy
-        run: wg-easy
     spec:
       containers:
         - name: wg-easy
