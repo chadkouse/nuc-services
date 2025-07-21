@@ -9,14 +9,14 @@ spec:
   revisionHistoryLimit: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: wg-easy
+      run: wg-easy
   strategy:
     # Restrict to a Single wg-easy instance, on redeploys it will tear down the old one before bring a new one up.
     type: Recreate
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: wg-easy
+        run: wg-easy
     spec:
       containers:
         - name: wg-easy
