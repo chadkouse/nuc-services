@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     run: wg-easy
-  name: wg-easy
+  name: wg-easy-deploy
 spec:
   replicas: 1
   revisionHistoryLimit: 1
