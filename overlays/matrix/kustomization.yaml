@@ -15,3 +15,5 @@ images:
     newTag: latest
   - name: dock.mau.dev/mautrix/slack
     newTag: latest
+  - name: halfshot/matrix-hookshot
+    newTag: latest
