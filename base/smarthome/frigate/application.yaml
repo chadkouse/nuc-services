@@ -327,6 +327,6 @@ spec:
             type: DirectoryOrCreate
           name: config
         - hostPath:
-            path: /opt/smarthome/frigate-media
+            path: /media/nvr
             type: DirectoryOrCreate
           name: media
