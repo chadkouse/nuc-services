@@ -27,3 +27,16 @@ spec:
           path: /opt/matrix
           type: DirectoryOrCreate 
         name: matrix-home
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hookshot
+spec:
+  template:
+    spec:
+      volumes: 
+      - hostPath: 
+          path: /opt/matrix
+          type: DirectoryOrCreate 
+        name: matrix-home
