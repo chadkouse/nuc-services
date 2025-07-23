@@ -26,7 +26,7 @@ spec:
     - kind: Service
       name: continuwuity
       namespace: matrix
-      port: hookshot-hook
+      port: 9000
   tls:
     certResolver: default
     domains:
