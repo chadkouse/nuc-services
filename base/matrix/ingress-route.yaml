@@ -18,6 +18,15 @@ spec:
       name: continuwuity
       namespace: matrix
       port: 6167
+  - kind: Rule
+    match: Host(`matrix-webhook.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: continuwuity
+      namespace: matrix
+      port: hookshot-hook
   tls:
     certResolver: default
     domains:
