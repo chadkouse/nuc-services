@@ -68,32 +68,6 @@ spec:
         - mountPath: /data 
           name: matrix-home
           subPath: mautrix-whatsapp
-      - name: matrix-hookshot
-        image: halfshot/matrix-hookshot
-        restartPolicy: Always
-        command: ["node"]
-        args: ["/bin/matrix-hookshot/App/BridgeApp.js", "/data/config.yaml", "/data/registration.yaml"]
-        env:
-          - name: TZ
-            value: America/New_York
-          - name: PUID
-            value: "1000"
-          - name: PGID
-            value: "1000"
-        ports:
-        - containerPort: 9993
-          name: hookshot
-          protocol: TCP
-        - containerPort: 9000
-          name: hookshot-hook
-          protocol: TCP
-        - containerPort: 9002
-          name: hookshot-stat
-          protocol: TCP
-        volumeMounts:
-        - mountPath: /data
-          name: matrix-home
-          subPath: matrix-hookshot
       - name: mautrix-slack
         image: dock.mau.dev/mautrix/slack
         restartPolicy: Always

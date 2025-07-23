@@ -8,6 +8,7 @@ commonLabels:
 
 resources:
 - namespace.yaml
+- hookshot
 - continuwuity
 - ingress-route.yaml
 - mautrix-wsproxy
