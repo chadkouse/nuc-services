@@ -20,7 +20,6 @@ spec:
       containers:
       - name: matrix-hookshot
         image: halfshot/matrix-hookshot
-        restartPolicy: Always
         command: ["node"]
         args: ["/bin/matrix-hookshot/App/BridgeApp.js", "/data/config.yaml", "/data/registration.yaml"]
         env:
