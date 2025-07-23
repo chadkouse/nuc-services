@@ -16,5 +16,9 @@ spec:
     protocol: TCP
     targetPort: 29335
     name: mautrix-slack
+  - port: 9000
+    protocol: TCP
+    targetPort: 9000
+    name: hookshot-hook
   selector:
     run: continuwuity
