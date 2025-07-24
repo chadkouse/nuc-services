@@ -28,6 +28,10 @@ spec:
         - name: PYTHONHTTPSVERIFY
           value: "0"
         image: spx01/blocky
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "4m"
         name: blocky
         ports:
         - containerPort: 53

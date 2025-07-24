@@ -28,6 +28,10 @@ spec:
         - name: PYTHONHTTPSVERIFY
           value: "0"
         image: mvance/unbound
+        resources:
+          requests:
+            memory: "8Mi"
+            cpu: "4m"
         name: unbound
         ports:
         - containerPort: 5335
