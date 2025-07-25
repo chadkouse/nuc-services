@@ -43,6 +43,7 @@ spec:
         - containerPort: 4000
           name: blocky-web
           protocol: TCP
+        externalTrafficPolicy: Local
         volumeMounts: 
         - mountPath: /app/config.yml
           name: adblocker-home
