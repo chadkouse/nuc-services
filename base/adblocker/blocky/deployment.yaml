@@ -47,3 +47,4 @@ spec:
         - mountPath: /app/config.yml
           name: adblocker-home
           subPath: blocky/config.yml
+      hostNetwork: true
