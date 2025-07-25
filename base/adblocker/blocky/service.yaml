@@ -16,5 +16,6 @@ spec:
     protocol: TCP
     targetPort: 4000
     name: prometheus
+  externalTrafficPolicy: Local
   selector:
     run: blocky
