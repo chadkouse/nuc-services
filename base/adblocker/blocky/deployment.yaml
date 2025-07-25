@@ -40,9 +40,6 @@ spec:
         - containerPort: 53
           name: blocky-udp
           protocol: UDP
-        - containerPort: 4000
-          name: blocky-web
-          protocol: TCP
         volumeMounts: 
         - mountPath: /app/config.yml
           name: adblocker-home
