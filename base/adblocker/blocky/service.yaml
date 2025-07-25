@@ -16,23 +16,6 @@ spec:
     protocol: TCP
     targetPort: 4000
     name: prometheus
-  selector:
-    run: blocky
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: blocky-test
-spec:
-  ports:
-  - port: 531
-    protocol: TCP
-    targetPort: 53
-    name: blocky-tcp
-  - port: 531
-    protocol: UDP
-    targetPort: 53
-    name: blocky-udp
   externalTrafficPolicy: Local
   type: LoadBalancer
   selector:
