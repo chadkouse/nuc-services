@@ -25,7 +25,7 @@ spec:
           value: "1000"
         - name: PGID
           value: "1000"
-        image: postgresql
+        image: postgres
         # resources:
         #   requests:
         #     memory: "8Mi"
