@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: postgresql
+  name: postgresql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: postgresql
+  template:
+    metadata:
+      labels:
+        run: postgresql
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: postgresql
+        # resources:
+        #   requests:
+        #     memory: "8Mi"
+        #     cpu: "4m"
+        name: postgres
+        ports:
+        - containerPort: 5432
+          name: db
+          protocol: TCP
+        volumeMounts: 
+        - mountPath: /etc/postgresql
+          name: config
+        - mountPath: /var/lib/postgresql/data
+          name: data

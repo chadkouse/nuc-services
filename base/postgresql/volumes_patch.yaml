@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql
+spec:
+  template:
+    spec:
+      volumes: 
+      - hostPath: 
+          path: /opt/postgresql/config 
+          type: DirectoryOrCreate 
+        name: config
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql
+spec:
+  template:
+    spec:
+      volumes: 
+      - hostPath: 
+          path: /opt/postgresql/data 
+          type: DirectoryOrCreate 
+        name: data
