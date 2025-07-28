@@ -12,9 +12,9 @@ spec:
     protocol: UDP
     targetPort: 53
     name: blocky-udp
-  - port: 4001
+  - port: 4000
     protocol: TCP
-    targetPort: blocky-stats
-    name: blocky-stats
+    targetPort: web
+    name: web
   selector:
     run: blocky

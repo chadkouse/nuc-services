@@ -34,8 +34,8 @@ spec:
             cpu: "4m"
         name: blocky
         ports:
-        - containerPort: 4001
-          name: blocky-stats
+        - containerPort: 4000
+          name: web
           protocol: TCP
         - containerPort: 53
           name: blocky-tcp
