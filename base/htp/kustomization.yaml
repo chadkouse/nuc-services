@@ -21,6 +21,7 @@ resources:
 - qbittorrent
 - plex
 - jellyplex-watched
+- scraparr
 
 patchesStrategicMerge:
 - volumes_patch.yaml

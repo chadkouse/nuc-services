@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: scraparr
+  name: scraparr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: scraparr
+  template:
+    metadata:
+      labels:
+        run: scraparr
+    spec:
+      securityContext:
+        # runAsUser: 1000
+        # runAsGroup: 1000
+        fsGroup: 1000    
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: ghcr.io/thecfu/scraparr
+        name: scraparr
+        ports:
+        - containerPort: 7100
+          name: web
+        volumeMounts: 
+        - mountPath: /config 
+          name: htpc-home
+          subPath: scraparr
