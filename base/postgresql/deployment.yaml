@@ -16,15 +16,13 @@ spec:
         run: postgresql
     spec:
       securityContext:
-        fsGroup: 1000
+        runAsUser: 999
+        runAsGroup: 999
+        fsGroup: 999
       containers:
       - env:
         - name: TZ
           value: America/New_York
-        - name: PUID
-          value: "1000"
-        - name: PGID
-          value: "1000"
         envFrom:
         - secretRef:
             name: postgresql
