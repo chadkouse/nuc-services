@@ -7,9 +7,13 @@ spec:
     spec:
       volumes: 
       - hostPath: 
-          path: /opt/monitoring/grafana 
+          path: /opt/monitoring/grafana/data
           type: DirectoryOrCreate 
-        name: grafana-home
+        name: data
+      - hostPath: 
+          path: /opt/monitoring/grafana/config 
+          type: DirectoryOrCreate 
+        name: config
 ---
 apiVersion: apps/v1
 kind: Deployment
