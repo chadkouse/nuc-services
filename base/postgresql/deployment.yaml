@@ -29,6 +29,7 @@ spec:
         - secretRef:
             name: postgresql
         image: postgres
+        command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
         # resources:
         #   requests:
         #     memory: "8Mi"
