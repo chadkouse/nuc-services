@@ -16,7 +16,9 @@ spec:
         run: grafana
     spec:
       securityContext:
-        fsGroup: 1000
+        fsGroup: 472
+        supplementalGroups:
+          - 0
       containers:
       - env:
         - name: TZ
