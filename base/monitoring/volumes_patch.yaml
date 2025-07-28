@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+spec:
+  template:
+    spec:
+      volumes: 
+      - hostPath: 
+          path: /opt/monitoring/grafana 
+          type: DirectoryOrCreate 
+        name: grafana-home
