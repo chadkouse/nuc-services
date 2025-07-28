@@ -199,3 +199,16 @@ spec:
       - hostPath: 
           path: /media/seagate/plex/sports
         name: htpc-media-sports
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scraparr
+spec:
+  template:
+    spec:
+      volumes:
+      - hostPath:
+          path: /opt/htpc
+          type: DirectoryOrCreate
+        name: htpc-home
