@@ -10,6 +10,7 @@ resources:
 - namespace.yaml
 - deployment.yaml
 - service.yaml
+- ingress-route.yaml
 
 patchesStrategicMerge:
 - volumes_patch.yaml
