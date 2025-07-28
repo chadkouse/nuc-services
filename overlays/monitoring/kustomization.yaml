@@ -7,3 +7,5 @@ bases:
 images:
   - name: grafana/grafana
     newTag: "latest"
+  - name: prom/prometheus
+    newTag: "latest"

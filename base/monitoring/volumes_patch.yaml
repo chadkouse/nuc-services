@@ -10,3 +10,20 @@ spec:
           path: /opt/monitoring/grafana 
           type: DirectoryOrCreate 
         name: grafana-home
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+spec:
+  template:
+    spec:
+      volumes: 
+      - hostPath: 
+          path: /opt/monitoring/prometheus/data
+          type: DirectoryOrCreate 
+        name: data
+      - hostPath: 
+          path: /opt/monitoring/prometheus/config
+          type: DirectoryOrCreate 
+        name: config
