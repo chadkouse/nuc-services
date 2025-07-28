@@ -6,6 +6,12 @@ metadata:
 spec:
   entryPoints:
     - websecure
+  tls:
+    certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"
   routes:
   - kind: Rule
     match: Host(`grafana.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
