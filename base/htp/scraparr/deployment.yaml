@@ -33,6 +33,6 @@ spec:
         - containerPort: 7100
           name: web
         volumeMounts: 
-        - mountPath: /config 
+        - mountPath: /scraparr/config 
           name: htpc-home
           subPath: scraparr
