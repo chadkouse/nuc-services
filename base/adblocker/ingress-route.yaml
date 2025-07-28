@@ -36,16 +36,22 @@ metadata:
   name: blocky
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
   - kind: Rule
-    match: Host(`blocky.nuc.lan`) && ClientIP(`10.0.0.0/8`)
+    match: Host(`blocky.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     priority: 0
     services:
     - kind: Service
       name: blocky
       namespace: adblocker
       port: web
+  tls:
+    certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRouteTCP
