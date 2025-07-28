@@ -144,3 +144,24 @@ spec:
   syncPolicy:
     automated:
       prune: false
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+spec:
+  project: default
+  
+  source:
+    repoURL: https://github.com/chadkouse/nuc-services.git
+    targetRevision: main
+    path: overlays/grafana
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: grafana
+
+  # Sync policy
+  syncPolicy:
+    automated:
+      prune: false
