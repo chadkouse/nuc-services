@@ -38,10 +38,10 @@ spec:
           name: webui
           protocol: TCP
         - containerPort: 6666
-          name: webui
+          name: broadcast1
           protocol: UDP
         - containerPort: 6667
-          name: webui
+          name: broadcast2
           protocol: UDP
         volumeMounts: 
         - mountPath: /config 
