@@ -25,6 +25,34 @@ spec:
           - "*.kouse.xyz"
 ---
 apiVersion: traefik.io/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: broadcast
+spec:
+  entryPoints:
+    - broadcast
+  routes:
+  - services:
+    - name: homeassistant
+      namespace: smarthome
+      port: 6666
+      nativeLB: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: broadcast2
+spec:
+  entryPoints:
+    - broadcast2
+  routes:
+  - services:
+    - name: homeassistant
+      namespace: smarthome
+      port: 6667
+      nativeLB: true
+---
+apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: homeassistant-local
