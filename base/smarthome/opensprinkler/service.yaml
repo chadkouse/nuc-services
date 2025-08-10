@@ -6,5 +6,5 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: http
-    name: http
+    targetPort: sprinkler-http
+    name: sprinkler-http
