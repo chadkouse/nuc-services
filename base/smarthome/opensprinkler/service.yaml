@@ -8,5 +8,3 @@ spec:
     protocol: TCP
     targetPort: http
     name: http
-  selector:
-    run: opensprinklercontroller
