@@ -11,6 +11,7 @@ resources:
 - mosquitto
 - homeassistant
 - frigate
+- opensprinkler
 - ingress-route.yaml
 # - cron.yaml
 
