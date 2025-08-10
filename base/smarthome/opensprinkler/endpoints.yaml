@@ -13,4 +13,5 @@ ports:
 endpoints:
   - addresses:
       - "10.0.1.199"
-    conditions: {}
+    conditions:
+     ready: true
