@@ -169,7 +169,7 @@ spec:
     - kind: Service
       name: opensprinklercontroller
       namespace: "smarthome"
-      port: http
+      port: sprinkler-http
   tls:
     certResolver: default
     domains:
