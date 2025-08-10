@@ -1,0 +1,15 @@
+---
+apiVersion: apps/v1
+kind: EndpointSlice
+metadata:
+  name: opensprinklercontroller
+  labels:
+    run: opensprinklercontroller
+addressType: IPv4
+ports:
+  - name: http
+    protocol: TCP
+    port: 80
+endpoints:
+  - addresses:
+      - "10.0.1.199"
