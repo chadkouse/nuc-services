@@ -1,0 +1,16 @@
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: websites
+  labels:
+    kubernetes.io/service-name: websites
+addressType: IPv4
+ports:
+  - name: websites
+    protocol: TCP
+    port: 81
+endpoints:
+  - addresses:
+      - "10.0.1.100"
+    conditions:
+     ready: true

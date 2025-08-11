@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: websites
+
+commonLabels:
+  app: websites
+
+resources:
+- namespace.yaml
+- endpointslice.yaml
+- service.yaml
+- ingress-route.yaml
