@@ -8,4 +8,4 @@ images:
   - name: mvance/unbound
     newTag: latest
   - name: spx01/blocky
-    newTag: latest
+    newTag: v0.26.2
