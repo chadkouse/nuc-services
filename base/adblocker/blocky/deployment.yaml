@@ -28,6 +28,7 @@ spec:
         - name: PYTHONHTTPSVERIFY
           value: "0"
         image: spx01/blocky
+        imagePullPolicy: IfNotPresent
         resources:
           requests:
             memory: "128Mi"
