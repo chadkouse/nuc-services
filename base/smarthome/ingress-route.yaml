@@ -180,7 +180,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: opensprinklercontroller
+  name: zwave-js-ui
 spec:
   entryPoints:
     - websecure
