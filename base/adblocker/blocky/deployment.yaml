@@ -29,10 +29,10 @@ spec:
           value: "0"
         image: spx01/blocky
         imagePullPolicy: IfNotPresent
-        resources:
-          requests:
-            memory: "128Mi"
-            cpu: "4m"
+        # resources:
+        #   requests:
+        #     memory: "128Mi"
+        #     cpu: "4m"
         name: blocky
         ports:
         - containerPort: 4000

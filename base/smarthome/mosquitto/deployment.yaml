@@ -28,10 +28,10 @@ spec:
         - name: PYTHONHTTPSVERIFY
           value: "0"
         image: eclipse-mosquitto
-        resources:
-          requests:
-            memory: "2Mi"
-            cpu: "1m"
+        # resources:
+        #   requests:
+        #     memory: "2Mi"
+        #     cpu: "1m"
         name: mosquitto
         ports:
         - containerPort: 1883

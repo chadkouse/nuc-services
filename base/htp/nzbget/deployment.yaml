@@ -26,13 +26,13 @@ spec:
         - name: PGID
           value: "1000"
         image: lscr.io/linuxserver/nzbget
-        resources:
-          requests:
-            memory: "8Mi"
-            cpu: "1m"
-          limits:
-            memory: "1600Mi"
-            cpu: "1000m"
+        # resources:
+        #   requests:
+        #     memory: "8Mi"
+        #     cpu: "1m"
+        #   limits:
+        #     memory: "1600Mi"
+        #     cpu: "1000m"
         name: nzbget
         ports:
         - containerPort: 8096

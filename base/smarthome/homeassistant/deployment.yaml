@@ -28,10 +28,10 @@ spec:
         - name: PYTHONHTTPSVERIFY
           value: "0"
         image: lscr.io/linuxserver/homeassistant
-        resources:
-          requests:
-            memory: "455Mi"
-            cpu: "36m"
+        # resources:
+        #   requests:
+        #     memory: "455Mi"
+        #     cpu: "36m"
         name: homeassistant
         ports:
         - containerPort: 8123
