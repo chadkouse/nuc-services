@@ -40,3 +40,20 @@ spec:
           path: /media/nvr
           type: DirectoryOrCreate 
         name: media
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zwave-js-ui
+spec:
+  template:
+    spec:
+      volumes:
+      - hostPath:
+          path: /opt/smarthome/zwave-js-ui
+          type: DirectoryOrCreate
+        name: zwave-js-ui-data
+      - hostPath:
+          path: /dev/serial/by-id/usb-0658_0200-if00
+          type: CharDevice
+        name: zwavestick

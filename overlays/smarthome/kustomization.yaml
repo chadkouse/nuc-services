@@ -11,3 +11,5 @@ images:
     newTag: sha-ef74802-slim
   - name: eclipse-mosquitto
     newTag: openssl
+  - name: zwavejs/zwave-js-ui
+    newTag: latest

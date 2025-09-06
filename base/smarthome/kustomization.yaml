@@ -12,6 +12,7 @@ resources:
 - homeassistant
 - frigate
 - opensprinkler
+- zwave
 - ingress-route.yaml
 # - cron.yaml
 
