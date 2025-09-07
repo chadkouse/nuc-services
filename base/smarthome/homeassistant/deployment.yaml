@@ -48,3 +48,4 @@ spec:
           name: smarthome-home
           subPath: homeassistant
       hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
