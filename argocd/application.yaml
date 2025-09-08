@@ -173,7 +173,9 @@ kind: Application
 metadata:
   name: monitoring
   annotations:
+    argocd-image-updater.argoproj.io/write-back-method: argocd
     argocd-image-updater.argoproj.io/image-list: grafana/grafana:latest,prom/prometheus:latest
+    argocd-image-updater.argoproj.io/update-strategy: digest
 spec:
   project: default
   
