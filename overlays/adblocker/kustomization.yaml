@@ -6,6 +6,6 @@ bases:
 
 images:
   - name: mvance/unbound
-    newTag: latest
+    newTag: "1.21.0"
   - name: spx01/blocky
     newTag: v0.26.2

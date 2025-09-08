@@ -136,7 +136,7 @@ spec:
           value: "1000"
         - name: PYTHONHTTPSVERIFY
           value: "0"
-        image: mvance/unbound:latest
+        image: mvance/unbound
         name: unbound
         ports:
         - containerPort: 5335
