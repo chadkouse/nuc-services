@@ -107,8 +107,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: adblocker
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: mvance/unbound:latest,spx01/blocky:latest
 spec:
   project: default
   
