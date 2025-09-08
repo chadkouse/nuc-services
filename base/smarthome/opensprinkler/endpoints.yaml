@@ -5,6 +5,7 @@ metadata:
   name: opensprinklercontroller
   labels:
     kubernetes.io/service-name: opensprinklercontroller
+    run: opensprinklercontroller
 addressType: IPv4
 ports:
   - name: sprinkler-http

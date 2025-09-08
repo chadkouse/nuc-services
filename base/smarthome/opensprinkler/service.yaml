@@ -2,9 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: opensprinklercontroller
+  labels:
+    run: opensprinklercontroller
 spec:
   ports:
   - port: 80
     protocol: TCP
     targetPort: sprinkler-http
     name: sprinkler-http
+  selector:
+    run: opensprinklercontroller
