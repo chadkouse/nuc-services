@@ -4,9 +4,6 @@ kind: Kustomization
 bases:
 - ../../base/adblocker
 
-resources:
-- application.yaml
-
 images:
   - name: mvance/unbound
     newTag: latest

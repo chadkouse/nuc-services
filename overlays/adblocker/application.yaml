@@ -1,7 +1,0 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: adblocker
-  namespace: argocd
-  anotations:
-   argocd-image-updater.argoproj.io/image-list: mvance/unbound:1.x,spx01/blocky:v0.x
