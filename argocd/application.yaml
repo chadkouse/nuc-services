@@ -70,6 +70,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: smarthome
+  annotations:
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/write-back-target: kustomization
+    argocd-image-updater.argoproj.io/image-list: linuxserver/homeassistant:latest,luigi311/jellyplex-watched:main-slim,eclipse-mosquitto:openssl,zwavejs/zwave-js-ui:latest
+    argocd-image-updater.argoproj.io/update-strategy: digest
 spec:
   project: default
   
