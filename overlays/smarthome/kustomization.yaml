@@ -1,15 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 bases:
 - ../../base/smarthome
-
 images:
-  - name: linuxserver/homeassistant
-    digest: sha256:b8d8ff339eddaed2e3cfd777f7548ce6268ee8adc4aceabdcb86b9b589ea332d
-  - name: luigi311/jellyplex-watched
-    digest: sha256:7b2af847ff2064acb2d368a232e917ee8ae62095479e14d2cc2a01302e65669a
-  - name: eclipse-mosquitto
-    digest: sha256:338276c00dc691eb9c59ac730d874638508073fc1ebe4c4cc957b154a37705bf
-  - name: zwavejs/zwave-js-ui
-    digest: sha256:f2eb682284ff90beb253c79dea9c8a0e91cfb6a0dc38e706c27130c88ab95e2b
+- name: linuxserver/homeassistant
+  digest: sha256:b8d8ff339eddaed2e3cfd777f7548ce6268ee8adc4aceabdcb86b9b589ea332d
+- name: luigi311/jellyplex-watched
+  digest: sha256:7b2af847ff2064acb2d368a232e917ee8ae62095479e14d2cc2a01302e65669a
+- name: eclipse-mosquitto
+  digest: sha256:d219d3a72847f3aed6a1d66975972d3b17f86e39e8f6f6b86b4088b879c1a2d6
+- name: zwavejs/zwave-js-ui
+  digest: sha256:7fc0a78a6c843654eb93166decd13192b5a1f53637cf117ea13569f2a33a0e94
