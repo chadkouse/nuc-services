@@ -6,24 +6,23 @@ bases:
 
 images:
   - name: linuxserver/sonarr
-    newTag: 4.0.15.2941-ls291
+    digest: sha256:f376b64eca9f53b19bc4a6851cc7e64b72975627829a85d975ac2dcba56e1acd
   - name: linuxserver/radarr
-    newTag: 5.27.5.10198-ls282
+    digest: sha256:3384d61c3eb5f4c761d7aeda1c673405b9b501677ea34c83bc1a8c9d5777c819
   - name: linuxserver/bazarr
-    newTag: v1.5.2-ls306
+    digest: sha256:23e81aefd78d38035123950972e60633a1419ce79416e899ada4b15339c97d14
   - name: linuxserver/transmission
-    newTag: 4.0.6-r4-ls295
+    digest: sha256:e220cc5f4d10f4d46057cd10136771c48e9d41361627d566805be1ea9c9a29ae
   - name: linuxserver/prowlarr
-    newTag: 1.37.0.5076-ls119
+    digest: sha256:4c81d54af137373822d730d48a3ce4097fbb9c9e8986bc2161684f324353d3d1
   - name: lscr.io/linuxserver/jellyfin
-    newTag: 10.10.7ubu2404-ls61
+    digest: sha256:aee8cd4d70494e4a515e93c6dd07049d49fd75c83bafa86d9ef85bb4e31ef439
   - name: linuxserver/nzbget
-    newTag: 25.0-ls200
+    digest: sha256:386a143ba9a2307e9163e6c2eed0752258dea7227027f95a626cdc5569816be0
   - name: lscr.io/linuxserver/overseerr
-    newTag: v1.34.0-ls141
+    digest: sha256:4c1f3b01193c968205ed4b342c648ff92a1c7bec09cc4cdfc5248f1d8a6b2e68
   - name: lscr.io/linuxserver/qbittorrent
-    newTag: 5.1.0-r0-ls396
-  # - name: linuxserver/homeassistant
-  #   newTag: 2025.5.3-ls109
+    digest: sha256:8daa104983c31f1dabf689782dd5b44966617dd2caf63e56b4e05110cb51047f
   - name: linuxserver/plex
-    newTag: 1.41.8.9834-071366d65-ls269
+    digest: sha256:9794cedd30ad205d13efdb5ec8eb7564c9225dd18a1fa9ea99e94d97b8d6c077
+
