@@ -11,3 +11,5 @@ images:
   digest: sha256:d219d3a72847f3aed6a1d66975972d3b17f86e39e8f6f6b86b4088b879c1a2d6
 - name: zwavejs/zwave-js-ui
   digest: sha256:7fc0a78a6c843654eb93166decd13192b5a1f53637cf117ea13569f2a33a0e94
+- name: ghcr.io/blakeblackshear/frigate
+  digest: sha256:cb6624b9075f76ece626139eedca7e728cab1456a5f8c351afbf877320826bc1
