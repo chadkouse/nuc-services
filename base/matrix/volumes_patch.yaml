@@ -28,15 +28,15 @@ spec:
           type: DirectoryOrCreate 
         name: matrix-home
 ---
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: coturn
-spec:
-  template:
-    spec:
-      volumes: 
-      - hostPath: 
-          path: /opt/matrix/coturn
-          type: DirectoryOrCreate 
-        name: coturn-home
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: coturn
+# spec:
+#   template:
+#     spec:
+#       volumes: 
+#       - hostPath: 
+#           path: /opt/matrix/coturn
+#           type: DirectoryOrCreate 
+#         name: coturn-home
