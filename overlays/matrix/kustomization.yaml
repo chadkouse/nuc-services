@@ -17,3 +17,5 @@ images:
     newTag: latest
   - name: coturn/coturn
     digest: sha256:62a85cb6745c2fb7d25092954e2b120aeeee5cd13b0ad0dffc9164a3b363ddcb
+  - name: ghcr.io/element-hq/lk-jwt-service
+    newTag: 0.3.0

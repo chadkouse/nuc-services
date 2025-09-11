@@ -125,3 +125,27 @@ spec:
     - name: livekit-server
       namespace: matrix
       port: turn-udp
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: lk-jwt
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - kind: Rule
+    match: Host(`lk-jwt.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: lk-jwt
+      namespace: "matrix"
+      port: http
+  tls:
+    certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"

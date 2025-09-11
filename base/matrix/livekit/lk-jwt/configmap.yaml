@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lk-jwt
+data:
+  LIVEKIT_URL: "wss://matrix-voip.kouse.xyz"
+  LIVEKIT_FULL_ACCESS_HOMESERVERS: "matrix.kouse.xyz"

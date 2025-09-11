@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: lk-jwt
+  name: lk-jwt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: lk-jwt
+  template:
+    metadata:
+      labels:
+        run: lk-jwt
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - envFrom:
+          - configMapRef:
+              name: lk-jwt
+        env:
+          - name: TZ
+            value: America/New_York
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          - name: LIVEKIT_KEY
+            valueFrom:
+              secretKeyRef:
+                key: LIVEKIT_KEY
+                name: lk-jwt
+          - name: LIVEKIT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: LIVEKIT_SECRET
+                name: lk-jwt
+        image: ghcr.io/element-hq/lk-jwt-service
+        name: lk-jwt
+        ports:
+        - containerPort: 8080
+          hostPort: 8080
+          name: http
