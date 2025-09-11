@@ -38,7 +38,7 @@ spec:
               secretKeyRef:
                 key: CONTINUWUITY_REGISTRATION_TOKEN
                 name: matrix
-        image: coturn/coturn#latest
+        image: coturn/coturn
         name: coturn
         ports:
         - containerPort: 3478
