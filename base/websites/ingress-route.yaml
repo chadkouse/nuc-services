@@ -8,7 +8,7 @@ spec:
     - websecure
   routes:
   - kind: Rule
-    match: Host(`bigbackstore.kouse.xyz`) || Host(`chad.kouse.xyz`) || Host(`lyrics.kouse.xyz`) || (Host(`matrix.kouse.xyz`) && PathPrefix(`.well-known/matrix`))
+    match: Host(`bigbackstore.kouse.xyz`) || Host(`chad.kouse.xyz`) || Host(`lyrics.kouse.xyz`) || (Host(`matrix.kouse.xyz`) && PathPrefix(`/.well-known/matrix`))
     middlewares: []
     priority: 0
     services:
