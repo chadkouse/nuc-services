@@ -11,6 +11,7 @@ resources:
 - continuwuity
 - ingress-route.yaml
 - mautrix-wsproxy
+- coturn
 
 patchesStrategicMerge:
 - volumes_patch.yaml
