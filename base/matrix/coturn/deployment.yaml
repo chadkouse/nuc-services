@@ -55,6 +55,6 @@ spec:
           subPath: data
         - mountPath: /etc/coturn 
           name: coturn-home
-          subpath: config
+          subPath: config
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
