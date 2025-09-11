@@ -42,5 +42,4 @@ spec:
         name: lk-jwt
         ports:
         - containerPort: 8080
-          hostPort: 8080
           name: http
