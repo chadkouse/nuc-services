@@ -1,0 +1,81 @@
+# Source: livekit-server/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: livekit-server
+  labels:
+    helm.sh/chart: livekit-server-1.9.0
+    app.kubernetes.io/name: livekit-server
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "v1.9.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: livekit-server
+      app.kubernetes.io/instance: release-name
+  template:
+    metadata:
+      annotations:
+        linkerd.io/inject: disabled
+        sidecar.istio.io/inject: "false"
+        checksum/config: 52abe77a818affd1eb6d6b8bd638deb1818af02903bda529e87424c0a769e3cc
+      labels:
+        app.kubernetes.io/name: livekit-server
+        app.kubernetes.io/instance: release-name
+    spec:
+      serviceAccountName: default
+      securityContext:
+        {}
+      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
+      terminationGracePeriodSeconds: 18000
+      containers:
+        - name: livekit-server
+          securityContext:
+            {}
+          image: "livekit/livekit-server:v1.9.0"
+          imagePullPolicy: IfNotPresent
+          args: ["--disable-strict-config"]
+          env:
+            - name: LIVEKIT_CONFIG
+              valueFrom:
+                configMapKeyRef:
+                  name: livekit-server
+                  key: config.yaml
+          ports:
+            - name: http
+              containerPort: 7880
+              protocol: TCP
+            - name: rtc-tcp
+              containerPort: 7881
+              hostPort: 7881
+              protocol: TCP
+            - name: turn-tls
+              containerPort: 5349
+              hostPort: 5349
+              protocol: TCP
+            - name: turn-udp
+              containerPort: 3478
+              hostPort: 3478
+              protocol: UDP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {}
+          volumeMounts:
+            - name: keys-volume
+              mountPath: keys.yaml
+              subPath: keys.yaml
+      volumes:
+        - name: keys-volume
+          secret:
+            secretName: livekit-server
+            defaultMode: 0600
