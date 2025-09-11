@@ -12,7 +12,6 @@ resources:
 - ingress-route.yaml
 - mautrix-wsproxy
 # - coturn
-- lk-jwt
 - livekit
 
 patchesStrategicMerge:
