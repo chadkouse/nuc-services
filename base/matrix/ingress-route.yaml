@@ -48,4 +48,80 @@ spec:
       - main: "kouse.xyz"
         sans:
           - "*.kouse.xyz"
-   
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: livekit-server-rtc-tcp
+spec:
+  entryPoints:
+    - web
+  routes:
+  - kind: Rule
+    match: Host(`matrix-voip.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: livekit-server
+      namespace: "matrix"
+      port: rtc-tcp
+  tls:
+    certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: livekit-server-http
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - kind: Rule
+    match: Host(`matrix-voip.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: livekit-server
+      namespace: "matrix"
+      port: http
+  tls:
+    certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: livekit-server-turn-tls
+spec:
+  entryPoints:
+    - turntls
+  routes:
+  - match: HostSNI(`*`)
+    middlewares: []
+    priority: 0
+    services:
+    - name: livekit-server
+      namespace: matrix
+      port: turn-tls
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: livekit-server-turn-udp
+spec:
+  entryPoints:
+    - turnudp
+  routes:
+  - services:
+    - name: livekit-server
+      namespace: matrix
+      port: turn-udp
