@@ -11,6 +11,4 @@ data:
   CONTINUWUITY_ALLOW_CHECK_FOR_UPDATES: 'true'
   CONTINUWUITY_TRUSTED_SERVERS: '["matrix.org"]'
   CONTINUWUITY_ADDRESS: "0.0.0.0"
-  CONTINUWUITY_WELL_KNOWN__SERVER: "matrix.kouse.xyz:443"
-  CONTINUWUITY_WELL_KNOWN__CLIENT: "https://matrix.kouse.xyz"
   # CONTINUWUITY_TURN_URIS: '["turn:matrix.kouse.xyz?transport=udp","turn:matrix.kouse.xyz?transport=tcp"]'
