@@ -37,10 +37,6 @@ spec:
     spec:
       volumes: 
       - hostPath: 
-          path: /opt/matrix/coturn-data
+          path: /opt/matrix/coturn
           type: DirectoryOrCreate 
-        name: coturn-data
-      - hostPath: 
-          path: /opt/matrix/coturn-config
-          type: DirectoryOrCreate 
-        name: coturn-config
+        name: coturn-home
