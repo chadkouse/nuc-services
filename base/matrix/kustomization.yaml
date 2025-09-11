@@ -11,7 +11,7 @@ resources:
 - continuwuity
 - ingress-route.yaml
 - mautrix-wsproxy
-- coturn
+# - coturn
 - livekit
 
 patchesStrategicMerge:
