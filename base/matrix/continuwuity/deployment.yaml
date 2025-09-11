@@ -38,6 +38,11 @@ spec:
               secretKeyRef:
                 key: CONTINUWUITY_REGISTRATION_TOKEN
                 name: matrix
+          - name: CONTINUWUITY_TURN_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: CONTINUWUITY_TURN_SECRET
+                name: matrix
         image: forgejo.ellis.link/continuwuation/continuwuity
         name: continuwuity
         ports:

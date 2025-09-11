@@ -11,3 +11,4 @@ data:
   CONTINUWUITY_ALLOW_CHECK_FOR_UPDATES: 'true'
   CONTINUWUITY_TRUSTED_SERVERS: '["matrix.org"]'
   CONTINUWUITY_ADDRESS: "0.0.0.0"
+  CONTINUWUITY_TURN_URIS: '["turns:matrix.kouse.xyz?transport=udp","turns:matrix.kouse.xyz?transport=tcp"]'
