@@ -20,6 +20,6 @@ images:
 - name: lscr.io/linuxserver/overseerr
   digest: sha256:f0bb47460bfbcf7c31dad8b62e2546fb336b4b5209a8404a23e77100da0f25f7
 - name: lscr.io/linuxserver/qbittorrent
-  digest: sha256:4d651284a42e8ae33f23d41a0ccfdfff8ab8ebee28099fd030d9e858dbbbdf38
+  digest: sha256:ffa4e82aa55e3bd3d2d99151f235fcd41b976303c4d4029940363452a59a3833
 - name: linuxserver/plex
   digest: sha256:9794cedd30ad205d13efdb5ec8eb7564c9225dd18a1fa9ea99e94d97b8d6c077
