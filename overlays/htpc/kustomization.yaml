@@ -12,7 +12,7 @@ images:
 - name: linuxserver/transmission
   digest: sha256:e220cc5f4d10f4d46057cd10136771c48e9d41361627d566805be1ea9c9a29ae
 - name: linuxserver/prowlarr
-  digest: sha256:4f2a6d597845b2f3e19284b1d982b3e0b4bd7c22472c2979c956aa198b83f472
+  digest: sha256:856c93bab72a6a41a23ff60bab48554135c044a456f40909307011dea8ddeafb
 - name: lscr.io/linuxserver/jellyfin
   digest: sha256:9bc128a2a6f58f65da0dabc77d56e4a3f8c25ec6f491bb7d43efe95236321a6b
 - name: linuxserver/nzbget
