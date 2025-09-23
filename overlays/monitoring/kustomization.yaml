@@ -4,6 +4,6 @@ bases:
 - ../../base/monitoring
 images:
 - name: grafana/grafana
-  digest: sha256:a1701c2180249361737a99a01bc770db39381640e4d631825d38ff4535efa47d
+  digest: sha256:74144189b38447facf737dfd0f3906e42e0776212bf575dc3334c3609183adf7
 - name: prom/prometheus
   digest: sha256:76947e7ef22f8a698fc638f706685909be425dbe09bd7a2cd7aca849f79b5f64
