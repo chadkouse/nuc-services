@@ -18,7 +18,7 @@ images:
 - name: linuxserver/nzbget
   digest: sha256:386a143ba9a2307e9163e6c2eed0752258dea7227027f95a626cdc5569816be0
 - name: lscr.io/linuxserver/overseerr
-  digest: sha256:bad11167104f7b0ff0beb924c9568bb7ea991c225949a209d0b8b00a5434479d
+  digest: sha256:e0761ee4071dcf8f0515d492711f8671c025814dc4976764422185b53ee3778c
 - name: lscr.io/linuxserver/qbittorrent
   digest: sha256:5f3785f8d8cd27d509cd948a06195306c3d951b1e1e123e46c7be40ecfb6965f
 - name: linuxserver/plex
