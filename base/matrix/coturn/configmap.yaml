@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: coturn
-data:
-  CONTINUWUITY_ADDRESS: "0.0.0.0"

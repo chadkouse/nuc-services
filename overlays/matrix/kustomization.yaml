@@ -6,16 +6,12 @@ bases:
 
 images:
   - name: forgejo.ellis.link/continuwuation/continuwuity
-    newTag: latest
+    digest: sha256:730bd3d339f54afa4906d48148b51bd0ae416e8dc5c0829ac198c0c9cd423b0d
   - name: dock.mau.dev/mautrix/wsproxy
-    newTag: latest
-  - name: dock.mau.dev/mautrix/syncproxy
-    newTag: latest
+    digenst: sha256:83a2f5cf550063cfe17aec3b14af2c297315f13c73114723efa73b746a861753
   - name: dock.mau.dev/mautrix/whatsapp
-    newTag: latest
+    digest: sha256:5d7c542d743cec4c978a255126966bac3b5b749b0e58a4a3946e592ac85b321a
   - name: dock.mau.dev/mautrix/slack
-    newTag: latest
-  - name: coturn/coturn
-    digest: sha256:62a85cb6745c2fb7d25092954e2b120aeeee5cd13b0ad0dffc9164a3b363ddcb
+    digest: sha256:589c1988fb7091a117cd9a0d41b9ce8600b078bd1e91366894edc0427722c7bb
   - name: ghcr.io/element-hq/lk-jwt-service
-    newTag: 0.3.0
+    digest: sha256:3602a85840d51981808d0519aefca170a3dbe3dec7bc8c5b87cbd52a503ea89f
