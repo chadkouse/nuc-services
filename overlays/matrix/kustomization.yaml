@@ -1,21 +1,17 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 bases:
 - ../../base/matrix
-
 images:
-  - name: forgejo.ellis.link/continuwuation/continuwuity
-    digest: sha256:730bd3d339f54afa4906d48148b51bd0ae416e8dc5c0829ac198c0c9cd423b0d
-  - name: dock.mau.dev/mautrix/wsproxy
-    digest: sha256:83a2f5cf550063cfe17aec3b14af2c297315f13c73114723efa73b746a861753
-  - name: dock.mau.dev/mautrix/whatsapp
-    newTag: latest
-    digest: sha256:f4a6f30415481503376c9f0a46f9e77b2905e0bc5b21ddced41b82ad4f6ab97b
-  - name: dock.mau.dev/mautrix/slack
-    newTag: latest
-    digest: sha256:887fdf5cd32699edfffd7e687f68ad50501d98726e728ded60dfaa711e4d7961
-  - name: ghcr.io/element-hq/lk-jwt-service
-    digest: sha256:52357326970d3f3e3cf6e9c33766e49cf2665e2cd57842e29a5c298514bd2e58
-  - name: livekit/livekit-server
-    digest: sha256:3602a85840d51981808d0519aefca170a3dbe3dec7bc8c5b87cbd52a503ea89f
+- name: forgejo.ellis.link/continuwuation/continuwuity
+  digest: sha256:0609a2c814bd9985751818f769021cc65130b03ffa880c2453a582f834f29f2d
+- name: dock.mau.dev/mautrix/wsproxy
+  digest: sha256:83a2f5cf550063cfe17aec3b14af2c297315f13c73114723efa73b746a861753
+- name: dock.mau.dev/mautrix/whatsapp
+  digest: sha256:f4a6f30415481503376c9f0a46f9e77b2905e0bc5b21ddced41b82ad4f6ab97b
+- name: dock.mau.dev/mautrix/slack
+  digest: sha256:887fdf5cd32699edfffd7e687f68ad50501d98726e728ded60dfaa711e4d7961
+- name: ghcr.io/element-hq/lk-jwt-service
+  digest: sha256:52357326970d3f3e3cf6e9c33766e49cf2665e2cd57842e29a5c298514bd2e58
+- name: livekit/livekit-server
+  digest: sha256:3602a85840d51981808d0519aefca170a3dbe3dec7bc8c5b87cbd52a503ea89f
