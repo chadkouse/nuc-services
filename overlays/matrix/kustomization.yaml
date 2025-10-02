@@ -8,7 +8,7 @@ images:
   - name: forgejo.ellis.link/continuwuation/continuwuity
     digest: sha256:730bd3d339f54afa4906d48148b51bd0ae416e8dc5c0829ac198c0c9cd423b0d
   - name: dock.mau.dev/mautrix/wsproxy
-    digenst: sha256:83a2f5cf550063cfe17aec3b14af2c297315f13c73114723efa73b746a861753
+    digest: sha256:83a2f5cf550063cfe17aec3b14af2c297315f13c73114723efa73b746a861753
   - name: dock.mau.dev/mautrix/whatsapp
     digest: sha256:5d7c542d743cec4c978a255126966bac3b5b749b0e58a4a3946e592ac85b321a
   - name: dock.mau.dev/mautrix/slack
