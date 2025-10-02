@@ -1,9 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 bases:
 - ../../base/wg-easy
-
 images:
-  - name: ghcr.io/wg-easy/wg-easy
-    digest: sha256:bb8152762c36f824eb42bb2f3c5ab8ad952818fbef677d584bc69ec513b251b0
+- name: ghcr.io/wg-easy/wg-easy
+  digest: sha256:5f26407fd2ede54df76d63304ef184576a6c1bb73f934a58a11abdd852fab549
