@@ -138,6 +138,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: wg-easy
+  annotations:
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/write-back-target: kustomization
+    argocd-image-updater.argoproj.io/image-list: ghcr.io/wg-easy/wg-easy:latest
+    argocd-image-updater.argoproj.io/update-strategy: digest
 spec:
   project: default
   
