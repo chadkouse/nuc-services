@@ -99,7 +99,7 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/write-back-target: kustomization
-    argocd-image-updater.argoproj.io/image-list: forgejo.ellis.link/continuwuation/continuwuity,dock.mau.dev/mautrix/wsproxy,dock.mau.dev/mautrix/whatsapp,dock.mau.dev/mautrix/slack,ghcr.io/element-hq/lk-jwt-service
+    argocd-image-updater.argoproj.io/image-list: forgejo.ellis.link/continuwuation/continuwuity:latest,dock.mau.dev/mautrix/wsproxy,dock.mau.dev/mautrix/whatsapp:latest,dock.mau.dev/mautrix/slack:latest,ghcr.io/element-hq/lk-jwt-service:0.3.0
     argocd-image-updater.argoproj.io/update-strategy: digest
 spec:
   project: default
