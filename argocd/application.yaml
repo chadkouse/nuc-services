@@ -122,6 +122,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: adblocker
+  annotations:
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/write-back-target: kustomization
+    argocd-image-updater.argoproj.io/image-list: mvance/unbound,spx01/blocky
+    argocd-image-updater.argoproj.io/update-strategy: digest
 spec:
   project: default
   
