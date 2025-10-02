@@ -14,4 +14,4 @@ images:
   - name: dock.mau.dev/mautrix/slack
     digest: sha256:589c1988fb7091a117cd9a0d41b9ce8600b078bd1e91366894edc0427722c7bb
   - name: ghcr.io/element-hq/lk-jwt-service
-    digest: sha256:3602a85840d51981808d0519aefca170a3dbe3dec7bc8c5b87cbd52a503ea89f
+    digest: sha256:52357326970d3f3e3cf6e9c33766e49cf2665e2cd57842e29a5c298514bd2e58
