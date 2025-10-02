@@ -13,7 +13,8 @@ images:
     newTag: latest
     # digest: sha256:5c83d8b1970c87e53d11b6fb628eaa81321299c2208fc781c2c646df2a1de8e3
   - name: dock.mau.dev/mautrix/slack
-    digest: sha256:589c1988fb7091a117cd9a0d41b9ce8600b078bd1e91366894edc0427722c7bb
+    newTag: latest
+    # digest: sha256:589c1988fb7091a117cd9a0d41b9ce8600b078bd1e91366894edc0427722c7bb
   - name: ghcr.io/element-hq/lk-jwt-service
     digest: sha256:52357326970d3f3e3cf6e9c33766e49cf2665e2cd57842e29a5c298514bd2e58
   - name: livekit/livekit-server
