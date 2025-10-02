@@ -6,6 +6,8 @@ metadata:
     run: blocky
   name: blocky
 spec:
+  strategy:
+    type: Recreate # since using hostNetwork we can't rollout due to port constraints
   replicas: 1
   selector:
     matchLabels:
@@ -15,8 +17,6 @@ spec:
       labels:
         run: blocky
     spec:
-      strategy:
-        type: Recreate # since using hostNetwork we can't rollout due to port constraints
       securityContext:
         fsGroup: 1000
       containers:
