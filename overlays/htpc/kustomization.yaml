@@ -12,7 +12,7 @@ images:
 - name: linuxserver/transmission
   digest: sha256:e220cc5f4d10f4d46057cd10136771c48e9d41361627d566805be1ea9c9a29ae
 - name: linuxserver/prowlarr
-  digest: sha256:fa81e471a7e46a24b121838563a10d468cf82eecd1587a464c6df4927ecc3248
+  digest: sha256:964485823771c102427a0c1cd896cf6b576add6f21bd041498b92cb040ee7270
 - name: lscr.io/linuxserver/jellyfin
   digest: sha256:68e012f4bf5aeb114632e9045f5b2f2f6713536693093f70fcb338179f84f86c
 - name: linuxserver/nzbget
@@ -20,6 +20,6 @@ images:
 - name: lscr.io/linuxserver/overseerr
   digest: sha256:e0761ee4071dcf8f0515d492711f8671c025814dc4976764422185b53ee3778c
 - name: lscr.io/linuxserver/qbittorrent
-  digest: sha256:f83e2741b0b1b74901c97e36caa4aa3e0f2817c616426608eabf5aeef7f4a40a
+  digest: sha256:032801369ba08f6a40e852f5334671c413c38036847927e1cf14b66784f74adb
 - name: linuxserver/plex
   digest: sha256:9794cedd30ad205d13efdb5ec8eb7564c9225dd18a1fa9ea99e94d97b8d6c077
