@@ -31,6 +31,9 @@ spec:
         - containerPort: 8080
           name: webui
           protocol: TCP
+        - containerPort: 55881
+          name: torrent
+          protocol: TCP
         volumeMounts: 
         - mountPath: /config 
           name: htpc-home

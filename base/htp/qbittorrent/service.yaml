@@ -8,5 +8,9 @@ spec:
     protocol: TCP
     targetPort: 8080
     name: webui
+  - port: 55881
+    protocol: TCP
+    targetPort: 55881
+    name: torrent
   selector:
     run: qbittorrent
