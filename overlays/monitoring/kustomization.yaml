@@ -6,4 +6,4 @@ images:
 - name: grafana/grafana
   digest: sha256:74144189b38447facf737dfd0f3906e42e0776212bf575dc3334c3609183adf7
 - name: prom/prometheus
-  digest: sha256:76947e7ef22f8a698fc638f706685909be425dbe09bd7a2cd7aca849f79b5f64
+  digest: sha256:29c1e0b48ad816750245dea3d65ac3ce57dda30547e67b1e9a5176e2953cc4dc
