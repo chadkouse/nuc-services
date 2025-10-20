@@ -61,25 +61,6 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lidarr
-spec:
-  template:
-    spec:
-      volumes: 
-      - hostPath: 
-          path: /opt/htpc 
-          type: DirectoryOrCreate 
-        name: htpc-home
-      - hostPath: 
-          path: /media/seagate2/incoming
-        name: htpc-media-incoming
-      - hostPath: 
-          path: /media/seagate2/plex/music
-        name: htpc-media-music
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
   name: bazarr
 spec:
   template:
