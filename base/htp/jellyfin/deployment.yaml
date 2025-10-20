@@ -48,3 +48,5 @@ spec:
           name: htpc-media-movies
         - mountPath: /sports
           name: htpc-media-sports
+        - mountPath: /music
+          name: htpc-media-music
