@@ -23,3 +23,5 @@ images:
   digest: sha256:51dd497bd9b1de06fc1f9c9753297fae1e7445ad817e4528ee3f84c9c3122c7d
 - name: linuxserver/plex
   digest: sha256:9794cedd30ad205d13efdb5ec8eb7564c9225dd18a1fa9ea99e94d97b8d6c077
+- name: linuxserver/lidarr
+  digest: sha256:fc10fbd834e83c3f984c13a12c4fd663b23a8ed83e31f346650571f0a7aeeea7

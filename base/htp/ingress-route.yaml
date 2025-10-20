@@ -41,6 +41,14 @@ spec:
       namespace: "htpc"
       port: 7878
   - kind: Rule
+    match: PathPrefix(`/lidarr`) || Host(`lidarr.kouse.xyz`)
+    priority: 0
+    services:
+    - kind: Service
+      name: lidarr
+      namespace: "htpc"
+      port: 8686
+  - kind: Rule
     match: Host(`bazarr.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0
