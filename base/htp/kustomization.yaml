@@ -10,7 +10,6 @@ resources:
 - namespace.yaml
 - radarr
 - sonarr
-- lidarr
 - bazarr
 - prowlarr
 # - transmission
@@ -38,11 +37,6 @@ vars:
     objref:
       kind: Service
       name: radarr
-      apiVersion: v1
-  - name: LIDARR
-    objref:
-      kind: Service
-      name: lidarr
       apiVersion: v1
   - name: PROWLARR
     objref:
