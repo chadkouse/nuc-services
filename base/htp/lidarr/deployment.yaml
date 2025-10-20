@@ -22,13 +22,13 @@ spec:
       initContainers:
       - name: chown
         image: busybox
-        command: ["sh", "-c", "chown -R 1000:1000 /config && chown -R 1000:1000 /tv"]
+        command: ["sh", "-c", "chown -R 1000:1000 /config && chown -R 1000:1000 /music"]
         volumeMounts:
         - mountPath: /config 
           name: htpc-home
           subPath: lidarr
-        - mountPath: /tv 
-          name: htpc-media-tv
+        - mountPath: /music 
+          name: htpc-media-music
       containers:
       - env:
         - name: TZ
