@@ -14,7 +14,7 @@ images:
 - name: linuxserver/prowlarr
   digest: sha256:366914352b21e79733f1bad1c3840ca679a55dc4875754eec06ccbcc49b649d1
 - name: lscr.io/linuxserver/jellyfin
-  digest: sha256:dc7e75b48d038185216e00029c60a7860c557a0563811934d4870c875467ea8a
+  digest: sha256:0ffe47d268e9cb2665f52e56fd7756ed984b0f3e7eddaf3882ebdb677af1b341
 - name: linuxserver/nzbget
   digest: sha256:386a143ba9a2307e9163e6c2eed0752258dea7227027f95a626cdc5569816be0
 - name: lscr.io/linuxserver/overseerr
