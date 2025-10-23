@@ -41,6 +41,16 @@ spec:
             secretKeyRef:
               key: web_password
               name: slskd
+        - name: SLSKD_SLSK_USERNAME
+          valueFrom:
+            secretKeyRef:
+              key: slsk_username
+              name: slskd
+        - name: SLSKD_SLSK_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: slsk_password
+              name: slskd
         image: slskd/slskd
         name: slskd
         ports:
