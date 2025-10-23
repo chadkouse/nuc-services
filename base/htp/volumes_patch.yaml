@@ -259,6 +259,9 @@ spec:
       - hostPath: 
           path: /media/seagate/plex/sports
         name: htpc-media-sports
+      - hostPath: 
+          path: /media/seagate/music/library
+        name: htpc-media-music
 ---
 apiVersion: apps/v1
 kind: Deployment
