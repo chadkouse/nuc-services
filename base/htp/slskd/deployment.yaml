@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: slskd
+  name: slskd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: slskd
+  template:
+    metadata:
+      labels:
+        run: slskd
+    spec:
+      securityContext:
+        # runAsUser: 1000
+        # runAsGroup: 1000
+        fsGroup: 1000    
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: SLSKD_REMOTE_CONFIGURATION
+          value: true
+        image: slskd/slskd
+        name: slskd
+        ports:
+        - containerPort: 5030
+          name: webui
+        - containerPort: 50300
+          name: network
+        volumeMounts: 
+        - mountPath: /app 
+          name: htpc-home
+          subPath: slskd
+        - mountPath: /music 
+          name: htpc-media-music
+        - mountPath: /incoming 
+          name: htpc-media-incoming

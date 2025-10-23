@@ -11,6 +11,7 @@ resources:
 - radarr
 - sonarr
 - lidarr
+- slskd
 - bazarr
 - prowlarr
 # - transmission
