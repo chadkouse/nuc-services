@@ -27,8 +27,20 @@ spec:
           value: "1000"
         - name: PGID
           value: "1000"
-        - name: SLSKD_REMOTE_CONFIGURATION
+        - name: SLSKD_DOWNLOADS_DIR
+          value: "/incoming/slskd_downloads"
+        - name: SLSKD_NO_HTTPS
           value: "true"
+        - name: SLSKD_USERNAME
+          valueFrom:
+            secretKeyRef:
+              key: web_username
+              name: slskd
+        - name: SLSKD_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: web_password
+              name: slskd
         image: slskd/slskd
         name: slskd
         ports:
