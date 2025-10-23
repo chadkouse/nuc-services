@@ -51,11 +51,6 @@ spec:
             secretKeyRef:
               key: slsk_password
               name: slskd
-        - name: SLSKD_CONTROLLER_API_KEY
-          valueFrom:
-            secretKeyRef:
-              key: slsk_controller_api_key
-              name: slskd
         image: slskd/slskd
         name: slskd
         ports:
