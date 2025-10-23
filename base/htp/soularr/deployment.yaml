@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: soularr
+  name: soularr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: soularr
+  template:
+    metadata:
+      labels:
+        run: soularr
+    spec:
+      securityContext:
+        # runAsUser: 1000
+        # runAsGroup: 1000
+        fsGroup: 1000    
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: SCRIPT_INTERVAL
+          value: "300"
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: mrusse08/soularr
+        name: soularr
+        volumeMounts: 
+        - mountPath: /app 
+          name: htpc-home
+          subPath: soularr
+        - mountPath: /music 
+          name: htpc-media-music
+        - mountPath: /incoming 
+          name: htpc-media-incoming

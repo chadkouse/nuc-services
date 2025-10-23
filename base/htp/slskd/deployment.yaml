@@ -28,7 +28,7 @@ spec:
         - name: PGID
           value: "1000"
         - name: SLSKD_DOWNLOADS_DIR
-          value: "/incoming/slskd_downloads"
+          value: "/incoming"
         - name: SLSKD_NO_HTTPS
           value: "true"
         - name: SLSKD_USERNAME
@@ -50,6 +50,11 @@ spec:
           valueFrom:
             secretKeyRef:
               key: slsk_password
+              name: slskd
+        - name: SLSKD_CONTROLLER_API_KEY
+          valueFrom:
+            secretKeyRef:
+              key: slsk_controller_api_key
               name: slskd
         image: slskd/slskd
         name: slskd
