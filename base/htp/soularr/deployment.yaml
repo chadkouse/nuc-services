@@ -32,7 +32,7 @@ spec:
         image: mrusse08/soularr
         name: soularr
         volumeMounts: 
-        - mountPath: /app 
+        - mountPath: /data 
           name: htpc-home
           subPath: soularr
         - mountPath: /music 

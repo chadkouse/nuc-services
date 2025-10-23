@@ -27,3 +27,5 @@ images:
   digest: sha256:5f58fcb45a15cb33ef153f74b14c724ba073553afdc9b078e7701f15b7ce1433
 - name: slskd/slskd
   digest: sha256:5b29d5d04276fe64004f446b97186451b009f778ea6271754739cf0e97889c37
+- name: mrusse08/soularr
+  digest: sha256:6e7d72e8d734dd620adc4e1c268d0b67df7e0f8956ceaf3ed59411c3c2870ff2
