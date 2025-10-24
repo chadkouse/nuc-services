@@ -215,7 +215,7 @@ metadata:
     app.kubernetes.io/managed-by: Helm
 spec:
   replicas: 1
-  revisionHistoryLimit: 3
+  revisionHistoryLimit: 1
   strategy:
     type: Recreate
   selector:

@@ -9,6 +9,7 @@ spec:
   strategy:
     type: Recreate # since using hostNetwork we can't rollout due to port constraints
   replicas: 1
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       run: homeassistant
