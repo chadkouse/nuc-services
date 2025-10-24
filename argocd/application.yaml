@@ -5,7 +5,7 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/write-back-target: kustomization
-    argocd-image-updater.argoproj.io/image-list: linuxserver/sonarr:latest,linuxserver/radarr:latest,linuxserver/bazarr:latest,linuxserver/transmission:latest,linuxserver/prowlarr:latest,lscr.io/linuxserver/jellyfin:latest,linuxserver/nzbget:latest,lscr.io/linuxserver/overseerr:latest,lscr.io/linuxserver/qbittorrent:latest,linuxserver/plex:latest
+    argocd-image-updater.argoproj.io/image-list: linuxserver/sonarr:latest,linuxserver/radarr:latest,linuxserver/bazarr:latest,linuxserver/transmission:latest,linuxserver/prowlarr:latest,lscr.io/linuxserver/jellyfin:latest,linuxserver/nzbget:latest,lscr.io/linuxserver/overseerr:latest,lscr.io/linuxserver/qbittorrent:latest,linuxserver/plex:latest,linuxserver/nzbget:latest
     argocd-image-updater.argoproj.io/update-strategy: digest
 spec:
   project: default
