@@ -40,24 +40,24 @@ spec:
       name: radarr
       namespace: "htpc"
       port: 7878
-  - kind: Rule
-    match: Host(`lidarr.kouse.xyz`)
-    middlewares: []
-    priority: 0
-    services:
-    - kind: Service
-      name: lidarr
-      namespace: "htpc"
-      port: 8686
-  - kind: Rule
-    match: Host(`slskd.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
-    middlewares: []
-    priority: 0
-    services:
-    - kind: Service
-      name: slskd
-      namespace: "htpc"
-      port: 5030
+  # - kind: Rule
+  #   match: Host(`lidarr.kouse.xyz`)
+  #   middlewares: []
+  #   priority: 0
+  #   services:
+  #   - kind: Service
+  #     name: lidarr
+  #     namespace: "htpc"
+  #     port: 8686
+  # - kind: Rule
+  #   match: Host(`slskd.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+  #   middlewares: []
+  #   priority: 0
+  #   services:
+  #   - kind: Service
+  #     name: slskd
+  #     namespace: "htpc"
+  #     port: 5030
   - kind: Rule
     match: Host(`bazarr.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
@@ -141,20 +141,20 @@ spec:
     - name: qbittorrent
       namespace: "htpc"
       port: 55881
----
-apiVersion: traefik.io/v1alpha1
-kind: IngressRouteTCP
-metadata:
-  name: slskd
-  namespace: "htpc"
-spec:
-  entryPoints:
-  - slskdnet
-  routes:
-  - match: HostSNI(`*`)
-    middlewares: []
-    priority: 0
-    services:
-    - name: slskd
-      namespace: "htpc"
-      port: 50300
+# ---
+# apiVersion: traefik.io/v1alpha1
+# kind: IngressRouteTCP
+# metadata:
+#   name: slskd
+#   namespace: "htpc"
+# spec:
+#   entryPoints:
+#   - slskdnet
+#   routes:
+#   - match: HostSNI(`*`)
+#     middlewares: []
+#     priority: 0
+#     services:
+#     - name: slskd
+#       namespace: "htpc"
+#       port: 50300

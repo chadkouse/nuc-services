@@ -76,25 +76,25 @@ spec:
 #       - hostPath: 
 #           path: /media/seagate/music
 #         name: htpc-media-music
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: slskd
-spec:
-  template:
-    spec:
-      volumes: 
-      - hostPath: 
-          path: /opt/htpc 
-          type: DirectoryOrCreate 
-        name: htpc-home
-      - hostPath: 
-          path: /media/seagate2/incoming
-        name: htpc-media-incoming
-      - hostPath: 
-          path: /media/seagate/music
-        name: htpc-media-music
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: slskd
+# spec:
+#   template:
+#     spec:
+#       volumes: 
+#       - hostPath: 
+#           path: /opt/htpc 
+#           type: DirectoryOrCreate 
+#         name: htpc-home
+#       - hostPath: 
+#           path: /media/seagate2/incoming
+#         name: htpc-media-incoming
+#       - hostPath: 
+#           path: /media/seagate/music
+#         name: htpc-media-music
 # ---
 # apiVersion: apps/v1
 # kind: Deployment
