@@ -57,25 +57,25 @@ spec:
       - hostPath: 
           path: /media/seagate/plex/sports
         name: htpc-media-sports
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: lidarr
-spec:
-  template:
-    spec:
-      volumes: 
-      - hostPath: 
-          path: /opt/htpc 
-          type: DirectoryOrCreate 
-        name: htpc-home
-      - hostPath: 
-          path: /media/seagate2/incoming
-        name: htpc-media-incoming
-      - hostPath: 
-          path: /media/seagate/music
-        name: htpc-media-music
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: lidarr
+# spec:
+#   template:
+#     spec:
+#       volumes: 
+#       - hostPath: 
+#           path: /opt/htpc 
+#           type: DirectoryOrCreate 
+#         name: htpc-home
+#       - hostPath: 
+#           path: /media/seagate2/incoming
+#         name: htpc-media-incoming
+#       - hostPath: 
+#           path: /media/seagate/music
+#         name: htpc-media-music
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -95,25 +95,25 @@ spec:
       - hostPath: 
           path: /media/seagate/music
         name: htpc-media-music
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: soularr
-spec:
-  template:
-    spec:
-      volumes: 
-      - hostPath: 
-          path: /opt/htpc 
-          type: DirectoryOrCreate 
-        name: htpc-home
-      - hostPath: 
-          path: /media/seagate2/incoming
-        name: htpc-media-incoming
-      - hostPath: 
-          path: /media/seagate/music
-        name: htpc-media-music
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: soularr
+# spec:
+#   template:
+#     spec:
+#       volumes: 
+#       - hostPath: 
+#           path: /opt/htpc 
+#           type: DirectoryOrCreate 
+#         name: htpc-home
+#       - hostPath: 
+#           path: /media/seagate2/incoming
+#         name: htpc-media-incoming
+#       - hostPath: 
+#           path: /media/seagate/music
+#         name: htpc-media-music
 ---
 apiVersion: apps/v1
 kind: Deployment

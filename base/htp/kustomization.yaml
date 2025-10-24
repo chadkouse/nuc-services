@@ -10,9 +10,9 @@ resources:
 - namespace.yaml
 - radarr
 - sonarr
-- lidarr
+# - lidarr
 - slskd
-- soularr
+# - soularr
 - bazarr
 - prowlarr
 # - transmission
