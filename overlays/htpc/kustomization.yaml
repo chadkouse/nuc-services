@@ -8,7 +8,7 @@ images:
 - name: linuxserver/radarr
   digest: sha256:c984533510abe0219a70e80d15bd0d212b7df21baa0913759c4ce6cc9092240b
 - name: linuxserver/bazarr
-  digest: sha256:a93c3595410f5c5791a126d7705cd8a29f3ce882338eef304cb8bece3ef2580b
+  digest: sha256:a42fef2a5ffa1dca8714e12892ba0b8de5c6c513f1bcdb1ffe4143e715cffb45
 - name: linuxserver/transmission
   digest: sha256:e220cc5f4d10f4d46057cd10136771c48e9d41361627d566805be1ea9c9a29ae
 - name: linuxserver/prowlarr
