@@ -40,6 +40,15 @@ spec:
       name: radarr
       namespace: "htpc"
       port: 7878
+  - kind: Rule
+    match: Host(`streamystats.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: streamystats-
+      namespace: "htpc"
+      port: 3000
   # - kind: Rule
   #   match: Host(`lidarr.kouse.xyz`)
   #   middlewares: []
