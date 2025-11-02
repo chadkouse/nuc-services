@@ -9,4 +9,4 @@ spec:
     targetPort: 3000
     name: webui
   selector:
-    run: streamystats-v2
+    run: streamystats-v2-nextjs
