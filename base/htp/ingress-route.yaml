@@ -46,7 +46,7 @@ spec:
     priority: 0
     services:
     - kind: Service
-      name: streamystats-v2
+      name: streamystats-v2-nextjs
       namespace: "htpc"
       port: 3000
   # - kind: Rule
