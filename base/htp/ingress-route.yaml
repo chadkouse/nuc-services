@@ -49,6 +49,15 @@ spec:
       name: streamystats-v2
       namespace: "htpc"
       port: 3000
+  - kind: Rule
+    match: Host(`streamystats-job-server.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: streamystats-v2-job-server
+      namespace: "htpc"
+      port: 3005
   # - kind: Rule
   #   match: Host(`lidarr.kouse.xyz`)
   #   middlewares: []
