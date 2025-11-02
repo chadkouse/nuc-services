@@ -38,35 +38,43 @@ spec:
         ports:
         - containerPort: 3000
           name: web
-      initContainers:
-      # - name: streamystats-v2-migrate
-      #   image: fredrikburmester/streamystats-v2-migrate
-      #   restartPolicy: Always
-      #   envFrom:
-      #     - secretRef:
-      #         name: streamystats-migrate-env
-      #   env:
-      #     - name: TZ
-      #       value: America/New_York
-      #     - name: PUID
-      #       value: "1000"
-      #     - name: PGID
-      #       value: "1000"
-      - name: streamystats-v2-job-server
-        image: fredrikburmester/streamystats-v2-job-server
-        restartPolicy: Always
-        envFrom:
-          - secretRef:
-              name: streamystats-job-server-env
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: streamystats-v2-job-server
+  name: streamystats-v2-job-server
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      run: streamystats-v2-job-server
+  template:
+    metadata:
+      labels:
+        run: streamystats-v2-job-server
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000    
+      containers:
+      - envFrom:
+        - secretRef:
+            name: streamystats-job-server-env
         env:
-          - name: TZ
-            value: America/New_York
-          - name: PUID
-            value: "1000"
-          - name: PGID
-            value: "1000"
-          - name: NODE_ENV
-            value: production
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: NODE_ENV
+          value: production
+        image: fredrikburmester/streamystats-v2-job-server
+        name: streamystats-v2-job-server
         ports:
         - containerPort: 3005
           name: api
