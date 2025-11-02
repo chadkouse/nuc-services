@@ -34,8 +34,8 @@ spec:
         - name: NODE_ENV
           value: production
         image: fredrikburmester/streamystats-v2-nextjs
-        name: streamystats-v2-nextjs
-        ports:
+      - name: streamystats-v2-nextjs
+      - ports:
         - containerPort: 3000
           name: web
       initContainers:
