@@ -20,6 +20,6 @@ spec:
   - port: 3005
     protocol: TCP
     targetPort: 3005
-    name: webui
+    name: api
   selector:
     run: streamystats-v2-job-server
