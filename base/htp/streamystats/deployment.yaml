@@ -41,7 +41,7 @@ spec:
       initContainers:
       - name: streamystats-v2-migrate
         image: fredrikburmester/streamystats-v2-migrate
-        restartPolicy: Never
+        restartPolicy: Always
         envFrom:
           - secretRef:
               name: streamystats-migrate-env
