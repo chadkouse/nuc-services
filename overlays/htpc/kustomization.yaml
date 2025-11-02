@@ -29,3 +29,9 @@ images:
   digest: sha256:5b29d5d04276fe64004f446b97186451b009f778ea6271754739cf0e97889c37
 - name: mrusse08/soularr
   digest: sha256:6e7d72e8d734dd620adc4e1c268d0b67df7e0f8956ceaf3ed59411c3c2870ff2
+- name: fredrikburmester/streamystats-v2-nextjs
+  digest: sha256:da03c501677ca3d6154b5a360f04f8894f7c5fb93c49a0ddc93414ba615a6a65
+- name: fredrikburmester/streamystats-v2-job-server
+  digest: sha256:5a907259d5309f7b27a9796a4425cf63f066759f79d55f34b6dbd6f997fca6dc
+- name: fredrikburmester/streamystats-v2-migrate
+  digest: sha256:48b10b1c6a952bf505709415363e3b2ce9fb307efed99b84058fb7fd34df4f4e

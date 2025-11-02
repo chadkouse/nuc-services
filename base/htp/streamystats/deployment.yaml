@@ -1,0 +1,72 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: streamystats-v2-nextjs
+  name: streamystats-v2-nextjs
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      run: streamystats-v2-nextjs
+  template:
+    metadata:
+      labels:
+        run: streamystats-v2-nextjs
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000    
+      containers:
+      - envFrom:
+        - secretRef:
+            name: streamystats-web-env
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: NODE_ENV
+          value: production
+        image: fredrikburmester/streamystats-v2-nextjs
+        name: streamystats-v2-nextjs
+        ports:
+        - containerPort: 3000
+          name: web
+      initContainers:
+      - name: streamystats-v2-migrate
+        image: fredrikburmester/streamystats-v2-migrate
+        restartPolicy: Never
+        envFrom:
+          - secretRef:
+              name: streamystats-migrate-env
+        env:
+          - name: TZ
+            value: America/New_York
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+      - name: streamystats-v2-job-server
+        image: fredrikburmester/streamystats-v2-job-server
+        restartPolicy: Always
+        envFrom:
+          - secretRef:
+              name: streamystats-job-server-env
+        env:
+          - name: TZ
+            value: America/New_York
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          - name: NODE_ENV
+            value: production
+        ports:
+        - containerPort: 3005
+          name: api
