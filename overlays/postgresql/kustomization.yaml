@@ -5,5 +5,5 @@ bases:
 - ../../base/postgresql
 
 images:
-  - name: postgres
-    digest: sha256:5250e6187084ddf4ba407027d07eed2419d4656e30821afef43825c6c0d127df
+  - name: tensorchord/vchord-postgres
+    digest: sha256:e1148232e5d97edaf8d8c76e6c7f73dc08371aa05587df293312f749afb7eb38

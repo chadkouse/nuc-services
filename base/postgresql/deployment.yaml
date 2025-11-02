@@ -27,7 +27,7 @@ spec:
         envFrom:
         - secretRef:
             name: postgresql
-        image: postgres
+        image: tensorchord/vchord-postgres
         command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
         # resources:
         #   requests:
