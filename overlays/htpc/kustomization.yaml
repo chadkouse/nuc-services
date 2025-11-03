@@ -35,5 +35,5 @@ images:
   digest: sha256:5a907259d5309f7b27a9796a4425cf63f066759f79d55f34b6dbd6f997fca6dc
 - name: fredrikburmester/streamystats-v2-migrate
   digest: sha256:48b10b1c6a952bf505709415363e3b2ce9fb307efed99b84058fb7fd34df4f4e
-- name: jorenn92/maintainerr
-  digest: sha256:156e7cb70f508d2e45d4da499254528623f7b7e514198befbac71b32bedd3aff
+- name: ghcr.io/schaka/janitorr
+  digest: sha256:9420be46a80eb961ad87af858e4247c49fdfec457e087dfbb65058b21bd6367f

@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: janitorr
+  name: janitorr
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      run: janitorr
+  template:
+    metadata:
+      labels:
+        run: janitorr
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000    
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: ghcr.io/schaka/janitorr
+        name: janitorr
+        volumeMounts: 
+        - mountPath: /appdata/janitorr 
+          name: htpc-home
+          subPath: janitorr
+        - mountPath: /tv 
+          name: htpc-media-tv
+        - mountPath: /movies
+          name: htpc-media-movies
+        - mountPath: /sports
+          name: htpc-media-sports
+        - mountPath: /leaving-soon
+          name: htpc-media-leaving-soon
+        - mountPath: /data 
+          name: htpc-media-incoming
