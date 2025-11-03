@@ -310,3 +310,6 @@ spec:
       - hostPath: 
           path: /media/seagate/plex/leaving-soon
         name: htpc-media-leaving-soon
+      - hostPath: 
+          path: /media/seagate/plex
+        name: htpc-media
