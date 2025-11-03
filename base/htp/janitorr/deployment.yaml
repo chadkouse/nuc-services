@@ -42,5 +42,3 @@ spec:
           name: htpc-media-sports
         - mountPath: /leaving-soon
           name: htpc-media-leaving-soon
-        - mountPath: /data 
-          name: htpc-media-incoming
