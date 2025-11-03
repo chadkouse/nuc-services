@@ -3,18 +3,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: overseerr
-  name: overseerr
+    run: jellyseerr
+  name: jellyseerr
 spec:
   replicas: 1
   revisionHistoryLimit: 1
   selector:
     matchLabels:
-      run: overseerr
+      run: jellyseerr
   template:
     metadata:
       labels:
-        run: overseerr
+        run: jellyseerr
     spec:
       securityContext:
         fsGroup: 1000
@@ -26,8 +26,8 @@ spec:
           value: "1000"
         - name: PGID
           value: "1000"
-        image: lscr.io/linuxserver/overseerr
-        name: overseerr
+        image: fallenbagel/jellyseerr
+        name: jellyseerr
         ports:
         - containerPort: 5055
           name: webui
@@ -35,4 +35,4 @@ spec:
         volumeMounts: 
         - mountPath: /config 
           name: htpc-home
-          subPath: jellyfin
+          subPath: jellyseerr

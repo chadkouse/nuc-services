@@ -20,7 +20,7 @@ resources:
 - ingress-route.yaml
 - nzbget
 - jellyfin
-- overseerr
+- jellyseerr
 - qbittorrent
 - plex
 - jellyplex-watched
