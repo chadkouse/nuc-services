@@ -31,9 +31,10 @@ spec:
         image: ghcr.io/schaka/janitorr
         name: janitorr
         volumeMounts: 
-        - mountPath: /appdata/janitorr 
-          name: htpc-home
-          subPath: janitorr
+        - mountPath: /config
+          name: janitorr-config
+        - mountPath: /logs
+          name: janitorr-logs
         - mountPath: /tv 
           name: htpc-media-tv
         - mountPath: /movies

@@ -291,9 +291,13 @@ spec:
     spec:
       volumes:
       - hostPath:
-          path: /opt/htpc
+          path: /opt/htpc/janitorr/config
           type: DirectoryOrCreate
-        name: htpc-home
+        name: janitorr-config
+      - hostPath:
+          path: /opt/htpc/janitorr/logs
+          type: DirectoryOrCreate
+        name: janitorr-logs
       - hostPath: 
           path: /media/seagate2/plex/tv
         name: htpc-media-tv
