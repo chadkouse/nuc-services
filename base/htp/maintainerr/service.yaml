@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: maintainerr
+spec:
+  ports:
+  - port: 6246
+    protocol: TCP
+    targetPort: 6246
+    name: web
+  selector:
+    run: maintainerr

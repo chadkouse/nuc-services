@@ -26,6 +26,7 @@ resources:
 - jellyplex-watched
 - scraparr
 - streamystats
+- maintainerr
 
 patchesStrategicMerge:
 - volumes_patch.yaml
