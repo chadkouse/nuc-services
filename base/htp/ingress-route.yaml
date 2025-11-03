@@ -58,6 +58,15 @@ spec:
       name: streamystats-v2-job-server
       namespace: "htpc"
       port: 3005
+  - kind: Rule
+    match: Host(`maintainerr.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: maintainerr
+      namespace: "htpc"
+      port: 6246
   # - kind: Rule
   #   match: Host(`lidarr.kouse.xyz`)
   #   middlewares: []
