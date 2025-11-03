@@ -33,6 +33,6 @@ spec:
           name: webui
           protocol: TCP
         volumeMounts: 
-        - mountPath: /config 
+        - mountPath: /app
           name: htpc-home
           subPath: jellyseerr
