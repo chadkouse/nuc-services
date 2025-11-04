@@ -26,6 +26,9 @@ spec:
       - hostPath: 
           path: /media/seagate
         name: htpc-media-movies
+      - hostPath: 
+          path: /media/seagate/plex/leaving-soon
+        name: htpc-media-leaving-soon
 ---
 apiVersion: apps/v1
 kind: Deployment
