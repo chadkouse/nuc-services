@@ -35,12 +35,10 @@ spec:
           name: janitorr-config
         - mountPath: /logs
           name: janitorr-logs
-        - mountPath: /tv 
+        - mountPath: /media-tv 
           name: htpc-media-tv
-        - mountPath: /movies
+        - mountPath: /media-movies
           name: htpc-media-movies
-        - mountPath: /sports
-          name: htpc-media-sports
         - mountPath: /leaving-soon
           name: htpc-media-leaving-soon
         - mountPath: /media
