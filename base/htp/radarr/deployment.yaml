@@ -79,7 +79,7 @@ spec:
           name: htpc-media-movies
         - mountPath: /sports
           name: htpc-media-sports
-        - mountPath: /incoming 
+        - mountPath: /incoming-movies 
           name: htpc-media-incoming
         - mountPath: /leaving-soon
           name: htpc-media-leaving-soon
