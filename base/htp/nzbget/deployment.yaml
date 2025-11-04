@@ -55,5 +55,7 @@ spec:
         - mountPath: /downloads 
           name: htpc-home
           subPath: nzb-downloads
-        - mountPath: /incoming 
-          name: htpc-media-incoming
+        - mountPath: /incoming-tv 
+          name: htpc-media-incoming-tv
+        - mountPath: /incoming-movies 
+          name: htpc-media-incoming-movies
