@@ -23,7 +23,7 @@ spec:
       initContainers:
       - name: chown
         image: busybox
-        command: ["sh", "-c", "chown -R 1000:1000 /config && chown -R 1000:1000 /tv"]
+        command: ["sh", "-c", "chown -R 1000:1000 /config && chown -R 1000:1000 /media-tv"]
         volumeMounts:
         - mountPath: /config 
           name: htpc-home
