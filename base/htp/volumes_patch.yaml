@@ -24,17 +24,8 @@ spec:
           type: DirectoryOrCreate 
         name: htpc-home
       - hostPath: 
-          path: /media/seagate/incoming
-        name: htpc-media-incoming
-      - hostPath:
-          path: /media/seagate/plex/movies
-        name: htpc-media-movies
-      - hostPath: 
-          path: /media/seagate/plex/sports
-        name: htpc-media-sports
-      - hostPath: 
-          path: /media/seagate/plex/leaving-soon
-        name: htpc-media-leaving-soon
+          path: /media/seagate
+        name: htpc-media-data
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -49,77 +40,11 @@ spec:
           type: DirectoryOrCreate 
         name: htpc-home
       - hostPath: 
-          path: /media/seagate2/incoming
-        name: htpc-media-incoming
-      - hostPath: 
-          path: /media/seagate2/plex/tv
-        name: htpc-media-tv
-      - hostPath:
-          path: /media/seagate/plex/movies
-        name: htpc-media-movies
-      - hostPath: 
-          path: /media/seagate/plex/sports
-        name: htpc-media-sports
+          path: /media/seagate2
+        name: htpc-media-data
       - hostPath: 
           path: /media/seagate/plex/leaving-soon
         name: htpc-media-leaving-soon
-# ---
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: lidarr
-# spec:
-#   template:
-#     spec:
-#       volumes: 
-#       - hostPath: 
-#           path: /opt/htpc 
-#           type: DirectoryOrCreate 
-#         name: htpc-home
-#       - hostPath: 
-#           path: /media/seagate2/incoming
-#         name: htpc-media-incoming
-#       - hostPath: 
-#           path: /media/seagate/music
-#         name: htpc-media-music
-# ---
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: slskd
-# spec:
-#   template:
-#     spec:
-#       volumes: 
-#       - hostPath: 
-#           path: /opt/htpc 
-#           type: DirectoryOrCreate 
-#         name: htpc-home
-#       - hostPath: 
-#           path: /media/seagate2/incoming
-#         name: htpc-media-incoming
-#       - hostPath: 
-#           path: /media/seagate/music
-#         name: htpc-media-music
-# ---
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: soularr
-# spec:
-#   template:
-#     spec:
-#       volumes: 
-#       - hostPath: 
-#           path: /opt/htpc 
-#           type: DirectoryOrCreate 
-#         name: htpc-home
-#       - hostPath: 
-#           path: /media/seagate2/incoming
-#         name: htpc-media-incoming
-#       - hostPath: 
-#           path: /media/seagate/music
-#         name: htpc-media-music
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -134,14 +59,11 @@ spec:
           type: DirectoryOrCreate 
         name: htpc-home
       - hostPath: 
-          path: /media/seagate2/plex/tv
+          path: /media/seagate2
         name: htpc-media-tv
       - hostPath:
-          path: /media/seagate/plex/movies
+          path: /media/seagate
         name: htpc-media-movies
-      - hostPath: 
-          path: /media/seagate/plex/sports
-        name: htpc-media-sports
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -156,14 +78,11 @@ spec:
           type: DirectoryOrCreate
         name: htpc-home
       - hostPath: 
-          path: /media/seagate2/plex/tv
+          path: /media/seagate2
         name: htpc-media-tv
       - hostPath:
-          path: /media/seagate/plex/movies
+          path: /media/seagate
         name: htpc-media-movies
-      - hostPath: 
-          path: /media/seagate/plex/sports
-        name: htpc-media-sports
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -178,20 +97,11 @@ spec:
           type: DirectoryOrCreate
         name: htpc-home
       - hostPath: 
-          path: /media/seagate2/incoming
-        name: htpc-media-incoming-tv
-      - hostPath: 
-          path: /media/seagate/incoming
-        name: htpc-media-incoming-movies
-      - hostPath: 
-          path: /media/seagate2/plex/tv
+          path: /media/seagate2
         name: htpc-media-tv
-      - hostPath:
-          path: /media/seagate/plex/movies
-        name: htpc-media-movies
       - hostPath: 
-          path: /media/seagate/plex/sports
-        name: htpc-media-sports
+          path: /media/seagate
+        name: htpc-media-movies
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -206,17 +116,11 @@ spec:
           type: DirectoryOrCreate
         name: jellyfin-home
       - hostPath: 
-          path: /media/seagate2/plex/tv
+          path: /media/seagate2
         name: htpc-media-tv
       - hostPath:
-          path: /media/seagate/plex/movies
+          path: /media/seagate
         name: htpc-media-movies
-      - hostPath: 
-          path: /media/seagate/plex/sports
-        name: htpc-media-sports
-      - hostPath: 
-          path: /media/seagate/music
-        name: htpc-media-music
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -260,17 +164,11 @@ spec:
           type: DirectoryOrCreate
         name: htpc-home
       - hostPath: 
-          path: /media/seagate2/plex/tv
+          path: /media/seagate2
         name: htpc-media-tv
       - hostPath:
-          path: /media/seagate/plex/movies
+          path: /media/seagate
         name: htpc-media-movies
-      - hostPath: 
-          path: /media/seagate/plex/sports
-        name: htpc-media-sports
-      - hostPath: 
-          path: /media/seagate/music
-        name: htpc-media-music
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -302,14 +200,11 @@ spec:
           type: DirectoryOrCreate
         name: janitorr-logs
       - hostPath: 
-          path: /media/seagate2/plex/tv
+          path: /media/seagate2
         name: htpc-media-tv
       - hostPath:
-          path: /media/seagate/plex/movies
+          path: /media/seagate
         name: htpc-media-movies
-      - hostPath: 
-          path: /media/seagate/plex/sports
-        name: htpc-media-sports
       - hostPath: 
           path: /media/seagate/plex/leaving-soon
         name: htpc-media-leaving-soon

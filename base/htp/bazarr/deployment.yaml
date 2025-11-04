@@ -112,7 +112,7 @@ spec:
         - mountPath: /config 
           name: htpc-home
           subPath: bazarr
-        - mountPath: /movies 
+        - mountPath: /media-movies 
           name: htpc-media-movies
-        - mountPath: /tv
+        - mountPath: /media-tv
           name: htpc-media-tv

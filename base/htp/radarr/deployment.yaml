@@ -28,7 +28,7 @@ spec:
         - mountPath: /config
           name: htpc-home
           subPath: radarr
-        - mountPath: /movies
+        - mountPath: /media-movies
           name: htpc-media-movies
       - name: config
         image: busybox
@@ -75,11 +75,7 @@ spec:
         - mountPath: /config 
           name: htpc-home
           subPath: radarr
-        - mountPath: /movies
+        - mountPath: /media-movies
           name: htpc-media-movies
-        - mountPath: /sports
-          name: htpc-media-sports
-        - mountPath: /incoming-movies 
-          name: htpc-media-incoming
         - mountPath: /leaving-soon
           name: htpc-media-leaving-soon

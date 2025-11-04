@@ -43,11 +43,7 @@ spec:
         volumeMounts: 
         - mountPath: /config 
           name: jellyfin-home
-        - mountPath: /tv
+        - mountPath: /media-tv
           name: htpc-media-tv
-        - mountPath: /movies
+        - mountPath: /media-movies
           name: htpc-media-movies
-        - mountPath: /sports
-          name: htpc-media-sports
-        - mountPath: /music
-          name: htpc-media-music

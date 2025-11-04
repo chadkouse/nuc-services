@@ -28,7 +28,7 @@ spec:
         - mountPath: /config 
           name: htpc-home
           subPath: sonarr
-        - mountPath: /tv 
+        - mountPath: /media-tv 
           name: htpc-media-tv
       - name: config
         image: busybox
@@ -75,9 +75,7 @@ spec:
         - mountPath: /config 
           name: htpc-home
           subPath: sonarr
-        - mountPath: /tv 
+        - mountPath: /media-tv 
           name: htpc-media-tv
-        - mountPath: /incoming-tv
-          name: htpc-media-incoming
         - mountPath: /leaving-soon
           name: htpc-media-leaving-soon

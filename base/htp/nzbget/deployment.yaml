@@ -46,16 +46,10 @@ spec:
         - mountPath: /config 
           name: htpc-home
           subPath: nzbget
-        - mountPath: /tv 
+        - mountPath: /media-tv 
           name: htpc-media-tv
-        - mountPath: /movies 
+        - mountPath: /media-movies 
           name: htpc-media-movies
-        - mountPath: /sports
-          name: htpc-media-sports
         - mountPath: /downloads 
           name: htpc-home
           subPath: nzb-downloads
-        - mountPath: /incoming-tv 
-          name: htpc-media-incoming-tv
-        - mountPath: /incoming-movies 
-          name: htpc-media-incoming-movies
