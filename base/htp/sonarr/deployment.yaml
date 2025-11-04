@@ -79,3 +79,5 @@ spec:
           name: htpc-media-tv
         - mountPath: /leaving-soon
           name: htpc-media-leaving-soon
+        - mountPath: /incoming
+          name: htpc-media-incoming
