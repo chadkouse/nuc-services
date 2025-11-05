@@ -47,3 +47,7 @@ spec:
           name: htpc-media-tv
         - mountPath: /media-movies
           name: htpc-media-movies
+        - mountPath: /tv
+          name: htpc-media-tvv
+        - mountPath: /movies
+          name: htpc-media-moviess

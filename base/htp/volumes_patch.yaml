@@ -130,6 +130,12 @@ spec:
       - hostPath:
           path: /media/seagate
         name: htpc-media-movies
+      - hostPath:
+          path: /media/seagate/plex/movies
+        name: htpc-media-moviess
+      - hostPath:
+          path: /media/seagate2/plex/tv
+        name: htpc-media-tvv
 ---
 apiVersion: apps/v1
 kind: Deployment
