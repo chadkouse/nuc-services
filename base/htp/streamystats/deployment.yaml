@@ -16,10 +16,6 @@ spec:
       labels:
         run: streamystats-v2-nextjs
     spec:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000    
       containers:
       - envFrom:
         - secretRef:
@@ -56,10 +52,6 @@ spec:
       labels:
         run: streamystats-v2-job-server
     spec:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000    
       containers:
       - envFrom:
         - secretRef:
