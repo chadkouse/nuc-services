@@ -27,6 +27,11 @@ spec:
         - name: BROWSER_START_DIR
           value: "/media"
         image: revenz/fileflows
+        resources:
+          limits:
+            gpu.intel.com/i915: "1"
+          requests:
+            gpu.intel.com/i915: "1"
         name: fileflows
         ports:
         - containerPort: 5000
