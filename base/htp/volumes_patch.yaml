@@ -240,8 +240,8 @@ spec:
           type: DirectoryOrCreate
         name: fileflows-home
       - hostPath: 
-          path: /media/seagate2
+          path: /media/seagate2/plex/tv
         name: htpc-media-tv
       - hostPath: 
-          path: /media/seagate
+          path: /media/seagate/plex/movies
         name: htpc-media-movies
