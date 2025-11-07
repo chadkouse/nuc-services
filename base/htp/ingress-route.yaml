@@ -41,6 +41,15 @@ spec:
       namespace: "htpc"
       port: 7878
   - kind: Rule
+    match: Host(`fileflows.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: fileflows
+      namespace: "htpc"
+      port: 5000
+  - kind: Rule
     match: Host(`streamystats.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
     middlewares: []
     priority: 0

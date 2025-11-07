@@ -37,3 +37,5 @@ images:
   digest: sha256:48b10b1c6a952bf505709415363e3b2ce9fb307efed99b84058fb7fd34df4f4e
 - name: ghcr.io/schaka/janitorr
   digest: sha256:9420be46a80eb961ad87af858e4247c49fdfec457e087dfbb65058b21bd6367f
+- name: revenz/fileflows
+  digest: sha256:6c364d1b408682a2675accf4e354e77aa0f066bac1f15277c06dc33ffeae55b4

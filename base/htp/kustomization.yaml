@@ -27,6 +27,7 @@ resources:
 - scraparr
 - streamystats
 - janitorr
+- fileflows
 
 patchesStrategicMerge:
 - volumes_patch.yaml

@@ -1,0 +1,54 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: fileflows
+  name: fileflows
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      run: fileflows
+  template:
+    metadata:
+      labels:
+        run: fileflows
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000    
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: BROWSER_START_DIR
+          value: "/media"
+        image: revenz/fileflows
+        name: fileflows
+        ports:
+        - containerPort: 5000
+          name: web
+        volumeMounts: 
+        - mountPath: /app/temp 
+          name: fileflows-home
+          subPath: temp
+        - mountPath: /app/Data 
+          name: fileflows-home
+          subPath: Data
+        - mountPath: /app/Logs 
+          name: fileflows-home
+          subPath: Logs
+        - mountPath: /app/common 
+          name: fileflows-home
+          subPath: common
+        - mountPath: /media/tv 
+          name: htpc-media-tv
+        - mountPath: /media/movies 
+          name: htpc-media-movies

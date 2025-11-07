@@ -226,3 +226,22 @@ spec:
       - hostPath: 
           path: /media/seagate/plex
         name: htpc-media
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fileflows
+spec:
+  template:
+    spec:
+      volumes:
+      - hostPath:
+          path: /opt/htpc/fileflows
+          type: DirectoryOrCreate
+        name: fileflows-home
+      - hostPath: 
+          path: /media/seagate2
+        name: htpc-media-tv
+      - hostPath: 
+          path: /media/seagate
+        name: htpc-media-movies
