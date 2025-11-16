@@ -21,3 +21,11 @@ spec:
       name: grafana
       namespace: monitoring
       port: web
+  - kind: Rule
+    match: Host(`speedtest.kouse.xyz`)
+    priority: 0
+    services:
+    - kind: Service
+      name: librespeed
+      namespace: monitoring
+      port: web

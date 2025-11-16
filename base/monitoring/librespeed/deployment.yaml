@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: librespeed
+  name: librespeed
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      run: librespeed
+  template:
+    metadata:
+      labels:
+        run: librespeed
+    spec:
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: MODE
+          value: standalone
+        image: ghcr.io/librespeed/speedtest
+        name: librespeed
+        ports:
+        - containerPort: 8080
+          name: web
+          protocol: TCP

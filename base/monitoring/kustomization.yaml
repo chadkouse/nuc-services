@@ -10,6 +10,7 @@ resources:
 - namespace.yaml
 - grafana
 - prometheus
+- librespeed
 - ingress-route.yaml
 
 patchesStrategicMerge:
