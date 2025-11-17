@@ -22,7 +22,7 @@ spec:
       namespace: monitoring
       port: web
   - kind: Rule
-    match: Host(`speedtest.kouse.xyz`)
+    match: Host(`speedtest.kouse.xyz`) || Host(`cfspeedtest.kouse.xyz`)
     priority: 0
     services:
     - kind: Service
