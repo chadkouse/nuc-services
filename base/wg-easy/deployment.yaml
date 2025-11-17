@@ -28,6 +28,8 @@ spec:
               value: "51820"
             - name: WG_DEFAULT_DNS
               value: "10.0.1.100"
+            - name: WG_ALLOWED_IPS
+              value: "10.0.1.0/24"
           image: ghcr.io/wg-easy/wg-easy
           imagePullPolicy: IfNotPresent
           ports:
