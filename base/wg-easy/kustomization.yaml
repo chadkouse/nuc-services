@@ -10,7 +10,6 @@ resources:
 - namespace.yaml
 - deployment.yaml
 - service.yaml
-- cloudflared
 - ingress-route.yaml
 
 patchesStrategicMerge:
