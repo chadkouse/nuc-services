@@ -5,3 +5,5 @@ bases:
 images:
 - name: ghcr.io/wg-easy/wg-easy
   digest: sha256:5f26407fd2ede54df76d63304ef184576a6c1bb73f934a58a11abdd852fab549
+- name: cloudflare/cloudflared
+  digest: sha256:89ee50efb1e9cb2ae30281a8a404fed95eb8f02f0a972617526f8c5b417acae2
