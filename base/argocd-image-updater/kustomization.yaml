@@ -4,4 +4,4 @@ kind: Kustomization
 bases:
 - github.com/argoproj-labs/argocd-image-updater/config/default
 
-namespace: argocd
+namespace: argocd-image-updater
