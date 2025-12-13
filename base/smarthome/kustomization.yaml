@@ -15,7 +15,7 @@ resources:
 - zwave
 - ingress-route.yaml
 # - cron.yaml
-- image-updater.yaml
+- imageupdater.yaml
 
 patchesStrategicMerge:
 - volumes_patch.yaml
