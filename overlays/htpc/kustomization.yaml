@@ -14,7 +14,7 @@ images:
 - name: linuxserver/prowlarr
   digest: sha256:475853535de3de8441b87c1457c30f2e695f4831228b12b6b7274e9da409d874
 - name: lscr.io/linuxserver/jellyfin
-  digest: sha256:eb34c52b9fda39157fabee6fccb26729f1e710912896495fd1a91ba934703f58
+  digest: sha256:5cdc58132f8ef832a8910f732d3fe0144b4f9d091fe6f5409fb1b75d787c1be8
 - name: linuxserver/nzbget
   digest: sha256:386a143ba9a2307e9163e6c2eed0752258dea7227027f95a626cdc5569816be0
 - name: fallenbagel/jellyseerr
