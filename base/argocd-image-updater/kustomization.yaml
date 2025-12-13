@@ -3,5 +3,3 @@ kind: Kustomization
 
 bases:
 - https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/stable/config/install.yaml
-
-namespace: argocd-image-updater
