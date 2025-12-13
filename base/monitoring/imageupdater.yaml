@@ -1,7 +1,7 @@
 apiVersion: argocd-image-updater.argoproj.io/v1alpha1
 kind: ImageUpdater
 metadata:
-  name: postgres
+  name: monitoring
 spec:
   namespace: argocd
   writeBackConfig:
@@ -9,9 +9,13 @@ spec:
     gitConfig:
       writeBackTarget: "kustomization"
   applicationRefs:
-    - namePattern: "postgres"
+    - namePattern: "monitoring"
       commonUpdateSettings:
         updateStrategy: "digest"
       images:
-        - alias: "postgres"
-          imageName: "postgres"
+        - alias: "grafana"
+          imageName: "grafana/grafana:latest"
+        - alias: "prometheus"
+          imageName: "prom/prometheus:latest"
+        - alias: "speedtest"
+          imageName: "ghcr.io/librespeed/speedtest:latest"
