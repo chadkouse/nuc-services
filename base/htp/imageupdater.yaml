@@ -1,0 +1,34 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: htpc
+spec:
+  namespace: argocd
+  writeBackConfig:
+    method: "git"
+  gitConfig:
+    writeBackTarget: "kustomization"
+  applicationRefs:
+    - namePattern: "htpc"
+      commonUpdateSettings: "digest"
+      images:
+        - alias: "sonarr"
+          imageName: "linuxserver/sonarr:latest"
+        - alias: "radarr"
+          imageName: "linuxserver/radarr:latest"
+        - alias: "bazarr"
+          imageName: "linuxserver/bazarr:latest"
+        - alias: "transmission"
+          imageName: "linuxserver/transmission:latest"
+        - alias: "prowlarr"
+          imageName: "linuxserver/prowlarr:latest"
+        - alias: "jellyfin"
+          imageName: "lscr.io/linuxserver/jellyfin:latest"
+        - alias: "nzbget"
+          imageName: "linuxserver/nzbget:latest"
+        - alias: "overseerr"
+          imageName: "lscr.io/linuxserver/overseerr:latest"
+        - alias: "qbittorrent"
+          imageName: "lscr.io/linuxserver/qbittorrent:latest"
+        - alias: "plex"
+          imageName: "linuxserver/plex:latest"

@@ -28,6 +28,7 @@ resources:
 - streamystats
 - janitorr
 - fileflows
+- imageupdater
 
 patchesStrategicMerge:
 - volumes_patch.yaml
