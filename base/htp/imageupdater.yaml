@@ -6,8 +6,8 @@ spec:
   namespace: argocd
   writeBackConfig:
     method: "git"
-  gitConfig:
-    writeBackTarget: "kustomization"
+    gitConfig:
+      writeBackTarget: "kustomization"
   applicationRefs:
     - namePattern: "htpc"
       commonUpdateSettings:
