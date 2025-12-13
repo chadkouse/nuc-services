@@ -1,0 +1,28 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: matrix
+spec:
+  namespace: argocd
+  writeBackConfig:
+    method: "git:secret:argocd-image-updater-system/git-creds"
+    gitConfig:
+      writeBackTarget: "kustomization"
+  applicationRefs:
+    - namePattern: "matrix"
+      commonUpdateSettings:
+        updateStrategy: "digest"
+      images:
+        - alias: "continuwuity"
+          imageName: "forgejo.ellis.link/continuwuation/continuwuity:latest"
+        - alias: "wsproxy"
+          imageName: "dock.mau.dev/mautrix/wsproxy"
+        - alias: "whatsapp"
+          imageName: "dock.mau.dev/mautrix/whatsapp:latest"
+        - alias: "slack"
+          imageName: "dock.mau.dev/mautrix/slack:latest"
+        - alias: "lk-jwt-service"
+          imageName: "ghcr.io/element-hq/lk-jwt-service:0.3.0"
+        - alias: "livekit-server"
+          imageName: "livekit/livekit-server:v1.9.0"
+
