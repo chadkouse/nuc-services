@@ -4,23 +4,23 @@ bases:
 - ../../base/htp
 images:
 - name: linuxserver/sonarr
-  digest: sha256:4b8a853b76337cd5de5f69961e23b7d0792ce7bf0a8be083dd7202ef670bfc34
+  digest: sha256:60e5edcac39172294ad22d55d1b08c2c0a9fe658cad2f2c4d742ae017d7874de
 - name: linuxserver/radarr
-  digest: sha256:e26fbfd3782520c0bb820666f041ca056acfe187a8b95214ee1f47512cc05a29
+  digest: sha256:06ac318ecb95a34c7b229568dcb4271f02cb5007bb189a0dd67a2032864187ca
 - name: linuxserver/bazarr
-  digest: sha256:a42fef2a5ffa1dca8714e12892ba0b8de5c6c513f1bcdb1ffe4143e715cffb45
+  digest: sha256:4aa1e82d1e96ae712095d881b7e3840e6db6ca862c335be5b00001f31156650b
 - name: linuxserver/transmission
   digest: sha256:e220cc5f4d10f4d46057cd10136771c48e9d41361627d566805be1ea9c9a29ae
 - name: linuxserver/prowlarr
-  digest: sha256:484784daaf4c081e55c608de256870184d283762e1b64e8105af487b1510fc4a
+  digest: sha256:475853535de3de8441b87c1457c30f2e695f4831228b12b6b7274e9da409d874
 - name: lscr.io/linuxserver/jellyfin
-  digest: sha256:367630b4e4e643c3c1d00bb76f13f3dbe318ad817c01256c358316c7acc3919b
+  digest: sha256:eb34c52b9fda39157fabee6fccb26729f1e710912896495fd1a91ba934703f58
 - name: linuxserver/nzbget
   digest: sha256:386a143ba9a2307e9163e6c2eed0752258dea7227027f95a626cdc5569816be0
 - name: fallenbagel/jellyseerr
   digest: sha256:499fbe958fa4a0c93172a231c14898986556bb28bd5cd569a0f41dbf887b04d7
 - name: lscr.io/linuxserver/qbittorrent
-  digest: sha256:7034f73a3c6fa4ea40fd67df462939d1665d765231b572523921c98c2db5362e
+  digest: sha256:043498de39c3dd63eec94360c5ad966a51271d1581070f42cb73ab0cf4776f29
 - name: linuxserver/plex
   digest: sha256:9794cedd30ad205d13efdb5ec8eb7564c9225dd18a1fa9ea99e94d97b8d6c077
 - name: linuxserver/lidarr
