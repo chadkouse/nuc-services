@@ -1,0 +1,25 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: smarthome
+spec:
+  namespace: argocd
+  writeBackConfig:
+    method: "git:secret:argocd-image-updater-system/git-creds"
+    gitConfig:
+      writeBackTarget: "kustomization"
+  applicationRefs:
+    - namePattern: "smarthome"
+      commonUpdateSettings:
+        updateStrategy: "digest"
+      images:
+        - alias: "homeassistant"
+          imageName: "linuxserver/homeassistant:latest"
+        - alias: "jellyplex-watched"
+          imageName: "luigi311/jellyplex-watched:main-slim"
+        - alias: "eclipse-mosquitto"
+          imageName: "eclipse-mosquitto:openssl"
+        - alias: "zwave-js-ui"
+          imageName: "zwavejs/zwave-js-ui:latest"
+        - alias: "frigate"
+          imageName: "ghcr.io/blakeblackshear/frigate:stable"
