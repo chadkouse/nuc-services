@@ -10,7 +10,8 @@ spec:
     writeBackTarget: "kustomization"
   applicationRefs:
     - namePattern: "htpc"
-      commonUpdateSettings: "digest"
+      commonUpdateSettings:
+        updateStrategy: "digest"
       images:
         - alias: "sonarr"
           imageName: "linuxserver/sonarr:latest"
