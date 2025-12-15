@@ -3,3 +3,4 @@ kind: Kustomization
 
 bases:
 - install.yaml
+- configmap.yaml
