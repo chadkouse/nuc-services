@@ -3,6 +3,6 @@ kind: Kustomization
 
 namespace: argocd-image-updater-system
 
-bases:
+resources:
 - install.yaml
 - configmap.yaml
