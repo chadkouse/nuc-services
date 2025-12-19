@@ -9,3 +9,5 @@ images:
     digest: sha256:8dc43050b9e0036e0eb106a0c0f943763ef4c071139613c49c3237599d8c4f7d
   - name: koboldai/koboldcpp
     digest: sha256:c9dc3fe7b27f5f6935f398bcda7c1cbc2e9423a0789415cccd6aa953e4866a91
+  - name: ghcr.io/devnen/chatterbox-tts-server
+    digest: sha256:db29030d45a55f06d18f116dc51a00040bdfd73872928c3064fcdf19cb610665

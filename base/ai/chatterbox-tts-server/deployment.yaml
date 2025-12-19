@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: chatterbox-tts-server
+  name: chatterbox-tts-server
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      run: chatterbox-tts-server
+  template:
+    metadata:
+      labels:
+        run: chatterbox-tts-server
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        image: ghcr.io/devnen/chatterbox-tts-server:latest
+        imagePullPolicy: IfNotPresent
+        name: chatterbox-tts-server
+        ports:
+        - containerPort: 8000
+          name: web
+          protocol: TCP
+        volumeMounts: 
+        - mountPath: /app/config.yaml
+          name: chatterbox-tts-server-home
+          subPath: config.yaml
+        - mountPath: /app/reference_audio
+          name: chatterbox-tts-server-home
+          subPath: reference_audio
+        - mountPath: /app/outputs
+          name: chatterbox-tts-server-home
+          subPath: outputs
+        - mountPath: /app/logs
+          name: chatterbox-tts-server-home
+          subPath: logs
+        - mountPath: /app/hf_cache
+          name: ai-home
+          subPath: chatterbox-tts-server/hf_cache

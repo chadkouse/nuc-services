@@ -10,6 +10,7 @@ resources:
 - namespace.yaml
 - sillytavern
 - koboldcpp
+- chatterbox-tts-server
 - ingress-route.yaml
 
 patchesStrategicMerge:
