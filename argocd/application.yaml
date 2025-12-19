@@ -2,11 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: htpc
-  annotations:
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/write-back-target: kustomization
-    argocd-image-updater.argoproj.io/image-list: linuxserver/sonarr:latest,linuxserver/radarr:latest,linuxserver/bazarr:latest,linuxserver/transmission:latest,linuxserver/prowlarr:latest,lscr.io/linuxserver/jellyfin:latest,linuxserver/nzbget:latest,lscr.io/linuxserver/overseerr:latest,lscr.io/linuxserver/qbittorrent:latest,linuxserver/plex:latest
-    argocd-image-updater.argoproj.io/update-strategy: digest
 spec:
   project: default
   
@@ -70,11 +65,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: smarthome
-  annotations:
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/write-back-target: kustomization
-    argocd-image-updater.argoproj.io/image-list: linuxserver/homeassistant:latest,luigi311/jellyplex-watched:main-slim,eclipse-mosquitto:openssl,zwavejs/zwave-js-ui:latest,ghcr.io/blakeblackshear/frigate:stable
-    argocd-image-updater.argoproj.io/update-strategy: digest
 spec:
   project: default
   
@@ -96,11 +86,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: matrix
-  annotations:
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/write-back-target: kustomization
-    argocd-image-updater.argoproj.io/image-list: forgejo.ellis.link/continuwuation/continuwuity:latest,dock.mau.dev/mautrix/wsproxy,dock.mau.dev/mautrix/whatsapp:latest,dock.mau.dev/mautrix/slack:latest,ghcr.io/element-hq/lk-jwt-service:0.3.0,livekit/livekit-server:v1.9.0
-    argocd-image-updater.argoproj.io/update-strategy: digest
 spec:
   project: default
   
@@ -122,11 +107,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: adblocker
-  annotations:
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/write-back-target: kustomization
-    argocd-image-updater.argoproj.io/image-list: mvance/unbound,spx01/blocky
-    argocd-image-updater.argoproj.io/update-strategy: digest
 spec:
   project: default
   
@@ -148,11 +128,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: wg-easy
-  annotations:
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/write-back-target: kustomization
-    argocd-image-updater.argoproj.io/image-list: ghcr.io/wg-easy/wg-easy:latest
-    argocd-image-updater.argoproj.io/update-strategy: digest
 spec:
   project: default
   
@@ -174,11 +149,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: postgresql
-  annotations:
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/write-back-target: kustomization
-    argocd-image-updater.argoproj.io/image-list: postgres
-    argocd-image-updater.argoproj.io/update-strategy: digest
 spec:
   project: default
   
@@ -200,11 +170,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: monitoring
-  annotations:
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/write-back-target: kustomization
-    argocd-image-updater.argoproj.io/image-list: grafana/grafana:latest,prom/prometheus:latest,ghcr.io/librespeed/speedtest:latest
-    argocd-image-updater.argoproj.io/update-strategy: digest
 spec:
   project: default
   
