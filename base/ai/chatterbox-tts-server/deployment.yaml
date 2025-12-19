@@ -48,4 +48,7 @@ spec:
           subPath: logs
         - mountPath: /app/hf_cache
           name: ai-home
-          subPath: chatterbox-tts-server/hf_cache
+          subPath: chatterbox_hf_cache
+        - mountPath: /app/model_cache
+          name: ai-home
+          subPath: chatterbox_model_cache
