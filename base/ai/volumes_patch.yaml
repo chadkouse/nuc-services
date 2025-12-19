@@ -26,9 +26,9 @@ spec:
     spec:
       volumes: 
       - hostPath: 
-          path: /media/segate/ai/models 
+          path: /media/segate/ai
           type: DirectoryOrCreate 
-        name: aimodels-home
+        name: ai-home
       - hostPath: 
           path: /opt/ai/koboldcpp 
           type: DirectoryOrCreate 
