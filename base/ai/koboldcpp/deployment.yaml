@@ -27,9 +27,9 @@ spec:
         - name: PGID
           value: "1000"
         - name: KCPP_DONT_UPDATE
-          value: false
+          value: "false"
         - name: KCPP_DONT_TUNNEL
-          value: true
+          value: "true"
         - name: KCPP_ARGS
           valueFrom:
             secretKeyRef:
