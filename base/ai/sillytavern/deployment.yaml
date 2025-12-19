@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: sillytavern
+  name: sillytavern
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      run: sillytavern
+  template:
+    metadata:
+      labels:
+        run: sillytavern
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+          image: ghcr.io/sillytavern/sillytavern:latest
+        imagePullPolicy: IfNotPresent
+        name: sillytavern
+        ports:
+        - containerPort: 8000
+          name: web
+          protocol: TCP
+        volumeMounts: 
+        - mountPath: /home/node/app/config
+          name: sillytavern-home
+          subPath: config
+        - mountPath: /home/node/app/data
+          name: sillytavern-home
+          subPath: data
+        - mountPath: /home/node/app/public/scripts/extensions/third-party
+          name: sillytavern-home
+          subPath: extensions
+        - mountPath: /home/node/app/plugins
+          name: sillytavern-home
+          subPath: plugins
