@@ -1,0 +1,49 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: koboldcpp
+  name: koboldcpp
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      run: koboldcpp
+  template:
+    metadata:
+      labels:
+        run: koboldcpp
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: KCPP_ARGS
+          valueFrom:
+            secretKeyRef:
+              key: KCPP_ARGS
+              name: koboldcpp
+        image: koboldai/koboldcpp:latest
+        imagePullPolicy: IfNotPresent
+        name: koboldcpp
+        ports:
+        - containerPort: 5001
+          name: web
+          protocol: TCP
+        volumeMounts: 
+        - mountPath: /workspace
+          name: koboldcpp-home
+          subPath: workspace
+        - mountPath: /admin
+          name: koboldcpp-home
+          subPath: admin
+        - mountPath: /app/models
+          name: aimodels-home

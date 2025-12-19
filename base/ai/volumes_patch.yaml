@@ -7,10 +7,29 @@ spec:
     spec:
       volumes: 
       - hostPath: 
-          path: /opt/ai/models 
+          path: /media/segate/ai/models 
           type: DirectoryOrCreate 
         name: aimodels-home
       - hostPath: 
           path: /opt/ai/sillytavern 
           type: DirectoryOrCreate 
         name: sillytavern-home
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: koboldcpp
+spec:
+  template:
+    spec:
+      volumes: 
+      - hostPath: 
+          path: /media/segate/ai/models 
+          type: DirectoryOrCreate 
+        name: aimodels-home
+      - hostPath: 
+          path: /opt/ai/koboldcpp 
+          type: DirectoryOrCreate 
+        name: koboldcpp-home
