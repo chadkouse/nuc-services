@@ -22,3 +22,29 @@ spec:
       - main: "kouse.xyz"
         sans:
           - "*.kouse.xyz"
+
+---
+
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: websites
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - kind: Rule
+    match: Host(`tts2.kouse.xyz`)
+    middlewares: []
+    priority: 0
+    services:
+    - kind: Service
+      name: chatterbox-sapphire
+      namespace: "websites"
+      port: chatterbox
+  tls:
+    certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"

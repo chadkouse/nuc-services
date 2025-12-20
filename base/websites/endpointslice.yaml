@@ -14,3 +14,22 @@ endpoints:
       - "10.0.1.100"
     conditions:
      ready: true
+
+---
+
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: chatterbox-saphire
+  labels:
+    kubernetes.io/service-name: chatterbox-saphire
+addressType: IPv4
+ports:
+  - name: chatterbox
+    protocol: TCP
+    port: 8004
+endpoints:
+  - addresses:
+      - "10.0.1.99"
+    conditions:
+     ready: true
