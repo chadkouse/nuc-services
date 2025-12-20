@@ -43,10 +43,8 @@ spec:
           protocol: TCP
         volumeMounts: 
         - mountPath: /workspace
-          name: ai-workspace
+          name: koboldcpp-home
           subPath: workspace
         - mountPath: /admin
           name: koboldcpp-home
           subPath: admin
-        - mountPath: /local_models
-          name: ai-models

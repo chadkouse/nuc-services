@@ -26,14 +26,6 @@ spec:
     spec:
       volumes: 
       - hostPath: 
-          path: /media/seagate/ai/models
-          type: DirectoryOrCreate 
-        name: ai-models
-      - hostPath: 
-          path: /media/seagate/ai/workspace
-          type: DirectoryOrCreate 
-        name: ai-workspace
-      - hostPath: 
           path: /opt/ai/koboldcpp 
           type: DirectoryOrCreate 
         name: koboldcpp-home
