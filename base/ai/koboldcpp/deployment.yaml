@@ -29,6 +29,11 @@ spec:
             secretKeyRef:
               key: KCPP_ARGS
               name: koboldcpp
+        - name: KCPP_MODEL
+          valueFrom:
+            secretKeyRef:
+              key: KCPP_MODEL
+              name: koboldcpp
         image: koboldai/koboldcpp:latest
         imagePullPolicy: IfNotPresent
         name: koboldcpp
