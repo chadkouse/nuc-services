@@ -8,3 +8,16 @@ spec:
     protocol: TCP
     targetPort: websites
     name: websites
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: chatterbox-sapphire
+spec:
+  ports:
+  - port: 8004
+    protocol: TCP
+    targetPort: chatterbox
+    name: chatterbox
