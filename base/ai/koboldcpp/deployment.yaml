@@ -43,5 +43,5 @@ spec:
         - mountPath: /admin
           name: koboldcpp-home
           subPath: admin
-        - mountPath: /app/models
+        - mountPath: /local_models
           name: ai-models
