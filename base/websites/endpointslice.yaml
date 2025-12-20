@@ -20,9 +20,9 @@ endpoints:
 apiVersion: discovery.k8s.io/v1
 kind: EndpointSlice
 metadata:
-  name: chatterbox-saphire
+  name: chatterbox-sapphire
   labels:
-    kubernetes.io/service-name: chatterbox-saphire
+    kubernetes.io/service-name: chatterbox-sapphire
 addressType: IPv4
 ports:
   - name: chatterbox
