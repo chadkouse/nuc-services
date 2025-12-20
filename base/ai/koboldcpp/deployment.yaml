@@ -16,16 +16,10 @@ spec:
       labels:
         run: koboldcpp
     spec:
-      securityContext:
-        fsGroup: 1000
       containers:
       - env:
         - name: TZ
           value: America/New_York
-        - name: PUID
-          value: "1000"
-        - name: PGID
-          value: "1000"
         - name: KCPP_DONT_UPDATE
           value: "false"
         - name: KCPP_DONT_TUNNEL
