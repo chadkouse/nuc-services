@@ -7,7 +7,7 @@ spec:
     spec:
       volumes: 
       - hostPath: 
-          path: /media/segate/ai/models 
+          path: /media/seagate/ai/models 
           type: DirectoryOrCreate 
         name: aimodels-home
       - hostPath: 
@@ -26,11 +26,11 @@ spec:
     spec:
       volumes: 
       - hostPath: 
-          path: /media/segate/ai/models
+          path: /media/seagate/ai/models
           type: DirectoryOrCreate 
         name: ai-models
       - hostPath: 
-          path: /media/segate/ai/workspace
+          path: /media/seagate/ai/workspace
           type: DirectoryOrCreate 
         name: ai-workspace
       - hostPath: 
@@ -49,7 +49,7 @@ spec:
 #     spec:
 #       volumes: 
 #       - hostPath: 
-#           path: /media/segate/ai
+#           path: /media/seagate/ai
 #           type: DirectoryOrCreate 
 #         name: ai-home
 #       - hostPath: 
