@@ -36,19 +36,19 @@ spec:
 
 ---
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: chatterbox-tts-server
-spec:
-  template:
-    spec:
-      volumes: 
-      - hostPath: 
-          path: /media/segate/ai
-          type: DirectoryOrCreate 
-        name: ai-home
-      - hostPath: 
-          path: /opt/ai/chatterbox-tts-server 
-          type: DirectoryOrCreate 
-        name: chatterbox-tts-server-home
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: chatterbox-tts-server
+# spec:
+#   template:
+#     spec:
+#       volumes: 
+#       - hostPath: 
+#           path: /media/segate/ai
+#           type: DirectoryOrCreate 
+#         name: ai-home
+#       - hostPath: 
+#           path: /opt/ai/chatterbox-tts-server 
+#           type: DirectoryOrCreate 
+#         name: chatterbox-tts-server-home
