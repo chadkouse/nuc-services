@@ -136,6 +136,9 @@ spec:
       - hostPath:
           path: /media/seagate2/plex/tv
         name: htpc-media-tvv
+      - hostPath:
+          path: /media/seagate2/jellyfin-data/data
+        name: jellyfin-data
 ---
 apiVersion: apps/v1
 kind: Deployment

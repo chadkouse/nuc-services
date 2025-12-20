@@ -51,3 +51,5 @@ spec:
           name: htpc-media-tvv
         - mountPath: /movies
           name: htpc-media-moviess
+        - mountPath: /config/data
+          name: jellyfin-data
