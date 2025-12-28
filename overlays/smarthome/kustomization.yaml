@@ -13,3 +13,5 @@ images:
   digest: sha256:a7036e59a9d7916d1f92f2fa1e0b9f4a5ed317fc8bef38756368f7c865e0e95a
 - name: ghcr.io/blakeblackshear/frigate
   digest: sha256:cf4305d9f1c673d71c4d0fab30ca56ca05ac91168711a74ee7867a4691a7ad02
+- name: tboyk/frigate-echo
+  digest: sha256:40561a5ebf928e5d0d906531acf8f2dc3f2f21144cc7dc931fd2da2a3f0dbf43
