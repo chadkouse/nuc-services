@@ -60,7 +60,7 @@ spec:
       - hostPath: 
           path: /media/nvr/frigate/echo_storage
           type: DirectoryOrCreate 
-        name: echo_storage
+        name: echo-storage
 ---
 apiVersion: apps/v1
 kind: Deployment

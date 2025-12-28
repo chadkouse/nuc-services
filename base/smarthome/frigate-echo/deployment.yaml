@@ -28,4 +28,4 @@ spec:
         - mountPath: /mnt/frigate_exports
           name: exports
         - mountPath: /mnt/echo_storage
-          name: echo_storage
+          name: echo-storage
