@@ -44,6 +44,27 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: frigate-echo
+spec:
+  template:
+    spec:
+      volumes: 
+      - hostPath: 
+          path: /opt/smarthome/frigate-echo 
+          type: DirectoryOrCreate 
+        name: config
+      - hostPath: 
+          path: /media/nvr/frigate/exports
+          type: DirectoryOrCreate 
+        name: exports
+      - hostPath: 
+          path: /media/nvr/frigate/echo_storage
+          type: DirectoryOrCreate 
+        name: echo_storage
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: zwave-js-ui
 spec:
   template:

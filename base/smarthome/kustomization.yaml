@@ -11,6 +11,7 @@ resources:
 - mosquitto
 - homeassistant
 - frigate
+- frigate-echo
 - opensprinkler
 - zwave
 - ingress-route.yaml

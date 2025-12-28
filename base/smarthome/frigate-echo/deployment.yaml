@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: frigate-echo
+  name: frigate-echo
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      run: frigate-echo
+  template:
+    metadata:
+      labels:
+        run: frigate-echo
+    spec:
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        image: tboyk/frigate-echo:latest
+        name: frigate-echo
+        volumeMounts: 
+        - mountPath: /echo/config
+          name: config
+        - mountPath: /mnt/frigate_exports
+          name: exports
+        - mountPath: /mnt/echo_storage
+          name: echo_storage
