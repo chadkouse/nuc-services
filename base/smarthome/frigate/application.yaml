@@ -75,6 +75,8 @@ data:
           - rtsp://{FRIGATE_GO2RTC_RTSP_USERNAME}:{FRIGATE_GO2RTC_RTSP_PASSWORD}@front-doorbell.cams.lan/Preview_01_sub
         front_doorbell_sub:
           - "ffmpeg:http://front-doorbell.cams.lan./flv?port=1935&app=bcs&stream=channel0_ext.bcs&user={FRIGATE_GO2RTC_RTSP_USERNAME}&password={FRIGATE_GO2RTC_RTSP_PASSWORD}"
+        endercam:
+          - "webrtc:http://10.0.1.97:8080/webrtc"
     
     cameras:
       # Name of your camera
