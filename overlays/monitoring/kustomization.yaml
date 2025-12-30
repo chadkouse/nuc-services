@@ -8,4 +8,4 @@ images:
 - name: prom/prometheus
   digest: sha256:2b6f734e372c1b4717008f7d0a0152316aedd4d13ae17ef1e3268dbfaf68041b
 - name: ghcr.io/librespeed/speedtest
-  digest: sha256:44903b02cba7a41f06a6078a2c65f7ced6ee82cdb70a3ac4f37c223c3660326d
+  digest: sha256:f493cc54cf46c085233423240aac1fd935c37c8c4b747520457ffd3fbeb3e58d
