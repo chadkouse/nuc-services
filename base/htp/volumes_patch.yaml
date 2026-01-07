@@ -139,6 +139,9 @@ spec:
       - hostPath:
           path: /media/seagate2/jellyfin-data/data
         name: jellyfin-data
+      - hostPath: 
+          path: /media/seagate/plex/leaving-soon
+        name: htpc-media-leaving-soon
 ---
 apiVersion: apps/v1
 kind: Deployment

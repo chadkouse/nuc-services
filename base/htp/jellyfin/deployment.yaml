@@ -53,3 +53,5 @@ spec:
           name: htpc-media-moviess
         - mountPath: /config/data
           name: jellyfin-data
+        - mountPath: /leaving-soon
+          name: htpc-media-leaving-soon
