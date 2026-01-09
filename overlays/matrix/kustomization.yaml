@@ -4,11 +4,11 @@ bases:
 - ../../base/matrix
 images:
 - name: forgejo.ellis.link/continuwuation/continuwuity
-  digest: sha256:b1eaf59327dd19b6cd8c742069ab12c0bf35f3f6d5636fd6c7f4970aa4e9c256
+  digest: sha256:f5a946474c3027f5fcdaea34a5b1d4f108b4ded60e01e6577e9395c561f13540
 - name: dock.mau.dev/mautrix/wsproxy
   digest: sha256:83a2f5cf550063cfe17aec3b14af2c297315f13c73114723efa73b746a861753
 - name: dock.mau.dev/mautrix/whatsapp
-  digest: sha256:3a706f6948c2d808ca6da3521aeb59f2c1463cf0a8fb20f9b89eef9fc1722c5b
+  digest: sha256:9855e68d864858dde7562ab57706abff21e926387ba65b8ec45901e947925079
 - name: dock.mau.dev/mautrix/slack
   digest: sha256:23b30f0ccee765fc03c068363afe4e526a1e7193806ff912d611f6a68193664c
 - name: ghcr.io/element-hq/lk-jwt-service
