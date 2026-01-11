@@ -20,7 +20,7 @@ images:
 - name: fallenbagel/jellyseerr
   digest: sha256:499fbe958fa4a0c93172a231c14898986556bb28bd5cd569a0f41dbf887b04d7
 - name: lscr.io/linuxserver/qbittorrent
-  digest: sha256:e0cedcadd62f809efdeddfd32e4d1192f9a74e6e64ed6753bfc6e2c3ed4a714a
+  digest: sha256:95114034a7f74672b76f795f6938921b0ca795f85b59b48691035dc66714f34c
 - name: linuxserver/plex
   digest: sha256:9794cedd30ad205d13efdb5ec8eb7564c9225dd18a1fa9ea99e94d97b8d6c077
 - name: linuxserver/lidarr
