@@ -4,15 +4,15 @@ bases:
 - ../../base/htp
 images:
 - name: linuxserver/sonarr
-  digest: sha256:8b9f2138ec50fc9e521960868f79d2ad0d529bc610aef19031ea8ff80b54c5e0
+  digest: sha256:02b4d538d351d6e35882a021c08e8600fe95d28860fb1dd724b597166e7221ca
 - name: linuxserver/radarr
-  digest: sha256:6c0948b42c149e36bb3dbc0b64d36c77b2d3c9dccf1b424c4f72af1e57ba0c21
+  digest: sha256:270f25698624b57b86ca119cc95399d7ff15be8297095b4e1223fd5b549b732c
 - name: linuxserver/bazarr
   digest: sha256:7d0a091a63889ce1e4ac4c90595ebd2c50ba5a5df7039a4f4d2be6c2aed6d4ae
 - name: linuxserver/transmission
   digest: sha256:e220cc5f4d10f4d46057cd10136771c48e9d41361627d566805be1ea9c9a29ae
 - name: linuxserver/prowlarr
-  digest: sha256:67a8aaedcfd6989f3030b937a6a07007310b1dfc7ee8df16d2cbfa48d1c1158c
+  digest: sha256:d3e9307b320b6772749a2cf8fc2712e9e824c4930b034680ad4d08a9e2f25884
 - name: lscr.io/linuxserver/jellyfin
   digest: sha256:313571f253bf1035809f6856bb063904456226ef3899b96e60ee4597b3477246
 - name: linuxserver/nzbget
