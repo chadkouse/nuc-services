@@ -8,7 +8,7 @@ images:
 - name: dock.mau.dev/mautrix/wsproxy
   digest: sha256:83a2f5cf550063cfe17aec3b14af2c297315f13c73114723efa73b746a861753
 - name: dock.mau.dev/mautrix/whatsapp
-  digest: sha256:59195b31fa02f26d4510034f9d15d2cf6edcb520ec5b3d72801a05d913ff3a6f
+  digest: sha256:e179a117264d947d2d8f268e6da09f4798713d7747992d4c1764c7a21fa7eb3a
 - name: dock.mau.dev/mautrix/slack
   digest: sha256:23b30f0ccee765fc03c068363afe4e526a1e7193806ff912d611f6a68193664c
 - name: ghcr.io/element-hq/lk-jwt-service
