@@ -10,7 +10,7 @@ images:
 - name: eclipse-mosquitto
   digest: sha256:e011726bdfa757011bc8b8716e03b7c35d2c3f623d9f658c2c6bf66e909ea42e
 - name: zwavejs/zwave-js-ui
-  digest: sha256:d38bee896a9d99dd6d558c258c9935656ea73e58b7ebf1cae5479a73f6e0553e
+  digest: sha256:d14b02b56c99445d1fb8af2fb2a6c413a915fd5b3d93f4f7ef456a74bfd05b8a
 - name: ghcr.io/blakeblackshear/frigate
   digest: sha256:1f8dbaaa4c7c2855c2aef711842d13b0c20bfdc3f28ad88faf66aa1bc219b108
 - name: tboyk/frigate-echo
