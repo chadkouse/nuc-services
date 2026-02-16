@@ -4,7 +4,7 @@ bases:
 - ../../base/matrix
 images:
 - name: forgejo.ellis.link/continuwuation/continuwuity
-  digest: sha256:0f94e8f75389c61f5bba906e9b0015ac52079c6b5acb2b19bc87b62e9dd44114
+  digest: sha256:c1aa5cb5cb8330f7c5c0781b123178ac80816a9e196ae3eacf37cea29d8ebe26
 - name: dock.mau.dev/mautrix/wsproxy
   digest: sha256:83a2f5cf550063cfe17aec3b14af2c297315f13c73114723efa73b746a861753
 - name: dock.mau.dev/mautrix/whatsapp
