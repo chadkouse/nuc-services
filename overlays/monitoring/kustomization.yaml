@@ -6,6 +6,6 @@ images:
 - name: grafana/grafana
   digest: sha256:b0ae311af06228bcfd4a620504b653db80f5b91e94dc3dc2a5b7dab202bcde20
 - name: prom/prometheus
-  digest: sha256:1f0f50f06acaceb0f5670d2c8a658a599affe7b0d8e78b898c1035653849a702
+  digest: sha256:4a61322ac1103a0e3aea2a61ef1718422a48fa046441f299d71e660a3bc71ae9
 - name: ghcr.io/librespeed/speedtest
   digest: sha256:99d8a690056c83cc51f47aefd994778c5f26a0935d578416b65289d6fd236702
