@@ -44,3 +44,7 @@ spec:
           path: /opt/monitoring/rustdesk/data
           type: DirectoryOrCreate 
         name: data
+      - hostPath: 
+          path: /opt/monitoring/rustdesk/logs
+          type: DirectoryOrCreate 
+        name: logs

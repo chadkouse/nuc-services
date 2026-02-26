@@ -49,6 +49,8 @@ spec:
         volumeMounts: 
         - mountPath: /root
           name: data 
+        - mountPath: /var/log
+          name: logs 
       - name: rustdesk-server-hbbs
         image: rustdesk/rustdesk-server
         env:
@@ -85,3 +87,5 @@ spec:
         volumeMounts: 
         - mountPath: /root
           name: data 
+        - mountPath: /var/log
+          name: logs 
