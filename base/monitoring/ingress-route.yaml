@@ -80,7 +80,7 @@ spec:
           - "*.kouse.xyz"
   routes:
   - kind: Rule
-    match: Host(`logmein.kouse.xyz`)
+    match: Host(`logmein.kouse.xyz`) && PathPrefix(`/ws/id`)
     priority: 0
     services:
     - kind: Service
@@ -121,7 +121,7 @@ spec:
           - "*.kouse.xyz"
   routes:
   - kind: Rule
-    match: Host(`logmein.kouse.xyz`)
+    match: Host(`logmein.kouse.xyz`) && PathPrefix(`/ws/relay`)
     priority: 0
     services:
     - kind: Service
