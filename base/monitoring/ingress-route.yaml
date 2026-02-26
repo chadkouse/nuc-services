@@ -71,6 +71,12 @@ metadata:
 spec:
   entryPoints:
     - hbbsweb
+  tls:
+    certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"
   routes:
   - kind: Rule
     match: Host(`logmein.kouse.xyz`)
@@ -105,6 +111,12 @@ metadata:
 spec:
   entryPoints:
     - hbbrweb
+  tls:
+    certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"
   routes:
   - kind: Rule
     match: Host(`logmein.kouse.xyz`)
