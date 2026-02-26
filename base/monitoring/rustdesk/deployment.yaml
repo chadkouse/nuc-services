@@ -16,6 +16,7 @@ spec:
       labels:
         run: rustdesk-server
     spec:
+      hostNetwork: true
       containers:
       - name: rustdesk-server-hbbr
         image: rustdesk/rustdesk-server
@@ -44,7 +45,6 @@ spec:
         args:
           - -k
           - _
-        hostNetwork: true
         volumeMounts: 
         - mountPath: /root
           name: data 
@@ -81,7 +81,6 @@ spec:
         args:
           - -k
           - _
-        hostNetwork: true
         volumeMounts: 
         - mountPath: /root
           name: data 
