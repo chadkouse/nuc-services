@@ -18,7 +18,6 @@ spec:
       labels:
         run: rustdesk-server
     spec:
-      hostNetwork: true
       containers:
       - name: rustdesk-server-hbbr
         image: rustdesk/rustdesk-server
