@@ -71,6 +71,7 @@ metadata:
 spec:
   entryPoints:
     - hbbsweb
+    - websecure
   tls:
     certResolver: default
     domains:
@@ -110,6 +111,7 @@ metadata:
   name: rustdesk-server-hbbrweb
 spec:
   entryPoints:
+    - websecure
     - hbbrweb
   tls:
     certResolver: default
