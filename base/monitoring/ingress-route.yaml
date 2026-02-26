@@ -45,7 +45,7 @@ spec:
     - name: rustdesk-server
       namespace: monitoring
       port: nat
-      nativeLB: true
+      # nativeLB: true
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRouteTCP
@@ -62,7 +62,7 @@ spec:
     - name: rustdesk-server
       namespace: monitoring
       port: connection
-      nativeLB: true
+      # nativeLB: true
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
@@ -96,7 +96,7 @@ spec:
     - name: rustdesk-server
       namespace: monitoring
       port: relay
-      nativeLB: true
+      # nativeLB: true
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
@@ -127,4 +127,4 @@ spec:
     - name: rustdesk-server
       namespace: monitoring
       port: registry
-      nativeLB: true
+      # nativeLB: true
