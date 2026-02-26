@@ -26,12 +26,12 @@ spec:
         - name: TZ
           value: America/New_York
         ports:
-        - containerPort: 21117
-          name: relay
-          protocol: TCP
-        # - containerPort: 21119
-        #   name: webclient-hbbr
+        # - containerPort: 21117
+        #   name: relay
         #   protocol: TCP
+        - containerPort: 21119
+          name: webclient-hbbr
+          protocol: TCP
         livenessProbe:
           tcpSocket:
             port: relay
