@@ -9,3 +9,5 @@ images:
   digest: sha256:4a61322ac1103a0e3aea2a61ef1718422a48fa046441f299d71e660a3bc71ae9
 - name: ghcr.io/librespeed/speedtest
   digest: sha256:99d8a690056c83cc51f47aefd994778c5f26a0935d578416b65289d6fd236702
+- name: rustdesk/rustdesk-server
+  digest: sha256:10818ec05b179039c6660f4d8e74b303f0db2858bbad2b18e24992ea22d54cd6

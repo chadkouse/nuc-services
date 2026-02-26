@@ -1,0 +1,82 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: rustdesk-server
+  name: rustdesk-server
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      run: rustdesk-server
+  template:
+    metadata:
+      labels:
+        run: rustdesk-server
+    spec:
+      containers:
+      - name: rustdesk-server-hbbr
+        image: rustdesk/rustdesk-server
+        env:
+        - name: TZ
+          value: America/New_York
+        ports:
+        - containerPort: 21117
+          name: relay
+          protocol: TCP
+        - containerPort: 21119
+          name: webclient-hbbr
+          protocol: TCP
+        livenessProbe:
+          tcpSocket:
+            port: relay
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          tcpSocket:
+            port: relay
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        command:
+          - hbbr
+        args:
+          - -k
+          - _
+      - name: rustdesk-server-hbbs
+        image: rustdesk/rustdesk-server
+        env:
+        - name: TZ
+          value: America/New_York
+        ports:
+        - containerPort: 21115
+          name: nat
+          protocol: TCP
+        - containerPort: 21116
+          name: registry
+          protocol: TCP
+        - containerPort: 21116
+          name: connection
+          protocol: UDP
+        - containerPort: 21118
+          name: webclient-hbbs
+          protocol: TCP
+        livenessProbe:
+          tcpSocket:
+            port: nat
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          tcpSocket:
+            port: nat
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        command:
+          - hbbs
+        args:
+          - -k
+          - _
+        volumeMounts: 
+        - mountPath: /root
+          name: data 

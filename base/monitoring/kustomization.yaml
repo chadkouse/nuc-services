@@ -11,6 +11,7 @@ resources:
 - grafana
 - prometheus
 - librespeed
+- rustdesk
 - ingress-route.yaml
 - imageupdater.yaml
 
