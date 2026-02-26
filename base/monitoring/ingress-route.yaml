@@ -29,116 +29,116 @@ spec:
       name: librespeed
       namespace: monitoring
       port: web
----
-apiVersion: traefik.io/v1alpha1
-kind: IngressRouteTCP
-metadata:
-  name: rustdesk-server-nat
-spec:
-  entryPoints:
-    - hbbsnat
-  routes:
-  - match: HostSNI(`*`)
-    middlewares: []
-    priority: 0
-    services:
-    - name: rustdesk-server
-      namespace: monitoring
-      port: nat
-      nativeLB: true
----
-apiVersion: traefik.io/v1alpha1
-kind: IngressRouteTCP
-metadata:
-  name: rustdesk-server-conn
-spec:
-  entryPoints:
-    - hbbscon
-  routes:
-  - match: HostSNI(`*`)
-    middlewares: []
-    priority: 0
-    services:
-    - name: rustdesk-server
-      namespace: monitoring
-      port: connection
-      nativeLB: true
----
-apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
-metadata:
-  name: rustdesk-server-hbbsweb
-spec:
-  entryPoints:
-    - hbbsweb
-    - websecure
-  tls:
-    certResolver: default
-    domains:
-      - main: "kouse.xyz"
-        sans:
-          - "*.kouse.xyz"
-  routes:
-  - kind: Rule
-    match: Host(`logmein.kouse.xyz`) && PathPrefix(`/ws/id`)
-    priority: 0
-    services:
-    - kind: Service
-      name: rustdesk-server
-      namespace: monitoring
-      port: webclient-hbbs
----
-apiVersion: traefik.io/v1alpha1
-kind: IngressRouteTCP
-metadata:
-  name: rustdesk-server-relay
-spec:
-  entryPoints:
-    - hbbrrel
-  routes:
-  - match: HostSNI(`*`)
-    middlewares: []
-    priority: 0
-    services:
-    - name: rustdesk-server
-      namespace: monitoring
-      port: relay
-      nativeLB: true
----
-apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
-metadata:
-  name: rustdesk-server-hbbrweb
-spec:
-  entryPoints:
-    - websecure
-    - hbbrweb
-  tls:
-    certResolver: default
-    domains:
-      - main: "kouse.xyz"
-        sans:
-          - "*.kouse.xyz"
-  routes:
-  - kind: Rule
-    match: Host(`logmein.kouse.xyz`) && PathPrefix(`/ws/relay`)
-    priority: 0
-    services:
-    - kind: Service
-      name: rustdesk-server
-      namespace: monitoring
-      port: webclient-hbbr
----
-apiVersion: traefik.io/v1alpha1
-kind: IngressRouteUDP
-metadata:
-  name: rustdesk-server-registry
-spec:
-  entryPoints:
-    - hbbsreg
-  routes:
-  - services:
-    - name: rustdesk-server
-      namespace: monitoring
-      port: registry
-      nativeLB: true
+# ---
+# apiVersion: traefik.io/v1alpha1
+# kind: IngressRouteTCP
+# metadata:
+#   name: rustdesk-server-nat
+# spec:
+#   entryPoints:
+#     - hbbsnat
+#   routes:
+#   - match: HostSNI(`*`)
+#     middlewares: []
+#     priority: 0
+#     services:
+#     - name: rustdesk-server
+#       namespace: monitoring
+#       port: nat
+#       nativeLB: true
+# ---
+# apiVersion: traefik.io/v1alpha1
+# kind: IngressRouteTCP
+# metadata:
+#   name: rustdesk-server-conn
+# spec:
+#   entryPoints:
+#     - hbbscon
+#   routes:
+#   - match: HostSNI(`*`)
+#     middlewares: []
+#     priority: 0
+#     services:
+#     - name: rustdesk-server
+#       namespace: monitoring
+#       port: connection
+#       nativeLB: true
+# ---
+# apiVersion: traefik.io/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: rustdesk-server-hbbsweb
+# spec:
+#   entryPoints:
+#     - hbbsweb
+#     - websecure
+#   tls:
+#     certResolver: default
+#     domains:
+#       - main: "kouse.xyz"
+#         sans:
+#           - "*.kouse.xyz"
+#   routes:
+#   - kind: Rule
+#     match: Host(`logmein.kouse.xyz`) && PathPrefix(`/ws/id`)
+#     priority: 0
+#     services:
+#     - kind: Service
+#       name: rustdesk-server
+#       namespace: monitoring
+#       port: webclient-hbbs
+# ---
+# apiVersion: traefik.io/v1alpha1
+# kind: IngressRouteTCP
+# metadata:
+#   name: rustdesk-server-relay
+# spec:
+#   entryPoints:
+#     - hbbrrel
+#   routes:
+#   - match: HostSNI(`*`)
+#     middlewares: []
+#     priority: 0
+#     services:
+#     - name: rustdesk-server
+#       namespace: monitoring
+#       port: relay
+#       nativeLB: true
+# ---
+# apiVersion: traefik.io/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: rustdesk-server-hbbrweb
+# spec:
+#   entryPoints:
+#     - websecure
+#     - hbbrweb
+#   tls:
+#     certResolver: default
+#     domains:
+#       - main: "kouse.xyz"
+#         sans:
+#           - "*.kouse.xyz"
+#   routes:
+#   - kind: Rule
+#     match: Host(`logmein.kouse.xyz`) && PathPrefix(`/ws/relay`)
+#     priority: 0
+#     services:
+#     - kind: Service
+#       name: rustdesk-server
+#       namespace: monitoring
+#       port: webclient-hbbr
+# ---
+# apiVersion: traefik.io/v1alpha1
+# kind: IngressRouteUDP
+# metadata:
+#   name: rustdesk-server-registry
+# spec:
+#   entryPoints:
+#     - hbbsreg
+#   routes:
+#   - services:
+#     - name: rustdesk-server
+#       namespace: monitoring
+#       port: registry
+#       nativeLB: true

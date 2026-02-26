@@ -31,20 +31,20 @@ spec:
           path: /opt/monitoring/prometheus/config
           type: DirectoryOrCreate 
         name: config
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: rustdesk-server
-spec:
-  template:
-    spec:
-      volumes: 
-      - hostPath: 
-          path: /opt/monitoring/rustdesk/data
-          type: DirectoryOrCreate 
-        name: data
-      - hostPath: 
-          path: /opt/monitoring/rustdesk/logs
-          type: DirectoryOrCreate 
-        name: logs
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: rustdesk-server
+# spec:
+#   template:
+#     spec:
+#       volumes: 
+#       - hostPath: 
+#           path: /opt/monitoring/rustdesk/data
+#           type: DirectoryOrCreate 
+#         name: data
+#       - hostPath: 
+#           path: /opt/monitoring/rustdesk/logs
+#           type: DirectoryOrCreate 
+#         name: logs
