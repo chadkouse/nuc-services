@@ -284,7 +284,9 @@ spec:
         run: homeassistant
     spec:
       containers:
-      - env:
+      - name: homeassistant
+        image: lscr.io/linuxserver/homeassistant
+        env:
         - name: TZ
           value: America/New_York
         - name: PUID
@@ -293,8 +295,6 @@ spec:
           value: "1000"
         - name: PYTHONHTTPSVERIFY
           value: "0"
-        image: lscr.io/linuxserver/homeassistant
-        name: homeassistant
         ports:
         - containerPort: 8123
           name: webui

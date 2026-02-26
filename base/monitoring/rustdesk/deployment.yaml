@@ -44,6 +44,10 @@ spec:
         args:
           - -k
           - _
+        hostNetwork: true
+        volumeMounts: 
+        - mountPath: /root
+          name: data 
       - name: rustdesk-server-hbbs
         image: rustdesk/rustdesk-server
         env:
@@ -77,6 +81,7 @@ spec:
         args:
           - -k
           - _
+        hostNetwork: true
         volumeMounts: 
         - mountPath: /root
           name: data 
