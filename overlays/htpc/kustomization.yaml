@@ -6,7 +6,7 @@ images:
 - name: linuxserver/sonarr
   digest: sha256:37be832b78548e3f55f69c45b50e3b14d18df1b6def2a4994258217e67efb1a1
 - name: linuxserver/radarr
-  digest: sha256:6d3e68474ea146f995af98d3fb2cb1a14e2e4457ddaf035aa5426889e2f9249c
+  digest: sha256:a360633a3682d41e96f71a07ff36ecbdf2394a9628465b84b0a8437087715b41
 - name: linuxserver/bazarr
   digest: sha256:b0bc617664dbca25845ac3b1bb6411b145b6a44a6d173071c9d2f426524fdd9f
 - name: linuxserver/transmission
