@@ -4,7 +4,7 @@ bases:
 - ../../base/htp
 images:
 - name: linuxserver/sonarr
-  digest: sha256:37be832b78548e3f55f69c45b50e3b14d18df1b6def2a4994258217e67efb1a1
+  digest: sha256:21c1c3d52248589bb064f5adafec18cad45812d7a01d317472955eef051e619b
 - name: linuxserver/radarr
   digest: sha256:a360633a3682d41e96f71a07ff36ecbdf2394a9628465b84b0a8437087715b41
 - name: linuxserver/bazarr
