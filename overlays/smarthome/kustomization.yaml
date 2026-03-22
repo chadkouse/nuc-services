@@ -12,6 +12,6 @@ images:
 - name: zwavejs/zwave-js-ui
   digest: sha256:9ed974fa1505dd5224697f7210414bd309e30eb692f6cc772aaa642ec9779fdd
 - name: ghcr.io/blakeblackshear/frigate
-  digest: sha256:5be5ce3b79f8b09a52957afea9d4a23ad62c9f077a05d9047e3404eb78c304a8
+  digest: sha256:1724960349dad0bd2ae8ec884171a6fd5755a4dc242a0e66cadbda9c0e85c99b
 - name: tboyk/frigate-echo
   digest: sha256:40561a5ebf928e5d0d906531acf8f2dc3f2f21144cc7dc931fd2da2a3f0dbf43
