@@ -33,7 +33,7 @@ spec:
               name: openclaw-secrets
               key: ANTHROPIC_API_KEY
         - name: OPENCLAW_CONFIG_PATH
-          value: /data/openclaw.json
+          value: /home/node/.openclaw/openclaw.json
         ports:
         - containerPort: 18789
           name: web
@@ -46,3 +46,6 @@ spec:
         volumeMounts:
         - mountPath: /data
           name: openclaw-data
+        - mountPath: /home/node/.openclaw
+          name: openclaw-data
+          subPath: home
