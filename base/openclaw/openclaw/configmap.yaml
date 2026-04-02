@@ -7,6 +7,6 @@ data:
     {
       "gateway": {
         "port": 18789,
-        "bind": "all"
+        "bind": "lan"
       }
     }
