@@ -10,3 +10,6 @@ spec:
           path: /media/seagate/openclaw
           type: DirectoryOrCreate
         name: openclaw-data
+      - configMap:
+          name: openclaw-config
+        name: openclaw-config
