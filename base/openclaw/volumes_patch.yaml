@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openclaw
+spec:
+  template:
+    spec:
+      volumes:
+      - hostPath:
+          path: /media/seagate/openclaw
+          type: DirectoryOrCreate
+        name: openclaw-data

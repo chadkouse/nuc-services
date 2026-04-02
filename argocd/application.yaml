@@ -190,6 +190,27 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: openclaw
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/chadkouse/nuc-services.git
+    targetRevision: main
+    path: overlays/openclaw
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: openclaw
+
+  # Sync policy
+  syncPolicy:
+    automated:
+      prune: false
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: websites
 spec:
   project: default

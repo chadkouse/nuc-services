@@ -1,0 +1,22 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: openclaw
+spec:
+  entryPoints:
+    - websecure
+  tls:
+    certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"
+  routes:
+  - kind: Rule
+    match: Host(`assist.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    priority: 0
+    services:
+    - kind: Service
+      name: openclaw
+      namespace: openclaw
+      port: web
