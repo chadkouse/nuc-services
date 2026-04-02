@@ -37,7 +37,6 @@ spec:
           name: web
           protocol: TCP
         securityContext:
-          readOnlyRootFilesystem: true
           allowPrivilegeEscalation: false
           capabilities:
             drop:
