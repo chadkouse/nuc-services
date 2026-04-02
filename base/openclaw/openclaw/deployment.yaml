@@ -49,3 +49,6 @@ spec:
         - mountPath: /home/node/.openclaw
           name: openclaw-data
           subPath: home
+        - mountPath: /home/node/.config
+          name: openclaw-data
+          subPath: config
