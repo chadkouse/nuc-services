@@ -32,6 +32,8 @@ spec:
             secretKeyRef:
               name: openclaw-secrets
               key: ANTHROPIC_API_KEY
+        - name: OLLAMA_API_KEY
+          value: ollama-local
         - name: OPENCLAW_CONFIG_PATH
           value: /home/node/.openclaw/openclaw.json
         ports:
@@ -52,3 +54,24 @@ spec:
         - mountPath: /home/node/.config
           name: openclaw-data
           subPath: config
+      - name: ollama
+        image: ollama/ollama:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 11434
+          name: ollama
+          protocol: TCP
+        securityContext:
+          runAsUser: 0
+          runAsNonRoot: false
+          allowPrivilegeEscalation: false
+        volumeMounts:
+        - mountPath: /root/.ollama
+          name: ollama-data
+        lifecycle:
+          postStart:
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - until ollama list > /dev/null 2>&1; do sleep 2; done; ollama pull llama3.2:3b

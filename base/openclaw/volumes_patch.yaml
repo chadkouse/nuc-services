@@ -10,3 +10,7 @@ spec:
           path: /media/seagate/openclaw
           type: DirectoryOrCreate
         name: openclaw-data
+      - hostPath:
+          path: /media/seagate/ollama
+          type: DirectoryOrCreate
+        name: ollama-data

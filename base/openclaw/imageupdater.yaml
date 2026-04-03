@@ -1,0 +1,19 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: openclaw
+spec:
+  namespace: argocd
+  writeBackConfig:
+    method: "git:secret:argocd-image-updater-system/git-creds"
+    gitConfig:
+      writeBackTarget: "kustomization"
+  applicationRefs:
+    - namePattern: "openclaw"
+      commonUpdateSettings:
+        updateStrategy: "digest"
+      images:
+        - alias: "openclaw"
+          imageName: "ghcr.io/openclaw/openclaw:latest"
+        - alias: "ollama"
+          imageName: "ollama/ollama:latest"

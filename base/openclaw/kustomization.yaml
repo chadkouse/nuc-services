@@ -10,6 +10,7 @@ resources:
 - namespace.yaml
 - openclaw
 - ingress-route.yaml
+- imageupdater.yaml
 
 patchesStrategicMerge:
 - volumes_patch.yaml
