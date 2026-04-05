@@ -8,6 +8,6 @@ images:
 - name: prom/prometheus
   digest: sha256:dda13e28bf95a5e5ca5b8ed56852006094c1c8e8871d9c9dbeed30aa6e55271f
 - name: ghcr.io/librespeed/speedtest
-  digest: sha256:f43204dba72a7acdad13b723db9caa8796b57a587828809fe94613d03c8d0454
+  digest: sha256:869015c1a688ba80b559f43975dcc63a763ac17c6ccf9b962af19a0998fde535
 - name: rustdesk/rustdesk-server
   digest: sha256:10818ec05b179039c6660f4d8e74b303f0db2858bbad2b18e24992ea22d54cd6
