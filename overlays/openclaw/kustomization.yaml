@@ -4,6 +4,6 @@ bases:
 - ../../base/openclaw
 images:
 - name: ghcr.io/openclaw/openclaw
-  digest: sha256:0b2170d5ec3a487a6313ed0556d377c5c5c80a0f806043daa2e685a4bedd45e3
+  digest: sha256:f38ff3d987e6c3e2d77bbb379de575f280d16037fd6a7ec334a35d48e480fd54
 - name: ollama/ollama
   digest: sha256:0455f166da85b1d07f694c33ba09278ca649603c0611ba8e46272b16eed7fccd
