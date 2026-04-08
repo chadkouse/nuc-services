@@ -33,3 +33,5 @@ spec:
           imageName: "lscr.io/linuxserver/qbittorrent:latest"
         - alias: "plex"
           imageName: "linuxserver/plex:latest"
+        - alias: "fileflows"
+          imageName: "revenz/fileflows:latest"
