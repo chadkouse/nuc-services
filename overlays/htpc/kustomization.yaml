@@ -38,4 +38,4 @@ images:
 - name: ghcr.io/schaka/janitorr
   digest: sha256:9420be46a80eb961ad87af858e4247c49fdfec457e087dfbb65058b21bd6367f
 - name: revenz/fileflows
-  digest: sha256:e483d6bd452ffce731dad47deeae8504e212bc113a36357b1c76daec02ed2c26
+  digest: sha256:74174c4e457e988293b1e3adbab89dfc8d332f5b76bf39fe8ba56ae287dc01ca
