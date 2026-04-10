@@ -6,4 +6,4 @@ images:
 - name: ghcr.io/openclaw/openclaw
   digest: sha256:d65cc3d5fd0c8b1f752c2f70377843230112250c10e99c3b61769234c217c5db
 - name: ollama/ollama
-  digest: sha256:e771d18fe56724f01a6f691a5773df544f36f565fb37c93f0ddc5957007b7766
+  digest: sha256:662109db8037f17257cfc6e816289c0d4c9ae8a2a4ff760b653d8d410e234ba0
