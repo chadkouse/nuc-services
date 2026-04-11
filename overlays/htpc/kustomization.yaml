@@ -4,7 +4,7 @@ bases:
 - ../../base/htp
 images:
 - name: linuxserver/sonarr
-  digest: sha256:b5670a3adb0f8a8b0f277feeaa69a5fbe3869ba4bb9fa7c0f0764c3b3f0e698f
+  digest: sha256:6854df9de20b8c82e1982604f39473d64dbb4c4584b1013f18f9ade1ee92af13
 - name: linuxserver/radarr
   digest: sha256:cd70546fc97169788530386b42cf47ba1b16d091b4dc2264cd54099dd13c6f7f
 - name: linuxserver/bazarr
@@ -38,4 +38,4 @@ images:
 - name: ghcr.io/schaka/janitorr
   digest: sha256:9420be46a80eb961ad87af858e4247c49fdfec457e087dfbb65058b21bd6367f
 - name: revenz/fileflows
-  digest: sha256:74174c4e457e988293b1e3adbab89dfc8d332f5b76bf39fe8ba56ae287dc01ca
+  digest: sha256:429b37d3beecc4bdda3acaf640d0b5d47ee54fc2350aec77237af1b528bb03fe
