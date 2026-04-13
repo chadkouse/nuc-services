@@ -6,7 +6,7 @@ images:
 - name: grafana/grafana
   digest: sha256:83749231c3835e390a3144e5e940203e42b9589761f20ef3169c716e734ad505
 - name: prom/prometheus
-  digest: sha256:759ea6db49103737f2a6f420b0d1632062d8ad99dec086c76db605fd0bf23e15
+  digest: sha256:5550dc63da361dc30f6fe02ac0e4dfc736ededfef3c8d12a634db04a67824d78
 - name: ghcr.io/librespeed/speedtest
   digest: sha256:869b657749c77c65000ddd362a0ae20b6f73a76cdbad07c93b1e5350e7383009
 - name: rustdesk/rustdesk-server
