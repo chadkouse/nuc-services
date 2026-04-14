@@ -4,10 +4,10 @@ bases:
 - ../../base/monitoring
 images:
 - name: grafana/grafana
-  digest: sha256:83749231c3835e390a3144e5e940203e42b9589761f20ef3169c716e734ad505
+  digest: sha256:a03d9e604e4dba58c5e64458a879701f46ef64af1f596058aacfad9aacdcab34
 - name: prom/prometheus
   digest: sha256:5550dc63da361dc30f6fe02ac0e4dfc736ededfef3c8d12a634db04a67824d78
 - name: ghcr.io/librespeed/speedtest
-  digest: sha256:869b657749c77c65000ddd362a0ae20b6f73a76cdbad07c93b1e5350e7383009
+  digest: sha256:e09cb53981d27b4307d3dbb3616031872a27bb76ffc74fefd46b2d77248eacce
 - name: rustdesk/rustdesk-server
   digest: sha256:10818ec05b179039c6660f4d8e74b303f0db2858bbad2b18e24992ea22d54cd6
