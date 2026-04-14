@@ -79,7 +79,7 @@ spec:
     - web
   routes:
   - kind: Rule
-    match: Host(`frigate.lan`)
+    match: Host(`frigate.nuc.lan`)
     middlewares: []
     priority: 0
     services:
@@ -131,7 +131,7 @@ spec:
     - web
   routes:
   - kind: Rule
-    match: Host(`go2rtc.lan`)
+    match: Host(`go2rtc.nuc.lan`)
     middlewares: []
     priority: 0
     services:
