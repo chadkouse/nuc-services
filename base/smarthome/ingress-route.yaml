@@ -76,10 +76,10 @@ metadata:
   name: frigate
 spec:
   entryPoints:
-    - websecure
+    - web
   routes:
   - kind: Rule
-    match: Host(`frigate.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    match: Host(`frigate.lan`)
     middlewares: []
     priority: 0
     services:
@@ -89,12 +89,6 @@ spec:
       port: http-auth
       scheme: https
       serversTransport: frigate
-  tls:
-    certResolver: default
-    domains:
-      - main: "kouse.xyz"
-        sans:
-          - "*.kouse.xyz"
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRouteTCP
@@ -134,10 +128,10 @@ metadata:
   name: frigate-go2rtc
 spec:
   entryPoints:
-    - websecure
+    - web
   routes:
   - kind: Rule
-    match: Host(`go2rtc.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    match: Host(`go2rtc.lan`)
     middlewares: []
     priority: 0
     services:
@@ -145,12 +139,6 @@ spec:
       name: home-frigate
       namespace: "smarthome"
       port: go2rtc-admin
-  tls:
-    certResolver: default
-    domains:
-      - main: "kouse.xyz"
-        sans:
-          - "*.kouse.xyz"
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
