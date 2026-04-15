@@ -29,6 +29,14 @@ spec:
       name: librespeed
       namespace: monitoring
       port: web
+  - kind: Rule
+    match: Host(`uptime.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+    priority: 0
+    services:
+    - kind: Service
+      name: uptime-kuma
+      namespace: monitoring
+      port: web
 # ---
 # apiVersion: traefik.io/v1alpha1
 # kind: IngressRouteTCP

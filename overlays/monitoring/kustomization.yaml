@@ -9,5 +9,7 @@ images:
   digest: sha256:5550dc63da361dc30f6fe02ac0e4dfc736ededfef3c8d12a634db04a67824d78
 - name: ghcr.io/librespeed/speedtest
   digest: sha256:871ec7a1c908e7c9288e51e074b321088a297c37fc672a4c882b0309f61ddef7
+- name: louislam/uptime-kuma
+  newTag: latest
 - name: rustdesk/rustdesk-server
   digest: sha256:10818ec05b179039c6660f4d8e74b303f0db2858bbad2b18e24992ea22d54cd6

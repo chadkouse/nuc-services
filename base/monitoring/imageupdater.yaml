@@ -19,5 +19,7 @@ spec:
           imageName: "prom/prometheus:latest"
         - alias: "speedtest"
           imageName: "ghcr.io/librespeed/speedtest:latest"
+        - alias: "uptime-kuma"
+          imageName: "louislam/uptime-kuma:latest"
         # - alias: "rustdesk-server"
         #   imageName: "rustdesk/rustdesk-server:latest"

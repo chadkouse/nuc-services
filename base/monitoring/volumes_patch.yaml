@@ -31,6 +31,19 @@ spec:
           path: /opt/monitoring/prometheus/config
           type: DirectoryOrCreate 
         name: config
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uptime-kuma
+spec:
+  template:
+    spec:
+      volumes:
+      - hostPath:
+          path: /opt/monitoring/uptime-kuma/data
+          type: DirectoryOrCreate
+        name: data
 # ---
 # apiVersion: apps/v1
 # kind: Deployment
