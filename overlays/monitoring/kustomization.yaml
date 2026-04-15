@@ -10,6 +10,6 @@ images:
 - name: ghcr.io/librespeed/speedtest
   digest: sha256:871ec7a1c908e7c9288e51e074b321088a297c37fc672a4c882b0309f61ddef7
 - name: louislam/uptime-kuma
-  newTag: latest
+  digest: sha256:3d632903e6af34139a37f18055c4f1bfd9b7205ae1138f1e5e8940ddc1d176f9
 - name: rustdesk/rustdesk-server
   digest: sha256:10818ec05b179039c6660f4d8e74b303f0db2858bbad2b18e24992ea22d54cd6
