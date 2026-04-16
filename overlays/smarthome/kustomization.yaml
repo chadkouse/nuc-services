@@ -8,7 +8,7 @@ images:
 - name: luigi311/jellyplex-watched
   digest: sha256:7b2af847ff2064acb2d368a232e917ee8ae62095479e14d2cc2a01302e65669a
 - name: eclipse-mosquitto
-  digest: sha256:6852da90a65dfff7aa3a1c8b249e92bb83c17ea8bbcce56bedff8707332a1a29
+  digest: sha256:914f529386804c8278a4e581526b9be5e1604df44b30daabc70aa97dcefe5268
 - name: zwavejs/zwave-js-ui
   digest: sha256:06f6b940fffb3c7012dc05e3c2c93daeccb6f6573bd03987058d513a4e085eee
 - name: ghcr.io/blakeblackshear/frigate
