@@ -12,6 +12,7 @@ spec:
     - namePattern: "perfect-water"
       commonUpdateSettings:
         updateStrategy: "digest"
+        forceUpdate: false
       images:
         - alias: "perfect-water"
           imageName: "ghcr.io/chadkouse/perfect-water:latest"
