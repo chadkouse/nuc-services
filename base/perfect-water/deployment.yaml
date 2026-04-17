@@ -13,6 +13,8 @@ spec:
       labels:
         run: perfect-water
     spec:
+      imagePullSecrets:
+        - name: ghcr-pull
       initContainers:
         - name: migrate
           image: ghcr.io/chadkouse/perfect-water:latest
