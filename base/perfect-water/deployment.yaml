@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: perfect-water
+  namespace: perfect-water
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: perfect-water
+  template:
+    metadata:
+      labels:
+        run: perfect-water
+    spec:
+      initContainers:
+        - name: migrate
+          image: ghcr.io/chadkouse/perfect-water:latest
+          command: ["node", "migrate.js"]
+          envFrom:
+            - secretRef:
+                name: perfect-water
+      containers:
+        - name: perfect-water
+          image: ghcr.io/chadkouse/perfect-water:latest
+          ports:
+            - containerPort: 3000
+              name: web
+          envFrom:
+            - secretRef:
+                name: perfect-water
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: TZ
+              value: America/New_York

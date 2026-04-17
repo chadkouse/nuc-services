@@ -1,0 +1,22 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: perfect-water
+  namespace: perfect-water
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`pool.kouse.xyz`) && ClientIP(`10.0.0.0/8`)
+      services:
+        - name: perfect-water
+          namespace: perfect-water
+          port: web
+  tls:
+    certResolver: default
+    domains:
+      - main: "kouse.xyz"
+        sans:
+          - "*.kouse.xyz"
