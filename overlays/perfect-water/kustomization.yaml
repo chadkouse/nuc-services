@@ -4,4 +4,4 @@ bases:
   - ../../base/perfect-water
 images:
   - name: ghcr.io/chadkouse/perfect-water
-    digest: sha256:407e63f00c9775794c329c4bb28474b11233ed58489118c0659a503b08c5f53f
+    digest: sha256:040da81cb576f86a8681d9c22fdc8c3a6dde822125e377b9550f778a8b7c9a83
