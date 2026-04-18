@@ -17,4 +17,4 @@ spec:
         - alias: "perfect-water"
           imageName: "ghcr.io/chadkouse/perfect-water:latest"
           commonUpdateSettings:
-            pullSecret: "pullsecret:argocd/ghcr-pull"
+            pullSecret: "pullsecret:argocd-image-updater-system/ghcr-pull"
