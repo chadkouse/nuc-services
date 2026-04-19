@@ -47,9 +47,6 @@ spec:
         - containerPort: 8080
           name: device-inform
           protocol: TCP
-        - containerPort: 3478
-          name: stun
-          protocol: UDP
         - containerPort: 10001
           name: ap-discovery
           protocol: UDP
