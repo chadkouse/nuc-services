@@ -5,14 +5,14 @@ metadata:
 data:
   init-unifi.sh: |
     #!/bin/bash
-    mongosh -u "$MONGO_INITDB_ROOT_USERNAME" -p "$MONGO_INITDB_ROOT_PASSWORD" --authenticationDatabase admin <<EOF
-    db.getSiblingDB("unifi").createUser({
-      user: "unifi",
-      pwd: "$MONGO_UNIFI_PASSWORD",
-      roles: [
-        {role: "dbOwner", db: "unifi"},
-        {role: "dbOwner", db: "unifi_stat"},
-        {role: "dbOwner", db: "unifi_audit"}
-      ]
-    });
-    EOF
+    mongosh -u "$MONGO_INITDB_ROOT_USERNAME" -p "$MONGO_INITDB_ROOT_PASSWORD" --authenticationDatabase admin --eval "
+      db.getSiblingDB('unifi').createUser({
+        user: 'unifi',
+        pwd: '$MONGO_UNIFI_PASSWORD',
+        roles: [
+          {role: 'dbOwner', db: 'unifi'},
+          {role: 'dbOwner', db: 'unifi_stat'},
+          {role: 'dbOwner', db: 'unifi_audit'}
+        ]
+      });
+    "
