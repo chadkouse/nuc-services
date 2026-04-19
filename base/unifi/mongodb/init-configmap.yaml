@@ -6,12 +6,12 @@ data:
   init-unifi.sh: |
     #!/bin/bash
     mongosh -u "$MONGO_INITDB_ROOT_USERNAME" -p "$MONGO_INITDB_ROOT_PASSWORD" --authenticationDatabase admin <<EOF
-    db.getSiblingDB("unifi").createUser({
+    db.getSiblingDB("admin").createUser({
       user: "unifi",
       pwd: "$MONGO_UNIFI_PASSWORD",
       roles: [
-        {role: "dbOwner", db: "unifi"},
-        {role: "dbOwner", db: "unifi_stat"}
+        {role: "readWriteAnyDatabase", db: "admin"},
+        {role: "dbAdminAnyDatabase", db: "admin"}
       ]
     });
     EOF

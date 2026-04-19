@@ -39,7 +39,7 @@ spec:
         - name: MONGO_DBNAME
           value: unifi
         - name: MONGO_AUTH_SOURCE
-          value: unifi
+          value: admin
         volumeMounts:
         - mountPath: /config
           name: unifi-config
