@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+- ../../base/unifi
+images:
+- name: lscr.io/linuxserver/unifi-network-application
+  newTag: latest
+- name: mongo
+  newTag: "7.0"

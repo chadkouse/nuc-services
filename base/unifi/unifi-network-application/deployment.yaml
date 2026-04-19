@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unifi-network-application
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      run: unifi-network-application
+  template:
+    metadata:
+      labels:
+        run: unifi-network-application
+    spec:
+      containers:
+      - name: unifi-network-application
+        image: lscr.io/linuxserver/unifi-network-application
+        env:
+        - name: TZ
+          value: America/New_York
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: MONGO_USER
+          value: unifi
+        - name: MONGO_PASS
+          valueFrom:
+            secretKeyRef:
+              name: unifi-mongodb
+              key: mongo-unifi-password
+        - name: MONGO_HOST
+          value: mongodb.unifi.svc.cluster.local
+        - name: MONGO_PORT
+          value: "27017"
+        - name: MONGO_DBNAME
+          value: unifi
+        - name: MONGO_AUTH_SOURCE
+          value: unifi
+        ports:
+        - containerPort: 8443
+          name: webui
+          protocol: TCP
+        - containerPort: 8080
+          name: device-inform
+          protocol: TCP
+        - containerPort: 3478
+          name: stun
+          protocol: UDP
+        - containerPort: 10001
+          name: ap-discovery
+          protocol: UDP
+        - containerPort: 6789
+          name: speedtest
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /config
+          name: unifi-config
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet

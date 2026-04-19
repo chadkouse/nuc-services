@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+spec:
+  template:
+    spec:
+      volumes:
+      - hostPath:
+          path: /media/seagate/unifi/mongodb
+          type: DirectoryOrCreate
+        name: mongodb-data
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unifi-network-application
+spec:
+  template:
+    spec:
+      volumes:
+      - hostPath:
+          path: /opt/unifi/config
+          type: DirectoryOrCreate
+        name: unifi-config
